@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen bg-gray-100">
-    <SvNavbar />
+    <NavBar />
     <SvContainer>
       <slot />
       <SvFooter />
