@@ -4,7 +4,8 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@tresjs/nuxt'
   ],
 
   css: ['~/assets/css/main.css'],
@@ -13,5 +14,18 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
 
-  compatibilityDate: '2024-11-27'
+  compatibilityDate: '2024-11-27',
+
+  vite: {
+    server: {
+      hmr: {
+        protocol: 'ws',
+        host: 'localhost'
+      },
+      watch: {
+        usePolling: true,
+        interval: 1000,
+      },
+    },
+  },
 })
