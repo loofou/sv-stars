@@ -14,7 +14,9 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.37",
     "@iconify-json/simple-icons": "^1.2.32",
+    "@nuxt/icon": "^1.12.0",
     "@nuxt/ui": "^3.0.2",
+    "@tresjs/cientos": "^4.3.0",
     "@tresjs/nuxt": "^3.0.8",
     "nuxt": "^3.16.2",
     "three": "^0.175.0"

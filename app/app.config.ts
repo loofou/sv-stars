@@ -11,5 +11,10 @@ export default defineAppConfig({
         // color: 'neutral'
       }
     }
+  },
+
+  icon: {
+    mode: 'css',
+    cssLayer: 'base'
   }
 })
