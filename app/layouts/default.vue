@@ -1,6 +1,5 @@
 <template>
-  <div class="flex h-screen bg-gray-100">
-    <NavBar />
+  <div>
     <slot />
   </div>
 </template>
