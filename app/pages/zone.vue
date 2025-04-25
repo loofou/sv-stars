@@ -1,14 +1,22 @@
 <script lang="ts" setup>
-import { ZoneStar } from '~/utils/TypeZoneStar';
+import { Star, System } from '~/utils/StarSystem';
 
 useHead({
   title: 'Neighbourhood',
 });
 
-const stars: Array<ZoneStar> = [
-  new ZoneStar('Sol', 'yellow', 1),
-  new ZoneStar('Alpha Centauri', 'orange', 0.6, [12, 3, 6]),
-  new ZoneStar('Sirius', 'teal', 1.1, [-12, -3, 15]),
+const systems: Array<System> = [
+  new System('Sol', [new Star('Sol', 'yellow', 1)]),
+  new System(
+    'Alpha Centauri',
+    [
+      new Star('Proxima Centauri', 'orange', 0.2),
+      new Star('Rigil Kentaurus A', 'yellow', 0.8),
+      new Star('Toliman B', 'yellow', 0.7),
+    ],
+    [12, 3, 6],
+  ),
+  new System('Sirius', [new Star('Sirius', 'teal', 2)], [-12, -3, 15]),
 ];
 </script>
 
@@ -20,7 +28,7 @@ const stars: Array<ZoneStar> = [
     </NavBar>
     <NavContainer>
       <div class="flex grow">
-        <ScZoneCanvas :stars />
+        <ScZoneCanvas :systems />
       </div>
     </NavContainer>
   </div>
