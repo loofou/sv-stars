@@ -2,13 +2,13 @@
 defineProps({
   icon: {
     type: String,
-    required: true
+    required: true,
   },
   href: {
     type: String,
-    default: '#'
-  }
-})
+    default: '#',
+  },
+});
 </script>
 
 <template>

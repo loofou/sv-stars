@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { TresCanvas } from '@tresjs/core'
-import { OrbitControls } from '@tresjs/cientos'
+import { TresCanvas } from '@tresjs/core';
+import { OrbitControls } from '@tresjs/cientos';
 
-const planets = [5, 10, 15]
+const planets = [5, 10, 15];
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const planets = [5, 10, 15]
 
     <Sphere :args="[0.5]" color="yellow" />
 
-    <Sphere v-for="planet in planets" :key="planet" :args="[0.3]" :position="[planet,0,0]"  color="grey" />
+    <Sphere v-for="planet in planets" :key="planet" :args="[0.3]" :position="[planet, 0, 0]" color="grey" />
 
     <Stars :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
   </TresCanvas>

@@ -9,12 +9,12 @@ export default defineAppConfig({
       defaultVariants: {
         // Set default button color to neutral
         // color: 'neutral'
-      }
-    }
+      },
+    },
   },
 
   icon: {
     mode: 'css',
-    cssLayer: 'base'
-  }
-})
+    cssLayer: 'base',
+  },
+});

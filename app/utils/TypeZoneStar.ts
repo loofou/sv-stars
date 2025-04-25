@@ -1,8 +1,8 @@
-import type { Node } from './types.js'
+import type { Node } from './types';
 import { v4 as uuid } from 'uuid';
 
 export class ZoneStar implements Node {
-  readonly type: string = "zone_star";
+  readonly type: string = 'zone_star';
   readonly id: string;
   public position: [number, number, number] = [0, 0, 0];
 

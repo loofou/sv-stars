@@ -2,17 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: [
-    '@nuxt/ui',
-    '@nuxt/eslint',
-    '@tresjs/nuxt',
-    '@nuxt/icon',
-  ],
+  modules: ['@nuxt/ui', '@nuxt/eslint', '@tresjs/nuxt', '@nuxt/icon'],
 
   css: ['~/assets/css/main.css'],
 
   future: {
-    compatibilityVersion: 4
+    compatibilityVersion: 4,
   },
 
   compatibilityDate: '2024-11-27',
@@ -21,7 +16,7 @@ export default defineNuxtConfig({
     server: {
       hmr: {
         protocol: 'ws',
-        host: 'localhost'
+        host: 'localhost',
       },
       watch: {
         usePolling: true,
@@ -33,4 +28,4 @@ export default defineNuxtConfig({
   tres: {
     devtools: true,
   },
-})
+});
