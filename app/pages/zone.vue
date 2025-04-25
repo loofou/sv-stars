@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+import { ZoneStar } from '~/components/sc/TypeZoneStar';
+
+const stars: Array<ZoneStar> = [
+  new ZoneStar("Sol", "yellow", 1),
+  new ZoneStar("Alpha Centauri", "orange", 0.6, [12, 3, 6]),
+  new ZoneStar("Sirius", "teal", 1.1, [-12, -3, 15])
+]
+
+</script>
+
 <template>
   <div class="flex h-screen bg-gray-100">
     <NavBar>
@@ -10,7 +21,7 @@
     </NavBar>
     <NavContainer>
       <div class="flex grow">
-        <ScSystemCanvas />
+        <ScZoneCanvas :stars />
       </div>
     </NavContainer>
   </div>

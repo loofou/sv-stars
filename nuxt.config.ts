@@ -29,4 +29,8 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  tres: {
+    devtools: true,
+  },
 })
