@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Vector3, BufferGeometry, MathUtils, DoubleSide } from "three";
-import { Html } from '@tresjs/cientos'
+import SpriteText from 'three-spritetext';
 import { ZoneStar } from './TypeZoneStar';
 
 const emit = defineEmits(['click']);
@@ -21,6 +21,12 @@ const linePoints: Array<Vector3> = [];
 linePoints.push(new Vector3(x, y, z));
 linePoints.push(zeroPosition);
 const geometry = new BufferGeometry().setFromPoints(linePoints);
+
+//create label
+const label = new SpriteText(props.star.name, 1);
+label.strokeColor = "black";
+label.strokeWidth = 1;
+label.translateY(2 * props.star.radius);
 </script>
 
 <template>
@@ -29,9 +35,7 @@ const geometry = new BufferGeometry().setFromPoints(linePoints);
       <TresSphereGeometry :args="[star.radius, 32, 16]" />
       <TresMeshBasicMaterial :color="star.color" />
 
-      <Html transform sprite> <!--:position="[star.position[0], star.position[1], star.position[2]]"-->
-        <span class="label">{{ star.name }}</span>
-      </Html>
+      <primitive :object="label" />
     </TresMesh>
 
     <TresLine :geometry>
@@ -45,12 +49,3 @@ const geometry = new BufferGeometry().setFromPoints(linePoints);
 
   </TresGroup>
 </template>
-
-<style>
-.label {
-  color: #FFF;
-  font-family: sans-serif;
-  padding: 2px;
-  background: rgba(0, 0, 0, .6);
-}
-</style>
