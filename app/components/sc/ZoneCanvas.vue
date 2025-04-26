@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
+import { BloomPmndrs, EffectComposerPmndrs } from '@tresjs/post-processing';
 import { System } from '~/utils/StarSystem';
-import { ACESFilmicToneMapping } from 'three';
 
 defineProps({
   systems: {
@@ -13,21 +14,21 @@ defineProps({
 </script>
 
 <template>
-  <TresCanvas alpha :tone-mapping="ACESFilmicToneMapping" clear-color="black" preset="flat" render-mode="on-demand">
+  <TresCanvas alpha :tone-mapping="NoToneMapping" clear-color="black" preset="flat">
     <TresPerspectiveCamera :args="[45, 1, 0.1, 1000]" :position="[30, 30, 30]" />
     <OrbitControls :make-default="true" :max-distance="150" />
 
     <!--Render our actual systems-->
-    <ScZoneSystem v-for="system in systems" :key="system.id" :system="system" />
+    <ScZoneSystem v-for="system in systems" :system="system" />
 
     <Grid
       :args="[100, 100]"
-      cell-color="#82dbc5"
+      cell-color="grey"
       :cell-size="1"
       :cell-thickness="0.5"
-      section-color="#fbb03b"
+      section-color="tan"
       :section-size="5"
-      :section-thickness="1"
+      :section-thickness="0.8"
       :infinite-grid="true"
       :fade-from="0"
       :fade-distance="100"
@@ -36,5 +37,18 @@ defineProps({
 
     <!--Background stars-->
     <Stars :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
+
+    <!--Post-process effects-->
+    <Suspense>
+      <EffectComposerPmndrs>
+        <BloomPmndrs
+          :radius="0.65"
+          :intensity="1.0"
+          :luminance-threshold="0.8"
+          :luminance-smoothing="0.3"
+          mipmap-blur
+        />
+      </EffectComposerPmndrs>
+    </Suspense>
   </TresCanvas>
 </template>

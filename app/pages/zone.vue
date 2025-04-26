@@ -10,9 +10,9 @@ const systems: Array<System> = [
   new System(
     'Alpha Centauri',
     [
-      new Star('Proxima Centauri', 'orange', 0.2),
-      new Star('Rigil Kentaurus A', 'yellow', 0.8),
-      new Star('Toliman B', 'yellow', 0.7),
+      new Star('A Rigil Kentaurus', 'yellow', 0.8),
+      new Star('B Toliman', 'yellow', 0.7),
+      new Star('C Proxima Centauri', 'orange', 0.2),
     ],
     [12, 3, 6],
   ),

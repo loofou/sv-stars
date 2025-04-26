@@ -1,7 +1,10 @@
 <script lang="ts" setup>
-import { Vector3, BufferGeometry, MathUtils, DoubleSide } from 'three';
+import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
 import SpriteText from 'three-spritetext';
+import { shallowRef } from 'vue';
 import { System } from '~/utils/StarSystem';
+
+const { onBeforeRender } = useLoop();
 
 const emit = defineEmits(['click']);
 
@@ -27,16 +30,43 @@ const label = new SpriteText(props.system.name, 1);
 label.strokeColor = 'black';
 label.strokeWidth = 1;
 label.translateY(2 * (props.system.stars[0]?.radius ?? 1));
+
+//animate multi-star systems
+const rStars = shallowRef();
+onBeforeRender(({ delta, elapsed }) => {
+  if (rStars.value) {
+    rStars.value.forEach((star: Object3D, i: number) => {
+      if (star && star.position && i > 0) {
+        const rotation = (1 / i) * elapsed;
+        star.position.x = i * Math.cos(rotation);
+        star.position.z = i * Math.sin(rotation);
+      }
+    });
+  }
+});
 </script>
 
 <template>
   <TresGroup>
-    <TresMesh :position="system.position" @click="emit('click')">
-      <TresSphereGeometry :args="[system.stars[0]?.radius, 32, 16]" />
-      <TresMeshBasicMaterial :color="system.stars[0]?.color" />
+    <TresGroup :position="system.position">
+      <TresMesh v-if="system.stars.length === 1" @click="emit('click')">
+        <TresSphereGeometry :args="[system.stars[0]?.radius, 32, 16]" />
+        <TresMeshBasicMaterial :color="system.stars[0]?.color" />
+      </TresMesh>
+
+      <TresMesh
+        v-if="system.stars.length > 1"
+        v-for="star in system.stars"
+        :key="star.name"
+        ref="rStars"
+        @click="emit('click')"
+      >
+        <TresSphereGeometry :args="[star.radius / 2, 32, 16]" />
+        <TresMeshBasicMaterial :color="star.color" />
+      </TresMesh>
 
       <primitive :object="label" />
-    </TresMesh>
+    </TresGroup>
 
     <TresLine :geometry>
       <TresLineBasicMaterial color="gray" />
