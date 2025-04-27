@@ -33,13 +33,15 @@ label.translateY(2 * (props.system.stars[0]?.radius ?? 1));
 
 //animate multi-star systems
 const rStars = shallowRef();
+const originRadius: number = props.system.stars[0]?.radius as number;
+
 onBeforeRender(({ delta, elapsed }) => {
   if (rStars.value) {
     rStars.value.forEach((star: Object3D, i: number) => {
       if (star && star.position && i > 0) {
         const rotation = (1 / i) * elapsed;
-        star.position.x = i * Math.cos(rotation);
-        star.position.z = i * Math.sin(rotation);
+        star.position.x = i * originRadius * Math.cos(rotation);
+        star.position.z = i * originRadius * Math.sin(rotation);
       }
     });
   }
@@ -51,18 +53,22 @@ onBeforeRender(({ delta, elapsed }) => {
     <TresGroup :position="system.position">
       <TresMesh v-if="system.stars.length === 1" @click="emit('click')">
         <TresSphereGeometry :args="[system.stars[0]?.radius, 32, 16]" />
-        <TresMeshBasicMaterial :color="system.stars[0]?.color" />
+        <TresMeshStandardMaterial
+          :color="system.stars[0]?.color"
+          :emissive="system.stars[0]?.color"
+          :emissive-intensity="3"
+        />
       </TresMesh>
 
       <TresMesh
         v-if="system.stars.length > 1"
-        v-for="star in system.stars"
-        :key="star.name"
+        v-for="(star, i) in system.stars"
+        :key="i"
         ref="rStars"
         @click="emit('click')"
       >
         <TresSphereGeometry :args="[star.radius / 2, 32, 16]" />
-        <TresMeshBasicMaterial :color="star.color" />
+        <TresMeshStandardMaterial :color="star.color" :emissive="star.color" :emissive-intensity="3" />
       </TresMesh>
 
       <primitive :object="label" />

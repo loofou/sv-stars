@@ -2,7 +2,6 @@
 import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
-import { BloomPmndrs, EffectComposerPmndrs } from '@tresjs/post-processing';
 import { System } from '~/utils/StarSystem';
 
 defineProps({
@@ -40,15 +39,9 @@ defineProps({
 
     <!--Post-process effects-->
     <Suspense>
-      <EffectComposerPmndrs>
-        <BloomPmndrs
-          :radius="0.65"
-          :intensity="1.0"
-          :luminance-threshold="0.8"
-          :luminance-smoothing="0.3"
-          mipmap-blur
-        />
-      </EffectComposerPmndrs>
+      <EffectComposer>
+        <UnrealBloom :radius="0.05" :strength="0.5" :threshold="1" />
+      </EffectComposer>
     </Suspense>
   </TresCanvas>
 </template>
