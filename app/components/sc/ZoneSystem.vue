@@ -27,6 +27,7 @@ const geometry = new BufferGeometry().setFromPoints(linePoints);
 
 //create label
 const label = new SpriteText(props.system.name, 1);
+label.name = 'label';
 label.strokeColor = 'black';
 label.strokeWidth = 1;
 label.translateY(2 * (props.system.stars[0]?.radius ?? 1));
@@ -37,7 +38,9 @@ const originRadius: number = props.system.stars[0]?.radius as number;
 
 onBeforeRender(({ delta, elapsed }) => {
   if (rStars.value) {
-    rStars.value.forEach((star: Object3D, i: number) => {
+    //We need to reverse because the shallow-ref reverses the order of the v-for array
+    const stars: Array<Object3D> = rStars.value.toReversed();
+    stars.forEach((star: Object3D, i: number) => {
       if (star && star.position && i > 0) {
         const rotation = (1 / i) * elapsed;
         star.position.x = i * originRadius * Math.cos(rotation);
@@ -49,9 +52,9 @@ onBeforeRender(({ delta, elapsed }) => {
 </script>
 
 <template>
-  <TresGroup>
+  <TresGroup :name="system.name">
     <TresGroup :position="system.position">
-      <TresMesh v-if="system.stars.length === 1" @click="emit('click')">
+      <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
         <TresSphereGeometry :args="[system.stars[0]?.radius, 32, 16]" />
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
@@ -64,6 +67,7 @@ onBeforeRender(({ delta, elapsed }) => {
         v-if="system.stars.length > 1"
         v-for="(star, i) in system.stars"
         :key="i"
+        :name="star.name"
         ref="rStars"
         @click="emit('click')"
       >
@@ -74,11 +78,11 @@ onBeforeRender(({ delta, elapsed }) => {
       <primitive :object="label" />
     </TresGroup>
 
-    <TresLine :geometry>
+    <TresLine name="line" :geometry>
       <TresLineBasicMaterial color="gray" />
     </TresLine>
 
-    <TresMesh :position="zeroPosition" :rotate-x="MathUtils.degToRad(-90)">
+    <TresMesh name="lineDisk" :position="zeroPosition" :rotate-x="MathUtils.degToRad(-90)">
       <TresCircleGeometry :args="[0.2, 6]" />
       <TresMeshBasicMaterial color="gray" transparent :opacity="0.5" :side="DoubleSide" />
     </TresMesh>
