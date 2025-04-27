@@ -35,7 +35,14 @@ const systems: Array<System> = [
 <template>
   <div class="flex h-screen bg-gray-100">
     <NavBar>
-      <UCheckbox v-model="showBloom" />
+      <UCollapsible class="flex flex-col gap-2">
+        <UButton label="Settings" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-down" block />
+        <template #content>
+          <div class="p-3 rounded-md border border-solid border-gray-600">
+            <USwitch label="Show Bloom" v-model="showBloom" />
+          </div>
+        </template>
+      </UCollapsible>
     </NavBar>
     <NavContainer>
       <div class="flex grow">

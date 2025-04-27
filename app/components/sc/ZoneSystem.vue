@@ -56,7 +56,7 @@ onBeforeRender(({ delta, elapsed }) => {
   <TresGroup :name="system.name">
     <TresGroup :position="sysPos">
       <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
-        <TresSphereGeometry :args="[system.stars[0]?.radius, 32, 16]" />
+        <TresSphereGeometry :args="[(system.stars[0]?.radius ?? 1) / 2, 32, 16]" />
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
           :emissive="system.stars[0]?.color"
