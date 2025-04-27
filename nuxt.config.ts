@@ -28,4 +28,10 @@ export default defineNuxtConfig({
   tres: {
     devtools: true,
   },
+
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+    },
+  },
 });
