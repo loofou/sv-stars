@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { Star, System } from '~/utils/StarSystem';
+import { StarUtils } from '~/utils/utils';
 
 useHead({
-  title: 'Neighbourhood',
+  title: 'State Vector Star Catalog',
 });
 
 const showBloom = ref(true);
@@ -30,6 +31,11 @@ const systems: Array<System> = [
   ),
   new System('Epsilon Eridani', [new Star('Epsilon Eridani', 'K2V', 5076, 0.85, 0.88)], [1.913, -7.794, 6.739]),
 ];
+
+function saveJson() {
+  const jsonString = JSON.stringify(systems);
+  StarUtils.saveToFile(jsonString, 'neighbourhood.json');
+}
 </script>
 
 <template>
@@ -43,9 +49,16 @@ const systems: Array<System> = [
           </div>
         </template>
       </UCollapsible>
+      <USeparator label="Save & Load Config" class="my-2" />
+      <div class="py-2 flex flex-row gap-2">
+        <UButton class="grow" icon="uil-file-export" label="Save" variant="subtle" @click="saveJson" />
+        <UButton class="grow" icon="uil-file-import" label="Load" variant="subtle" disabled />
+      </div>
+      <USeparator label="Selection" class="my-2" />
+      <div class="grow min-h-0 p-2 h-85/100 rounded-md border border-solid border-gray-600">Test</div>
     </NavBar>
     <NavContainer>
-      <div class="flex grow">
+      <div class="grow">
         <ScZoneCanvas :systems :showBloom />
       </div>
     </NavContainer>

@@ -1,7 +1,6 @@
 import { StarUtils } from './utils';
 
 export class System {
-  readonly type: string = 'zone_star';
   public position: [number, number, number] = [0, 0, 0];
 
   readonly name: string;

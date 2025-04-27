@@ -44,4 +44,15 @@ export abstract class StarUtils {
 
     return new Color();
   }
+
+  public static saveToFile(json: string, fileName: string) {
+    const element = document.createElement('a');
+    const file = new Blob([json], {
+      type: 'text/plain;charset=utf-8',
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = fileName;
+    document.body.appendChild(element);
+    element.click();
+  }
 }
