@@ -1,10 +1,6 @@
-import { Color, SRGBColorSpace } from 'three';
+import { Color } from 'three';
 
 export abstract class StarUtils {
-  public static splitSpectralClass(spectralClass: string): [string, number, string] {
-    return [spectralClass[0] as string, Number(spectralClass[1]), spectralClass[2] as string];
-  }
-
   public static getColor(temperature: number): Color {
     if (temperature > 50000) {
       return new Color('#9bb2ff');

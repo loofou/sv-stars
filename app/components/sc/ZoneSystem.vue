@@ -16,7 +16,8 @@ const props = defineProps({
 });
 
 //calculate various positions
-const [x, y, z] = props.system.position;
+const sysPos = props.system.position.map((a) => a * 2) as [number, number, number];
+const [x, y, z] = sysPos;
 const zeroPosition = new Vector3(x, 0, z);
 
 //create geometry for line
@@ -30,7 +31,7 @@ const label = new SpriteText(props.system.name, 1);
 label.name = 'label';
 label.strokeColor = 'black';
 label.strokeWidth = 1;
-label.translateY(2 * (props.system.stars[0]?.radius ?? 1));
+label.translateY(3);
 
 //animate multi-star systems
 const rStars = shallowRef();
@@ -53,7 +54,7 @@ onBeforeRender(({ delta, elapsed }) => {
 
 <template>
   <TresGroup :name="system.name">
-    <TresGroup :position="system.position">
+    <TresGroup :position="sysPos">
       <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
         <TresSphereGeometry :args="[system.stars[0]?.radius, 32, 16]" />
         <TresMeshStandardMaterial
