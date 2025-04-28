@@ -7,6 +7,8 @@ useHead({
 });
 
 const showBloom = ref(true);
+const showGrid = ref(true);
+const showBgStars = ref(true);
 
 const systems: Array<System> = [
   new System('Sol', [new Star('Sol', 'G2V', 5772, 1, 1)]),
@@ -36,6 +38,10 @@ function saveJson() {
   const jsonString = JSON.stringify(systems);
   StarUtils.saveToFile(jsonString, 'neighbourhood.json');
 }
+
+function canvasClick(system: System) {
+  console.log(system);
+}
 </script>
 
 <template>
@@ -45,7 +51,9 @@ function saveJson() {
         <UButton label="Settings" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-down" block />
         <template #content>
           <div class="p-3 rounded-md border border-solid border-gray-600">
-            <USwitch label="Show Bloom" v-model="showBloom" />
+            <USwitch class="p-1" label="Show Bloom" v-model="showBloom" />
+            <USwitch class="p-1" label="Show Grid" v-model="showGrid" />
+            <USwitch class="p-1" label="Show Background Stars" v-model="showBgStars" />
           </div>
         </template>
       </UCollapsible>
@@ -55,11 +63,11 @@ function saveJson() {
         <UButton class="grow" icon="uil-file-import" label="Load" variant="subtle" disabled />
       </div>
       <USeparator label="Selection" class="my-2" />
-      <div class="grow min-h-0 p-2 h-85/100 rounded-md border border-solid border-gray-600">Test</div>
+      <div class="grow min-h-0 p-2 rounded-md border border-solid border-gray-600">Nothing selected</div>
     </NavBar>
     <NavContainer>
       <div class="grow">
-        <ScZoneCanvas :systems :showBloom />
+        <ScZoneCanvas :systems :showBloom :showGrid :showBgStars @click="canvasClick" />
       </div>
     </NavContainer>
   </div>

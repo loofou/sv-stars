@@ -4,12 +4,24 @@ import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/StarSystem';
 
+const emit = defineEmits<{
+  click: [system: System];
+}>();
+
 defineProps({
   systems: {
     type: Array<System>,
     required: true,
   },
   showBloom: {
+    type: Boolean,
+    default: true,
+  },
+  showGrid: {
+    type: Boolean,
+    default: true,
+  },
+  showBgStars: {
     type: Boolean,
     default: true,
   },
@@ -22,9 +34,11 @@ defineProps({
     <OrbitControls :make-default="true" :max-distance="150" />
 
     <!--Render our actual systems-->
-    <ScZoneSystem v-for="system in systems" :system="system" />
+    <ScZoneSystem v-for="system in systems" :system="system" @click="emit('click', system)" />
 
+    <!--Grid-->
     <Grid
+      v-if="showGrid"
       :args="[100, 100]"
       cell-color="grey"
       :cell-size="2"
@@ -39,7 +53,7 @@ defineProps({
     />
 
     <!--Background stars-->
-    <Stars :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
+    <Stars v-if="showBgStars" :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
 
     <!--Post-process effects-->
     <Suspense>
