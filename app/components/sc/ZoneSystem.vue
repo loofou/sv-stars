@@ -1,8 +1,11 @@
 <script lang="ts" setup>
+import { extend } from '@tresjs/core';
 import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
 import { System } from '~/utils/StarSystem';
+
+extend({ SpriteText });
 
 const { onBeforeRender } = useLoop();
 
@@ -12,6 +15,10 @@ const props = defineProps({
   system: {
     type: System,
     required: true,
+  },
+  selected: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -27,11 +34,27 @@ linePoints.push(zeroPosition);
 const geometry = new BufferGeometry().setFromPoints(linePoints);
 
 //create label
-const label = new SpriteText(props.system.name, 1);
-label.name = 'label';
-label.strokeColor = 'black';
-label.strokeWidth = 1;
-label.translateY(3);
+const labelColor = ref('white');
+if (props.selected) labelColor.value = 'green';
+
+const label = shallowRef(new SpriteText(props.system.name, 1));
+label.value.name = 'label';
+label.value.color = labelColor.value;
+label.value.strokeColor = 'black';
+label.value.strokeWidth = 1;
+label.value.translateY(3);
+
+watch(props, () => {
+  if (props.selected) labelColor.value = 'green';
+  else labelColor.value = 'white';
+
+  label.value = new SpriteText(props.system.name, 1);
+  label.value.name = 'label';
+  label.value.color = labelColor.value;
+  label.value.strokeColor = 'black';
+  label.value.strokeWidth = 1;
+  label.value.translateY(3);
+});
 
 //animate multi-star systems
 const rStars = shallowRef();

@@ -3,6 +3,7 @@ import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/StarSystem';
+import { string } from 'three/tsl';
 
 const emit = defineEmits<{
   click: [system: System];
@@ -12,6 +13,10 @@ defineProps({
   systems: {
     type: Array<System>,
     required: true,
+  },
+  selectedSystem: {
+    type: String,
+    default: '',
   },
   showBloom: {
     type: Boolean,
@@ -34,7 +39,12 @@ defineProps({
     <OrbitControls :make-default="true" :max-distance="150" />
 
     <!--Render our actual systems-->
-    <ScZoneSystem v-for="system in systems" :system="system" @click="emit('click', system)" />
+    <ScZoneSystem
+      v-for="system in systems"
+      :system="system"
+      :selected="system.name == selectedSystem"
+      @click="emit('click', system)"
+    />
 
     <!--Grid-->
     <Grid

@@ -6,10 +6,12 @@ useHead({
   title: 'State Vector Star Catalog',
 });
 
+//Config
 const showBloom = ref(true);
 const showGrid = ref(true);
 const showBgStars = ref(true);
 
+//Default system
 const systems: Array<System> = [
   new System('Sol', [new Star('Sol', 'G2V', 5772, 1, 1)]),
   new System(
@@ -34,13 +36,19 @@ const systems: Array<System> = [
   new System('Epsilon Eridani', [new Star('Epsilon Eridani', 'K2V', 5076, 0.85, 0.88)], [1.913, -7.794, 6.739]),
 ];
 
+//selection
+const selectedSystem = ref('');
+const selectedSystemDetails = ref(new System('', []));
+
+//Functions
 function saveJson() {
   const jsonString = JSON.stringify(systems);
   StarUtils.saveToFile(jsonString, 'neighbourhood.json');
 }
 
 function canvasClick(system: System) {
-  console.log(system);
+  selectedSystem.value = system.name;
+  selectedSystemDetails.value = system;
 }
 </script>
 
@@ -63,11 +71,13 @@ function canvasClick(system: System) {
         <UButton class="grow" icon="uil-file-import" label="Load" variant="subtle" disabled />
       </div>
       <USeparator label="Selection" class="my-2" />
-      <div class="grow min-h-0 p-2 rounded-md border border-solid border-gray-600">Nothing selected</div>
+      <div class="grow min-h-0 p-2 rounded-md border border-solid border-gray-600">
+        <ScZoneSystemDetails :isSystemSelected="selectedSystem != ''" :system="selectedSystemDetails" />
+      </div>
     </NavBar>
     <NavContainer>
       <div class="grow">
-        <ScZoneCanvas :systems :showBloom :showGrid :showBgStars @click="canvasClick" />
+        <ScZoneCanvas :systems :showBloom :showGrid :showBgStars :selectedSystem @click="canvasClick" />
       </div>
     </NavContainer>
   </div>
