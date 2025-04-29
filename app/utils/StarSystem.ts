@@ -1,6 +1,8 @@
 import { StarUtils } from './utils';
 
 export class System {
+  public static Empty: System = new System('', []);
+
   public position: [number, number, number] = [0, 0, 0];
 
   readonly name: string;

@@ -1,4 +1,5 @@
-import { Color } from 'three';
+import { Color, Vector3 } from 'three';
+import YAML from 'yaml';
 
 export abstract class StarUtils {
   public static getColor(temperature: number): Color {
@@ -45,6 +46,17 @@ export abstract class StarUtils {
     return new Color();
   }
 
+  public static convertToYaml(systems: System[]): string {
+    return YAML.stringify(systems, {
+      sortMapEntries: (a, b) => {
+        if (a.key == 'name' || b.key == 'name') {
+          return a.key == 'name' ? -1 : 1;
+        }
+        return a < b ? -1 : 1;
+      },
+    });
+  }
+
   public static saveToFile(json: string, fileName: string) {
     const element = document.createElement('a');
     const file = new Blob([json], {
@@ -54,5 +66,10 @@ export abstract class StarUtils {
     element.download = fileName;
     document.body.appendChild(element);
     element.click();
+  }
+
+  public static convertToVec3(position: [number, number, number]): Vector3 {
+    const [x, y, z] = position;
+    return new Vector3(x, y, z);
   }
 }

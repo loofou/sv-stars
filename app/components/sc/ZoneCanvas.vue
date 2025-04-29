@@ -3,7 +3,7 @@ import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/StarSystem';
-import { string } from 'three/tsl';
+import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
 
 const emit = defineEmits<{
   click: [system: System];
@@ -17,6 +17,22 @@ defineProps({
   selectedSystem: {
     type: String,
     default: '',
+  },
+  distance01: {
+    type: String,
+    default: '',
+  },
+  distance02: {
+    type: String,
+    default: '',
+  },
+  distance01Details: {
+    type: System,
+    required: true,
+  },
+  distance02Details: {
+    type: System,
+    required: true,
   },
   showBloom: {
     type: Boolean,
@@ -43,7 +59,16 @@ defineProps({
       v-for="system in systems"
       :system="system"
       :selected="system.name == selectedSystem"
+      :distance01="system.name == distance01"
+      :distance02="system.name == distance02"
       @click="emit('click', system)"
+    />
+
+    <!--Distance arrow-->
+    <ZoneDistanceArrow
+      :active="distance01 != '' && distance02 != ''"
+      :distance01="distance01Details"
+      :distance02="distance02Details"
     />
 
     <!--Grid-->

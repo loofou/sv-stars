@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import { extend } from '@tresjs/core';
 import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
 import { System } from '~/utils/StarSystem';
-
-extend({ SpriteText });
+import { StarUtils } from '~/utils/utils';
 
 const { onBeforeRender } = useLoop();
 
@@ -20,16 +18,24 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  distance01: {
+    type: Boolean,
+    default: false,
+  },
+  distance02: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 //calculate various positions
-const sysPos = props.system.position.map((a) => a * 2) as [number, number, number];
-const [x, y, z] = sysPos;
-const zeroPosition = new Vector3(x, 0, z);
+const sysPos = StarUtils.convertToVec3(props.system.position); //props.system.position.map((a) => a * 2) as [number, number, number];
+sysPos.multiplyScalar(2);
+const zeroPosition = new Vector3(sysPos.x, 0, sysPos.z);
 
 //create geometry for line
 const linePoints: Vector3[] = [];
-linePoints.push(new Vector3(x, y, z));
+linePoints.push(sysPos);
 linePoints.push(zeroPosition);
 const geometry = new BufferGeometry().setFromPoints(linePoints);
 
@@ -46,6 +52,8 @@ label.value.translateY(3);
 
 watch(props, () => {
   if (props.selected) labelColor.value = 'green';
+  else if (props.distance01) labelColor.value = 'yellow';
+  else if (props.distance02) labelColor.value = 'orange';
   else labelColor.value = 'white';
 
   label.value = new SpriteText(props.system.name, 1);
