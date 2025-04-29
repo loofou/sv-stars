@@ -1,5 +1,7 @@
 import { Color, Vector3 } from 'three';
 import YAML from 'yaml';
+import { plainToInstance, instanceToPlain } from 'class-transformer';
+import 'reflect-metadata';
 
 export abstract class StarUtils {
   public static getColor(temperature: number): Color {
@@ -47,7 +49,7 @@ export abstract class StarUtils {
   }
 
   public static convertToYaml(systems: System[]): string {
-    return YAML.stringify(systems, {
+    return YAML.stringify(instanceToPlain(systems), {
       sortMapEntries: (a, b) => {
         if (a.key == 'name' || b.key == 'name') {
           return a.key == 'name' ? -1 : 1;
@@ -55,6 +57,11 @@ export abstract class StarUtils {
         return a < b ? -1 : 1;
       },
     });
+  }
+
+  public static convertFromYaml(yamlString: string): System[] {
+    const obj: any[] = YAML.parse(yamlString);
+    return plainToInstance(System, obj);
   }
 
   public static saveToFile(json: string, fileName: string) {

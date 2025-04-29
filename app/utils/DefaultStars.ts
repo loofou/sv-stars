@@ -1,5 +1,5 @@
 export const defaultSystems: System[] = [
-  new System('Sol', [new Star('Sol', 'G2V', 5772, 1, 1)]),
+  new System('Sol', [new Star('Sol', 'G2V', 5772, 1, 1)], [0, 0, 0]),
   new System(
     'Alpha Centauri',
     [

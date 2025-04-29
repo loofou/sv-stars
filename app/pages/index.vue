@@ -15,6 +15,11 @@ const showBgStars = ref(true);
 
 //Default system
 const systems = ref(defaultSystems);
+const canvasKey = ref(0);
+
+//loading & saving
+const yamlAreaText = ref('');
+const loadBarOpen = ref(false);
 
 //modes
 const activeMode = ref('0');
@@ -31,18 +36,32 @@ const modes: TabsItem[] = [
 
 //selection
 const selectedSystem = ref('');
-const selectedSystemDetails = ref(System.Empty);
+const selectedSystemDetails = ref(new System());
 
 //distance
 const distance01 = ref('');
-const distance01Details = ref(System.Empty);
+const distance01Details = ref(new System());
 const distance02 = ref('');
-const distance02Details = ref(System.Empty);
+const distance02Details = ref(new System());
 
 //Functions
 function saveYaml() {
   const yamlString = StarUtils.convertToYaml(systems.value);
+  console.log(systems.value);
+  console.log(yamlString);
+
   StarUtils.saveToFile(yamlString, 'neighbourhood.yaml');
+}
+
+function loadYaml() {
+  loadBarOpen.value = false;
+
+  const newSystems = StarUtils.convertFromYaml(yamlAreaText.value);
+  systems.value = newSystems;
+  console.log(newSystems);
+
+  resetSelections();
+  canvasKey.value += 1;
 }
 
 function onSystemClick(system: System) {
@@ -58,12 +77,12 @@ function onSystemClick(system: System) {
         distance01.value = distance02.value;
         distance01Details.value = distance02Details.value;
         distance02.value = '';
-        distance02Details.value = System.Empty;
+        distance02Details.value = new System();
       } else if (system.name == distance02.value) {
         distance02.value = distance01.value;
         distance02Details.value = distance01Details.value;
         distance01.value = '';
-        distance01Details.value = System.Empty;
+        distance01Details.value = new System();
       } else {
         distance02.value = system.name;
         distance02Details.value = system;
@@ -76,9 +95,9 @@ function resetSelections() {
   selectedSystem.value = '';
   distance01.value = '';
   distance02.value = '';
-  selectedSystemDetails.value = System.Empty;
-  distance01Details.value = System.Empty;
-  distance02Details.value = System.Empty;
+  selectedSystemDetails.value = new System();
+  distance01Details.value = new System();
+  distance02Details.value = new System();
 }
 
 watch(activeMode, () => {
@@ -102,7 +121,14 @@ watch(activeMode, () => {
       <USeparator label="Save & Load Config" class="my-2" />
       <div class="py-2 flex flex-row gap-2">
         <UButton class="grow" icon="uil-file-export" label="Save" variant="subtle" @click="saveYaml" />
-        <UButton class="grow" icon="uil-file-import" label="Load" variant="subtle" disabled />
+        <UPopover v-model:open="loadBarOpen">
+          <UButton class="grow" icon="uil-file-import" label="Load" variant="subtle" />
+
+          <template #content>
+            <UTextarea v-model="yamlAreaText" class="m-1 inline-flex" />
+            <UButton class="m-1" icon="uil-file-import" @click="loadYaml" />
+          </template>
+        </UPopover>
       </div>
       <USeparator label="Mode" class="my-2" />
       <UTabs v-model="activeMode" :items="modes" class="w-full">
@@ -127,6 +153,7 @@ watch(activeMode, () => {
     <NavContainer>
       <div class="grow">
         <ScZoneCanvas
+          :key="canvasKey"
           :systems
           :showBloom
           :showGrid
