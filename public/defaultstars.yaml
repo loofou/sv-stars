@@ -1,0 +1,108 @@
+- name: Sol
+  position:
+    - 0
+    - 0
+    - 0
+  stars:
+    - name: Sol
+      mass: 1
+      radius: 1
+      spectralClass: G2V
+      temperature: 5772
+- name: Alpha Centauri
+  position:
+    - 3.046447
+    - -0.05177
+    - -3.125542
+  stars:
+    - name: Rigil Kentaurus A
+      mass: 1.07
+      radius: 1.27
+      spectralClass: G2V
+      temperature: 5804
+    - name: Toliman B
+      mass: 0.9
+      radius: 0.85
+      spectralClass: K1V
+      temperature: 5207
+    - name: Proxima Centauri
+      mass: 0.12
+      radius: 0.15
+      spectralClass: M5V
+      temperature: 2992
+- name: Barnard's Star
+  position:
+    - -2.99
+    - 1.45
+    - -4.97
+  stars:
+    - name: Barnard's Star
+      mass: 0.16
+      radius: 0.19
+      spectralClass: M4V
+      temperature: 3195
+- name: Wolf 359
+  position:
+    - 3.9
+    - 6.46
+    - 1.9
+  stars:
+    - name: Wolf 359
+      mass: 0.11
+      radius: 0.14
+      spectralClass: M6V
+      temperature: 2749
+- name: Lalande 21185
+  position:
+    - 0.31
+    - 7.54
+    - 3.43
+  stars:
+    - name: Lalande 21185
+      mass: 0.39
+      radius: 0.39
+      spectralClass: M2V
+      temperature: 3547
+- name: Sirius
+  position:
+    - 6.224771
+    - -1.326405
+    - 5.7581
+  stars:
+    - name: Sirius A
+      mass: 2.06
+      radius: 1.71
+      spectralClass: A0V
+      temperature: 9845
+    - name: Sirius B
+      mass: 1.02
+      radius: 0.05
+      spectralClass: D2
+      temperature: 25000
+- name: Procyon
+  position:
+    - 6.183196
+    - 2.576612
+    - 9.270545
+  stars:
+    - name: Procyon A
+      mass: 1.48
+      radius: 2.04
+      spectralClass: F5V
+      temperature: 6582
+    - name: Procyon B
+      mass: 0.59
+      radius: 0.05
+      spectralClass: DQZ
+      temperature: 7740
+- name: Epsilon Eridani
+  position:
+    - 1.913
+    - -7.794
+    - 6.739
+  stars:
+    - name: Epsilon Eridani
+      mass: 0.85
+      radius: 0.88
+      spectralClass: K2V
+      temperature: 5076

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "antfu.iconify",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "naumovs.color-highlight",
+    "nicoespeon.abracadabra",
+    "vue.volar"
+  ]
+}

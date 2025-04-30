@@ -14,7 +14,7 @@ const showGrid = ref(true);
 const showBgStars = ref(true);
 
 //Default system
-const systems = ref(defaultSystems);
+const systems = ref(defaultSystems());
 const canvasKey = ref(0);
 
 //loading & saving
