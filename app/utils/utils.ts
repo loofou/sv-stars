@@ -79,3 +79,6 @@ export abstract class StarUtils {
     return new Vector3(x, y, z);
   }
 }
+
+export const DistanceMultiplier = 4;
+export const RadiusMultiplier = 1;

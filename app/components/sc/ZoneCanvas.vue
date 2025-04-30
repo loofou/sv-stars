@@ -4,6 +4,7 @@ import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/StarSystem';
 import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
+import { DistanceMultiplier } from '~/utils/utils';
 
 const emit = defineEmits<{
   click: [system: System];
@@ -89,10 +90,10 @@ const getSystems = computed(() => {
       v-if="showGrid"
       :args="[100, 100]"
       cell-color="grey"
-      :cell-size="2"
+      :cell-size="DistanceMultiplier"
       :cell-thickness="0.5"
       section-color="tan"
-      :section-size="10"
+      :section-size="DistanceMultiplier * 5"
       :section-thickness="0.8"
       :infinite-grid="true"
       :fade-from="0"

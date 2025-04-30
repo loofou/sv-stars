@@ -3,7 +3,7 @@ import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three'
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
 import { System } from '~/utils/StarSystem';
-import { StarUtils } from '~/utils/utils';
+import { DistanceMultiplier, RadiusMultiplier, StarUtils } from '~/utils/utils';
 
 const { onBeforeRender } = useLoop();
 
@@ -30,7 +30,7 @@ const props = defineProps({
 
 //calculate various positions
 const sysPos = StarUtils.convertToVec3(props.system.position); //props.system.position.map((a) => a * 2) as [number, number, number];
-sysPos.multiplyScalar(2);
+sysPos.multiplyScalar(DistanceMultiplier);
 const zeroPosition = new Vector3(sysPos.x, 0, sysPos.z);
 
 //create geometry for line
@@ -87,7 +87,7 @@ onBeforeRender(({ delta, elapsed }) => {
   <TresGroup :name="system.name">
     <TresGroup :position="sysPos">
       <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
-        <TresSphereGeometry :args="[(system.stars[0]?.radius ?? 1) / 2, 32, 16]" />
+        <TresSphereGeometry :args="[(system.stars[0]?.radius ?? 1) * RadiusMultiplier, 32, 16]" />
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
           :emissive="system.stars[0]?.color"
@@ -103,7 +103,7 @@ onBeforeRender(({ delta, elapsed }) => {
         ref="rStars"
         @click="emit('click')"
       >
-        <TresSphereGeometry :args="[star.radius / 2, 32, 16]" />
+        <TresSphereGeometry :args="[star.radius * RadiusMultiplier, 32, 16]" />
         <TresMeshStandardMaterial :color="star.color" :emissive="star.color" :emissive-intensity="3" />
       </TresMesh>
 

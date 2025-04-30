@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ArrowHelper, Vector3 } from 'three';
-import { StarUtils } from '~/utils/utils';
+import { DistanceMultiplier, StarUtils } from '~/utils/utils';
 
 const props = defineProps({
   active: {
@@ -22,8 +22,8 @@ const arrow = shallowRef(new ArrowHelper(new Vector3(0, 0, 0), new Vector3(0, 0,
 watch(props, () => {
   const pos1 = StarUtils.convertToVec3(props.distance01.position);
   const pos2 = StarUtils.convertToVec3(props.distance02.position);
-  pos1.multiplyScalar(2);
-  pos2.multiplyScalar(2);
+  pos1.multiplyScalar(DistanceMultiplier);
+  pos2.multiplyScalar(DistanceMultiplier);
 
   const dir = pos2.sub(pos1);
   const normalizedDir = new Vector3(dir.x, dir.y, dir.z);

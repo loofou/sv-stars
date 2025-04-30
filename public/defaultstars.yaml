@@ -139,7 +139,54 @@
       radius: 0.48
       spectralClass: M0V
       temperature: 3672
-
+- name: Ross 128
+  position:
+    - 5.54
+    - 9.43
+    - -0.01
+  stars:
+    - name: Ross 128
+      mass: 0.18
+      radius: 0.2
+      spectralClass: M4V
+      temperature: 3189
+- name: EZ Aquarii
+  position:
+    - -4.49
+    - -9.45
+    - -4.18
+  stars:
+    - name: EZ Aquarii A
+      mass: 0.12
+      radius: 0.18
+      spectralClass: M5V
+      temperature: 2850
+    - name: EZ Aquarii C
+      mass: 0.09
+      radius: 0.05
+      spectralClass: M5V
+      temperature: 1650
+    - name: EZ Aquarii B
+      mass: 0.11
+      radius: 0.21
+      spectralClass: M5V
+      temperature: 2650
+- name: 61 Cygni
+  position:
+    - -11.24
+    - -1.16
+    - -1.52
+  stars:
+    - name: 61 Cygni A
+      mass: 0.7
+      radius: 0.67
+      spectralClass: K5V
+      temperature: 4526
+    - name: 61 Cygni C
+      mass: 0.63
+      radius: 0.6
+      spectralClass: K7V
+      temperature: 4077
 - name: Procyon
   position:
     - 6.183196
@@ -156,3 +203,161 @@
       radius: 0.05
       spectralClass: DQZ
       temperature: 7740
+
+- name: Gliese 725
+  position:
+    - -10.48
+    - 4.72
+    - -0.13
+  stars:
+    - name: Gliese 725 A
+      mass: 0.25
+      radius: 0.35
+      spectralClass: M3V
+      temperature: 3401
+    - name: Gliese 725 B
+      mass: 0.25
+      radius: 0.28
+      spectralClass: M4V
+      temperature: 3345
+- name: Groombridge 34
+  position:
+    - -9.88
+    - -3.69
+    - 4.96
+  stars:
+    - name: Groombridge 34 A
+      mass: 0.40
+      radius: 0.39
+      spectralClass: M2V
+      temperature: 3603
+    - name: Groombridge 34 B
+      mass: 0.16
+      radius: 0.18
+      spectralClass: M4V
+      temperature: 3318
+- name: Epsilon Indi
+  position:
+    - 3.19
+    - -8.79
+    - -7.23
+  stars:
+    - name: Epsilon Indi A
+      mass: 0.76
+      radius: 0.73
+      spectralClass: K5V
+      temperature: 4682
+    - name: Epsilon Indi B
+      mass: 0.06
+      radius: 0.08
+      spectralClass: T1
+      temperature: 1360
+    - name: Epsilon Indi B
+      mass: 0.05
+      radius: 0.08
+      spectralClass: T6
+      temperature: 990
+- name: DX Cancri
+  position:
+    - 2.92
+    - 6.34
+    - 9.55
+  stars:
+    - name: DX Cancri
+      mass: 0.09
+      radius: 0.11
+      spectralClass: M5V
+      temperature: 2809
+- name: Gliese 1061
+  position:
+    - 6.87
+    - -9.56
+    - 2.25
+  stars:
+    - name: Gliese 1061
+      mass: 0.11
+      radius: 0.10
+      spectralClass: M5V
+      temperature: 2999
+- name: YZ Ceti
+  position:
+    - -1.19
+    - -11.89
+    - 2.04
+  stars:
+    - name: YZ Ceti
+      mass: 0.13
+      radius: 0.17
+      spectralClass: M4V
+      temperature: 3151
+- name: Luyten's Star
+  position:
+    - 6.45
+    - 2.21
+    - 10.18
+  stars:
+    - name: Luyten's Star
+      mass: 0.26
+      radius: 0.35
+      spectralClass: M4V
+      temperature: 3277
+- name: SCR 1845-6357
+  position:
+    - 5.5
+    - -5.01
+    - -10.13
+  stars:
+    - name: SCR 1845-6357 A
+      mass: 0.07
+      radius: 0.10
+      spectralClass: M8V
+      temperature: 1500
+    - name: SCR 1845-6357 B
+      mass: 0.03
+      radius: 0.10
+      spectralClass: T6
+      temperature: 1000
+- name: Teegarden's Star
+  position:
+    - -3.39
+    - -7.57
+    - 9.45
+  stars:
+    - name: Teegarden's Star
+      mass: 0.10
+      radius: 0.12
+      spectralClass: M7V
+      temperature: 3034
+- name: Kapteyn's Star
+  position:
+    - 9.73
+    - -7.5
+    - 3.44
+  stars:
+    - name: Kapteyn's Star
+      mass: 0.27
+      radius: 0.29
+      spectralClass: M1V
+      temperature: 3698
+- name: AX Microscopii
+  position:
+    - -0.63
+    - -8.98
+    - 9.2
+  stars:
+    - name: AX Microscopii
+      mass: 0.60
+      radius: 0.51
+      spectralClass: M0V
+      temperature: 3776
+- name: DEN 1048-3956
+  position:
+    - 12.4
+    - 3.85
+    - -1.89
+  stars:
+    - name: DEN 1048-3956
+      mass: 0.07
+      radius: 0.10
+      spectralClass: L0
+      temperature: 2500
