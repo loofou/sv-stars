@@ -26,7 +26,8 @@ export class System {
           s.spectralClass.startsWith('M') ||
           s.spectralClass.startsWith('L') ||
           s.spectralClass.startsWith('T') ||
-          s.spectralClass.startsWith('Y')
+          s.spectralClass.startsWith('Y') ||
+          s.spectralClass.startsWith('D')
         )
       ) {
         result = false;

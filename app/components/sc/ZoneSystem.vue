@@ -75,8 +75,9 @@ onBeforeRender(({ delta, elapsed }) => {
     stars.forEach((star: Object3D, i: number) => {
       if (star && star.position && i > 0) {
         const rotation = (1 / i) * elapsed;
-        star.position.x = i * originRadius * Math.cos(rotation);
-        star.position.z = i * originRadius * Math.sin(rotation);
+        const radius = i * (2 * originRadius * RadiusMultiplier);
+        star.position.x = radius * Math.cos(rotation);
+        star.position.z = radius * Math.sin(rotation);
       }
     });
   }
@@ -87,7 +88,7 @@ onBeforeRender(({ delta, elapsed }) => {
   <TresGroup :name="system.name">
     <TresGroup :position="sysPos">
       <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
-        <TresSphereGeometry :args="[(system.stars[0]?.radius ?? 1) * RadiusMultiplier, 32, 16]" />
+        <TresSphereGeometry :args="[Math.max(0.05, (system.stars[0]?.radius ?? 1) * RadiusMultiplier), 32, 16]" />
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
           :emissive="system.stars[0]?.color"
@@ -103,7 +104,7 @@ onBeforeRender(({ delta, elapsed }) => {
         ref="rStars"
         @click="emit('click')"
       >
-        <TresSphereGeometry :args="[star.radius * RadiusMultiplier, 32, 16]" />
+        <TresSphereGeometry :args="[Math.max(0.05, star.radius * RadiusMultiplier), 32, 16]" />
         <TresMeshStandardMaterial :color="star.color" :emissive="star.color" :emissive-intensity="3" />
       </TresMesh>
 
