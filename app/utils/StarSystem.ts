@@ -17,6 +17,24 @@ export class System {
     this.stars = stars ?? [];
     this.position = position;
   }
+
+  public get isDwarfStar() {
+    let result = true;
+    this.stars.forEach((s) => {
+      if (
+        !(
+          s.spectralClass.startsWith('M') ||
+          s.spectralClass.startsWith('L') ||
+          s.spectralClass.startsWith('T') ||
+          s.spectralClass.startsWith('Y')
+        )
+      ) {
+        result = false;
+      }
+    });
+
+    return result;
+  }
 }
 
 export class Star {

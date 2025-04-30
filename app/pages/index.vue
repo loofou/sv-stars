@@ -12,6 +12,7 @@ useHead({
 const showBloom = ref(true);
 const showGrid = ref(true);
 const showBgStars = ref(true);
+const showDwarfStars = ref(true);
 
 //Default system
 const systems = ref(defaultSystems());
@@ -47,9 +48,6 @@ const distance02Details = ref(new System());
 //Functions
 function saveYaml() {
   const yamlString = StarUtils.convertToYaml(systems.value);
-  console.log(systems.value);
-  console.log(yamlString);
-
   StarUtils.saveToFile(yamlString, 'neighbourhood.yaml');
 }
 
@@ -58,7 +56,6 @@ function loadYaml() {
 
   const newSystems = StarUtils.convertFromYaml(yamlAreaText.value);
   systems.value = newSystems;
-  console.log(newSystems);
 
   resetSelections();
   canvasKey.value += 1;
@@ -103,6 +100,11 @@ function resetSelections() {
 watch(activeMode, () => {
   resetSelections();
 });
+
+watch(showDwarfStars, () => {
+  resetSelections();
+  canvasKey.value += 1;
+});
 </script>
 
 <template>
@@ -115,6 +117,7 @@ watch(activeMode, () => {
             <USwitch class="p-1" label="Show Bloom" v-model="showBloom" />
             <USwitch class="p-1" label="Show Grid" v-model="showGrid" />
             <USwitch class="p-1" label="Show Background Stars" v-model="showBgStars" />
+            <USwitch class="p-1" label="Show Dwarf Stars" v-model="showDwarfStars" />
           </div>
         </template>
       </UCollapsible>
@@ -158,6 +161,7 @@ watch(activeMode, () => {
           :showBloom
           :showGrid
           :showBgStars
+          :showDwarfStars
           :selectedSystem
           :distance01
           :distance02

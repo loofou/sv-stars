@@ -9,7 +9,7 @@ const emit = defineEmits<{
   click: [system: System];
 }>();
 
-defineProps({
+const props = defineProps({
   systems: {
     type: Array<System>,
     required: true,
@@ -46,6 +46,19 @@ defineProps({
     type: Boolean,
     default: true,
   },
+  showDwarfStars: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+const getSystems = computed(() => {
+  console.log(props.systems);
+  if (props.showDwarfStars) {
+    return props.systems;
+  } else {
+    return props.systems.filter((s) => !s.isDwarfStar);
+  }
 });
 </script>
 
@@ -56,7 +69,7 @@ defineProps({
 
     <!--Render our actual systems-->
     <ScZoneSystem
-      v-for="system in systems"
+      v-for="system in getSystems"
       :system="system"
       :selected="system.name == selectedSystem"
       :distance01="system.name == distance01"
