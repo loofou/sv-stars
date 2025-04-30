@@ -1,3 +1,5 @@
+import type { Nitro } from 'nitropack';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -32,6 +34,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       autoSubfolderIndex: false,
+    },
+  },
+
+  hooks: {
+    'nitro:build:before': (nitro: Nitro) => {
+      nitro.options.moduleSideEffects.push('reflect-metadata');
     },
   },
 });

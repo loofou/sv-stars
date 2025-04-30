@@ -79,6 +79,67 @@
       radius: 0.05
       spectralClass: D2
       temperature: 25000
+- name: Gliese 65
+  position:
+    - -0.17
+    - -8.46
+    - 2.15
+  stars:
+    - name: BL Ceti
+      mass: 0.12
+      radius: 0.17
+      spectralClass: M5V
+      temperature: 2784
+    - name: UV Ceti
+      mass: 0.12
+      radius: 0.16
+      spectralClass: M6V
+      temperature: 2728
+- name: Ross 154
+  position:
+    - -1.87
+    - -1.73
+    - -9.33
+  stars:
+    - name: Ross 154
+      mass: 0.18
+      radius: 0.2
+      spectralClass: M3V
+      temperature: 2848
+- name: Ross 248
+  position:
+    - -9.27
+    - -3
+    - -3.37
+  stars:
+    - name: Ross 248
+      mass: 0.15
+      radius: 0.19
+      spectralClass: M6V
+      temperature: 2930
+- name: Epsilon Eridani
+  position:
+    - 1.913
+    - -7.794
+    - 6.739
+  stars:
+    - name: Epsilon Eridani
+      mass: 0.85
+      radius: 0.88
+      spectralClass: K2V
+      temperature: 5076
+- name: Lacaille 9352
+  position:
+    - -0.39
+    - -9.76
+    - -4.34
+  stars:
+    - name: Lacaille 9352
+      mass: 0.48
+      radius: 0.48
+      spectralClass: M0V
+      temperature: 3672
+
 - name: Procyon
   position:
     - 6.183196
@@ -95,14 +156,3 @@
       radius: 0.05
       spectralClass: DQZ
       temperature: 7740
-- name: Epsilon Eridani
-  position:
-    - 1.913
-    - -7.794
-    - 6.739
-  stars:
-    - name: Epsilon Eridani
-      mass: 0.85
-      radius: 0.88
-      spectralClass: K2V
-      temperature: 5076

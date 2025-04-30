@@ -1,7 +1,6 @@
 import { Color, Vector3 } from 'three';
 import YAML from 'yaml';
 import { plainToInstance, instanceToPlain } from 'class-transformer';
-import 'reflect-metadata';
 
 export abstract class StarUtils {
   public static getColor(temperature: number): Color {
