@@ -11,7 +11,13 @@ const props = defineProps({
 });
 
 function createItems(system: System) {
-  const starChildren: any[] = [];
+  const starChildren: any[] = [
+    {
+      label: `${system.position.join(', ')}`,
+      value: `${system.name}-pos`,
+      icon: 'solar:map-point-bold',
+    },
+  ];
   system.stars.forEach((s: Star) => {
     starChildren.push({
       label: s.name,
