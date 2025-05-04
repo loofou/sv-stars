@@ -19,7 +19,7 @@ export abstract class StarUtils {
     } else if (temperature > 8000) {
       return new Color('#e4e9ff');
     } else if (temperature > 7000) {
-      return new Color('#f3f2ff	');
+      return new Color('#f3f2ff');
     } else if (temperature > 6500) {
       return new Color('#fff9fb');
     } else if (temperature > 6000) {

@@ -54,7 +54,6 @@ const props = defineProps({
 });
 
 const getSystems = computed(() => {
-  console.log(props.systems);
   if (props.showDwarfStars) {
     return props.systems;
   } else {

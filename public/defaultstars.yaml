@@ -540,3 +540,598 @@
       radius: 0.38
       spectralClass: M4V
       temperature: 3377
+- name: Gliese 1002
+  position:
+    - -5.8
+    - -14.17
+    - 0.25
+  stars:
+    - name: Gliese 1002
+      mass: 0.11
+      radius: 0.12
+      spectralClass: M5V
+      temperature: 3169
+- name: Gliese 3618
+  position:
+    - 14.76
+    - -0.55
+    - -4.86
+  stars:
+    - name: Gliese 3618
+      mass: 0.10
+      radius: 0.10
+      spectralClass: M5V
+      temperature: 3000
+- name: Gliese 412
+  position:
+    - -1.43
+    - 14.14
+    - 7.04
+  stars:
+    - name: Gliese 412 A
+      mass: 0.48
+      radius: 0.38
+      spectralClass: M2V
+      temperature: 3639
+    - name: Gliese 412 B
+      mass: 0.10
+      radius: 0.13
+      spectralClass: M6V
+      temperature: 3000
+- name: Groombridge 1618
+  position:
+    - -2.38
+    - 12.53
+    - 9.44
+  stars:
+    - name: Groombridge 1618
+      mass: 0.67
+      radius: 0.61
+      spectralClass: K7V
+      temperature: 4215
+- name: AD Leonis
+  position:
+    - 5.49
+    - 12.99
+    - 7.43
+  stars:
+    - name: AD Leonis
+      mass: 0.40
+      radius: 0.39
+      spectralClass: M3V
+      temperature: 4316
+- name: Gliese 832
+  position:
+    - 2.09
+    - -11.68
+    - -10.95
+  stars:
+    - name: Gliese 832
+      mass: 0.45
+      radius: 0.48
+      spectralClass: M1V
+      temperature: 3657
+- name: LP 944-020
+  position:
+    - 8.07
+    - -13
+    - 5.3
+  stars:
+    - name: LP 944-020
+      mass: 0.07
+      radius: 0.05
+      spectralClass: M9V
+      temperature: 2650
+- name: DEN 0255-4700
+  position:
+    - 8.31
+    - -13.84
+    - 1.38
+  stars:
+    - name: DEN 0255-4700
+      mass: 0.04
+      radius: 0.08
+      spectralClass: T8
+      temperature: 1490
+- name: 40 Eridani
+  position:
+    - 4.54
+    - -10.02
+    - 11.97
+  stars:
+    - name: 40 Eridani A
+      mass: 0.84
+      radius: 0.81
+      spectralClass: K0V
+      temperature: 5202
+    - name: 40 Eridani B
+      mass: 0.57
+      radius: 0.014
+      spectralClass: D4
+      temperature: 8700
+    - name: 40 Eridani C
+      mass: 0.20
+      radius: 0.31
+      spectralClass: M4V
+      temperature: 3167
+- name: EV Lacertae
+  position:
+    - -15.76
+    - -3.72
+    - 2.95
+  stars:
+    - name: EV Lacertae
+      mass: 0.35
+      radius: 0.36
+      spectralClass: M3V
+      temperature: 3291
+- name: Gliese 682
+  position:
+    - 3.96
+    - -1.9
+    - -15.87
+  stars:
+    - name: Gliese 682
+      mass: 0.20
+      radius: 0.32
+      spectralClass: M3V
+      temperature: 3190
+- name: 70 Ophiuchi
+  position:
+    - -8.13
+    - 3.28
+    - -14.15
+  stars:
+    - name: 70 Ophiuchi A
+      mass: 0.90
+      radius: 0.91
+      spectralClass: K0V
+      temperature: 5419
+    - name: 70 Ophiuchi B
+      mass: 0.70
+      radius: 0.70
+      spectralClass: K4V
+      temperature: 4393
+- name: Altair
+  position:
+    - -12.21
+    - -2.59
+    - -11.09
+  stars:
+    - name: Altair
+      mass: 1.79
+      radius: 1.83
+      spectralClass: A7V
+      temperature: 7377
+- name: EI Cancri
+  position:
+    - 6.35
+    - 10.14
+    - 12.16
+  stars:
+    - name: EI Cancri A
+      mass: 0.11
+      radius: 0.10
+      spectralClass: M8V
+      temperature: 2700
+    - name: EI Cancri B
+      mass: 0.10
+      radius: 0.10
+      spectralClass: M7V
+      temperature: 2800
+- name: Gliese 3379
+  position:
+    - 7
+    - -3.01
+    - 15.31
+  stars:
+    - name: Gliese 3379
+      mass: 0.23
+      radius: 0.25
+      spectralClass: M3V
+      temperature: 3284
+- name: Gliese 3323
+  position:
+    - 6.85
+    - -8.01
+    - 13.79
+  stars:
+    - name: Gliese 3323
+      mass: 0.16
+      radius: 0.20
+      spectralClass: M4V
+      temperature: 3288
+- name: 2MASS 0939-2448
+  position:
+    - 15.89
+    - 6.09
+    - 3.69
+  stars:
+    - name: 2MASS 0939-2448 A
+      mass: 0.03
+      radius: 0.13
+      spectralClass: T8
+      temperature: 500
+    - name: 2MASS 0939-2448 B
+      mass: 0.02
+      radius: 0.10
+      spectralClass: T8
+      temperature: 450
+- name: Gliese 445
+  position:
+    - -10.99
+    - 10.71
+    - 8.24
+  stars:
+    - name: Gliese 445
+      mass: 0.20
+      radius: 0.32
+      spectralClass: M4V
+      temperature: 3369
+- name: Gliese 526
+  position:
+    - 0.78
+    - 16.83
+    - -5.28
+  stars:
+    - name: Gliese 526
+      mass: 0.28
+      radius: 0.58
+      spectralClass: M1V
+      temperature: 3521
+- name: Stein 2051
+  position:
+    - -9.47
+    - 2.3
+    - 15.21
+  stars:
+    - name: Stein 2051 A
+      mass: 0.22
+      radius: 0.30
+      spectralClass: M4V
+      temperature: 3277
+    - name: Stein 2051 B
+      mass: 0.68
+      radius: 0.02
+      spectralClass: D5
+      temperature: 7130
+- name: Gliese 251
+  position:
+    - 0.91
+    - 4.78
+    - 17.65
+  stars:
+    - name: Gliese 251
+      mass: 0.35
+      radius: 0.37
+      spectralClass: M3V
+      temperature: 3420
+- name: 2MASS 1835+3259
+  position:
+    - -15.51
+    - 5.54
+    - -8.37
+  stars:
+    - name: 2MASS 1835+3259
+      mass: 0.07
+      radius: 0.11
+      spectralClass: M8V
+      temperature: 2400
+- name: Gliese 205
+  position:
+    - 7.92
+    - -6.17
+    - 15.58
+  stars:
+    - name: Gliese 205
+      mass: 0.56
+      radius: 0.59
+      spectralClass: M1V
+      temperature: 3891
+- name: LP 816-60
+  position:
+    - -7.74
+    - -10.48
+    - -13.32
+  stars:
+    - name: LP 816-60
+      mass: 0.19
+      radius: 0.20
+      spectralClass: M3V
+      temperature: 3239
+- name: 2MASS 0415−0935
+  position:
+    - 5.67
+    - -11.76
+    - 13.4
+  stars:
+    - name: 2MASS 0415−0935
+      mass: 0.03
+      radius: 0.09
+      spectralClass: T8
+      temperature: 350
+- name: Sigma Draconis
+  position:
+    - -17.08
+    - 6.99
+    - 3.41
+  stars:
+    - name: Sigma Draconis
+      mass: 0.85
+      radius: 0.78
+      spectralClass: K0V
+      temperature: 5338
+- name: Gliese 229
+  position:
+    - 13.36
+    - -5.94
+    - 11.77
+  stars:
+    - name: Gliese 229 A
+      mass: 0.58
+      radius: 0.69
+      spectralClass: M1V
+      temperature: 3837
+    - name: Gliese 229 B
+      mass: 0.04
+      radius: 0.05
+      spectralClass: T6V
+      temperature: 900
+    - name: Gliese 229 C
+      mass: 0.03
+      radius: 0.04
+      spectralClass: T7
+      temperature: 775
+- name: Ross 47
+  position:
+    - 4.45
+    - -3.04
+    - 18.24
+  stars:
+    - name: Ross 47
+      mass: 0.35
+      radius: 0.17
+      spectralClass: M4V
+      temperature: 3311
+- name: Gliese 693
+  position:
+    - 7.71
+    - -4.76
+    - -16.77
+  stars:
+    - name: Gliese 693
+      mass: 0.26
+      radius: 0.30
+      spectralClass: M2V
+      temperature: 3386
+- name: Wolf 1055
+  position:
+    - -12.36
+    - -1.09
+    - -14.49
+  stars:
+    - name: Wolf 1055 A
+      mass: 0.46
+      radius: 0.55
+      spectralClass: M2V
+      temperature: 3570
+    - name: Wolf 1055 B
+      mass: 0.07
+      radius: 0.10
+      spectralClass: M8V
+      temperature: 2600
+- name: 33 G. Librae
+  position:
+    - 5.96
+    - 10.32
+    - -14.94
+  stars:
+    - name: 33 G. Librae A
+      mass: 0.80
+      radius: 0.74
+      spectralClass: K4V
+      temperature: 4625
+    - name: 33 G. Librae B
+      mass: 0.55
+      radius: 0.65
+      spectralClass: M1V
+      temperature: 26407700
+    - name: 33 G. Librae C
+      mass: 0.35
+      radius: 0.40
+      spectralClass: M3V
+      temperature: 3100
+    - name: 33 G. Librae D
+      mass: 0.05
+      radius: 0.10
+      spectralClass: T8
+      temperature: 500
+- name: Gliese 754
+  position:
+    - 2.34
+    - -7.81
+    - -17.47
+  stars:
+    - name: Gliese 754
+      mass: 0.18
+      radius: 0.24
+      spectralClass: M4V
+      temperature: 3400
+- name: Gliese 588
+  position:
+    - 8.69
+    - 4.07
+    - -16.81
+  stars:
+    - name: Gliese 588
+      mass: 0.46
+      radius: 0.48
+      spectralClass: M4V
+      temperature: 3501
+- name: Gliese 1005
+  position:
+    - -4.6
+    - -18.81
+    - -0.49
+  stars:
+    - name: Gliese 1005 A
+      mass: 0.18
+      radius: 0.20
+      spectralClass: M4V
+      temperature: 3341
+    - name: Gliese 1005 B
+      mass: 0.11
+      radius: 0.15
+      spectralClass: M7V
+      temperature: 2700
+- name: Eta Cassiopeiae
+  position:
+    - -16.27
+    - -1.71
+    - 10.41
+  stars:
+    - name: Eta Cassiopeiae A
+      mass: 0.97
+      radius: 1.04
+      spectralClass: F9V
+      temperature: 5937
+    - name: Eta Cassiopeiae B
+      mass: 0.57
+      radius: 0.66
+      spectralClass: K7V
+      temperature: 4980
+- name: 36 Ophiuchi
+  position:
+    - 0.58
+    - 2.32
+    - -19.25
+  stars:
+    - name: 36 Ophiuchi A
+      mass: 0.85
+      radius: 0.82
+      spectralClass: K2V
+      temperature: 5103
+    - name: 36 Ophiuchi B
+      mass: 0.85
+      radius: 0.81
+      spectralClass: K1V
+      temperature: 5199
+    - name: 36 Ophiuchi C
+      mass: 0.71
+      radius: 0.72
+      spectralClass: K5V
+      temperature: 4561
+- name: Gliese 908
+  position:
+    - -10.59
+    - -16.26
+    - 0.66
+  stars:
+    - name: Gliese 908
+      mass: 0.37
+      radius: 0.39
+      spectralClass: M1V
+      temperature: 3653
+- name: YZ Canis Minoris
+  position:
+    - 11.11
+    - 4.54
+    - 15.38
+  stars:
+    - name: YZ Canis Minoris
+      mass: 0.31
+      radius: 0.32
+      spectralClass: M4V
+      temperature: 3242
+- name: 279 G. Sagittari
+  position:
+    - -1.53
+    - -10.08
+    - -16.76
+  stars:
+    - name: 279 G. Sagittari A
+      mass: 0.65
+      radius: 0.66
+      spectralClass: K2V
+      temperature: 4975
+    - name: 279 G. Sagittari B
+      mass: 0.24
+      radius: 0.28
+      spectralClass: M4V
+      temperature: 3190
+- name: 82 Eridani
+  position:
+    - 10.39
+    - -16.36
+    - 3.63
+  stars:
+    - name: 82 Eridani
+      mass: 0.70
+      radius: 0.92
+      spectralClass: G6V
+      temperature: 5401
+- name: Gliese 1221
+  position:
+    - -16.69
+    - 10.11
+    - 3.37
+  stars:
+    - name: Gliese 1221
+      mass: 0.81
+      radius: 0.01
+      spectralClass: D9
+      temperature: 5260
+- name: Gliese 338
+  position:
+    - -3.81
+    - 13.5
+    - 14.14
+  stars:
+    - name: Gliese 338 A
+      mass: 0.69
+      radius: 0.58
+      spectralClass: K7V
+      temperature: 4024
+    - name: Gliese 338 B
+      mass: 0.64
+      radius: 0.58
+      spectralClass: M0V
+      temperature: 4005
+- name: Delta Pavonis
+  position:
+    - 8.47
+    - -10.68
+    - -14.53
+  stars:
+    - name: Delta Pavonis
+      mass: 0.99
+      radius: 1.22
+      spectralClass: G8IV
+      temperature: 5600
+- name: QY Aurigae
+  position:
+    - -0.34
+    - 6.8
+    - 18.76
+  stars:
+    - name: QY Aurigae A
+      mass: 0.22
+      radius: 0.30
+      spectralClass: M4V
+      temperature: 3069
+    - name: QY Aurigae B
+      mass: 0.19
+      radius: 0.20
+      spectralClass: M5V
+      temperature: 2950
+- name: 2MASS J0937+2931
+  position:
+    - 4.13
+    - 14.74
+    - 12.82
+  stars:
+    - name: 2MASS J0937+2931
+      mass: 0.03
+      radius: 0.05
+      spectralClass: T5V
+      temperature: 460
