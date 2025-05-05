@@ -1,4 +1,5 @@
 import type { Nitro } from 'nitropack';
+import pkg from './package.json';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -40,6 +41,12 @@ export default defineNuxtConfig({
   hooks: {
     'nitro:build:before': (nitro: Nitro) => {
       nitro.options.moduleSideEffects.push('reflect-metadata');
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      clientVersion: pkg.version,
     },
   },
 });
