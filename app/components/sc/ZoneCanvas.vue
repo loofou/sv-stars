@@ -2,7 +2,7 @@
 import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
-import { System } from '~/utils/StarSystem';
+import { System } from '~/utils/types';
 import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
 import { DistanceMultiplier } from '~/utils/utils';
 

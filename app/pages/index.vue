@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { TabsItem } from '@nuxt/ui';
 import { defaultSystems } from '~/utils/DefaultStars';
-import { System } from '~/utils/StarSystem';
+import { System } from '~/utils/types';
 import { StarUtils } from '~/utils/utils';
 
 useHead({
@@ -56,6 +56,8 @@ function loadYaml() {
 
   const newSystems = StarUtils.convertFromYaml(yamlAreaText.value);
   systems.value = newSystems;
+
+  console.log(newSystems);
 
   resetSelections();
   canvasKey.value += 1;

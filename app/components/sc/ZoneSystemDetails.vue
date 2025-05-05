@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { System, Star } from '~/utils/types';
+
 const props = defineProps({
   isSystemSelected: {
     type: Boolean,
@@ -18,31 +20,31 @@ function createItems(system: System) {
       icon: 'solar:map-point-bold',
     },
   ];
-  system.stars.forEach((s: Star) => {
+  system.stars.forEach((star: Star) => {
     starChildren.push({
-      label: s.name,
-      value: `star-${s.name}`,
+      label: star.name,
+      value: `star-${star.name}`,
       icon: 'material-symbols:sunny',
       defaultExpanded: true,
       children: [
         {
-          label: `Spectral Class: ${s.spectralClass}`,
-          value: `${s.name}-sc`,
+          label: `Spectral Class: ${star.spectralClass}`,
+          value: `${star.name}-sc`,
           icon: 'material-symbols:cards-star-outline',
         },
         {
-          label: `Temperature: ${s.temperature} K`,
-          value: `${s.name}-temp`,
+          label: `Temperature: ${star.temperature} K`,
+          value: `${star.name}-temp`,
           icon: 'uil:temperature-half',
         },
         {
-          label: `Mass: ${s.mass} SM`,
-          value: `${s.name}-mass`,
+          label: `Mass: ${star.mass} SM`,
+          value: `${star.name}-mass`,
           icon: 'gravity-ui:weight-hanging',
         },
         {
-          label: `Radius: ${s.radius} SR`,
-          value: `${s.name}-rad`,
+          label: `Radius: ${star.radius} SR`,
+          value: `${star.name}-rad`,
           icon: 'oui:radius',
         },
       ],

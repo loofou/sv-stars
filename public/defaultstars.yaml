@@ -3,8 +3,9 @@
     - 0
     - 0
     - 0
-  stars:
+  objects:
     - name: Sol
+      type: Star
       mass: 1
       radius: 1
       spectralClass: G2V
@@ -14,18 +15,21 @@
     - 3.046447
     - -0.05177
     - -3.125542
-  stars:
+  objects:
     - name: Rigil Kentaurus A
+      type: Star
       mass: 1.07
       radius: 1.27
       spectralClass: G2V
       temperature: 5804
     - name: Toliman B
+      type: Star
       mass: 0.9
       radius: 0.85
       spectralClass: K1V
       temperature: 5207
     - name: Proxima Centauri
+      type: Star
       mass: 0.12
       radius: 0.15
       spectralClass: M5V
@@ -35,8 +39,9 @@
     - -2.99
     - 1.45
     - -4.97
-  stars:
+  objects:
     - name: Barnard's Star
+      type: Star
       mass: 0.16
       radius: 0.19
       spectralClass: M4V
@@ -46,8 +51,9 @@
     - 3.9
     - 6.46
     - 1.9
-  stars:
+  objects:
     - name: Wolf 359
+      type: Star
       mass: 0.11
       radius: 0.14
       spectralClass: M6V
@@ -57,8 +63,9 @@
     - 0.31
     - 7.54
     - 3.43
-  stars:
+  objects:
     - name: Lalande 21185
+      type: Star
       mass: 0.39
       radius: 0.39
       spectralClass: M2V
@@ -68,13 +75,15 @@
     - 6.224771
     - -1.326405
     - 5.7581
-  stars:
+  objects:
     - name: Sirius A
+      type: Star
       mass: 2.06
       radius: 1.71
       spectralClass: A0V
       temperature: 9845
     - name: Sirius B
+      type: Star
       mass: 1.02
       radius: 0.08
       spectralClass: D2
@@ -84,13 +93,15 @@
     - -0.17
     - -8.46
     - 2.15
-  stars:
+  objects:
     - name: BL Ceti
+      type: Star
       mass: 0.12
       radius: 0.17
       spectralClass: M5V
       temperature: 2784
     - name: UV Ceti
+      type: Star
       mass: 0.12
       radius: 0.16
       spectralClass: M6V
@@ -100,8 +111,9 @@
     - -1.87
     - -1.73
     - -9.33
-  stars:
+  objects:
     - name: Ross 154
+      type: Star
       mass: 0.18
       radius: 0.2
       spectralClass: M3V
@@ -111,8 +123,9 @@
     - -9.27
     - -3
     - -3.37
-  stars:
+  objects:
     - name: Ross 248
+      type: Star
       mass: 0.15
       radius: 0.19
       spectralClass: M6V
@@ -122,8 +135,9 @@
     - 1.913
     - -7.794
     - 6.739
-  stars:
+  objects:
     - name: Epsilon Eridani
+      type: Star
       mass: 0.85
       radius: 0.88
       spectralClass: K2V
@@ -133,8 +147,9 @@
     - -0.39
     - -9.76
     - -4.34
-  stars:
+  objects:
     - name: Lacaille 9352
+      type: Star
       mass: 0.48
       radius: 0.48
       spectralClass: M0V
@@ -144,8 +159,9 @@
     - 5.54
     - 9.43
     - -0.01
-  stars:
+  objects:
     - name: Ross 128
+      type: Star
       mass: 0.18
       radius: 0.2
       spectralClass: M4V
@@ -155,18 +171,21 @@
     - -4.49
     - -9.45
     - -4.18
-  stars:
+  objects:
     - name: EZ Aquarii A
+      type: Star
       mass: 0.12
       radius: 0.18
       spectralClass: M5V
       temperature: 2850
     - name: EZ Aquarii C
+      type: Star
       mass: 0.09
       radius: 0.05
       spectralClass: M5V
       temperature: 1650
     - name: EZ Aquarii B
+      type: Star
       mass: 0.11
       radius: 0.21
       spectralClass: M5V
@@ -176,13 +195,15 @@
     - -11.24
     - -1.16
     - -1.52
-  stars:
+  objects:
     - name: 61 Cygni A
+      type: Star
       mass: 0.7
       radius: 0.67
       spectralClass: K5V
       temperature: 4526
     - name: 61 Cygni C
+      type: Star
       mass: 0.63
       radius: 0.6
       spectralClass: K7V
@@ -192,13 +213,15 @@
     - 6.183196
     - 2.576612
     - 9.270545
-  stars:
+  objects:
     - name: Procyon A
+      type: Star
       mass: 1.48
       radius: 2.04
       spectralClass: F5IV
       temperature: 6582
     - name: Procyon B
+      type: Star
       mass: 0.60
       radius: 0.01
       spectralClass: DQZD
@@ -209,13 +232,15 @@
     - -10.48
     - 4.72
     - -0.13
-  stars:
+  objects:
     - name: Gliese 725 A
+      type: Star
       mass: 0.25
       radius: 0.35
       spectralClass: M3V
       temperature: 3401
     - name: Gliese 725 B
+      type: Star
       mass: 0.25
       radius: 0.28
       spectralClass: M4V
@@ -225,13 +250,15 @@
     - -9.88
     - -3.69
     - 4.96
-  stars:
+  objects:
     - name: Groombridge 34 A
+      type: Star
       mass: 0.40
       radius: 0.39
       spectralClass: M2V
       temperature: 3603
     - name: Groombridge 34 B
+      type: Star
       mass: 0.16
       radius: 0.18
       spectralClass: M4V
@@ -241,18 +268,21 @@
     - 3.19
     - -8.79
     - -7.23
-  stars:
+  objects:
     - name: Epsilon Indi A
+      type: Star
       mass: 0.76
       radius: 0.73
       spectralClass: K5V
       temperature: 4682
     - name: Epsilon Indi B
+      type: Star
       mass: 0.06
       radius: 0.08
       spectralClass: T1
       temperature: 1360
     - name: Epsilon Indi B
+      type: Star
       mass: 0.05
       radius: 0.08
       spectralClass: T6
@@ -262,8 +292,9 @@
     - 2.92
     - 6.34
     - 9.55
-  stars:
+  objects:
     - name: DX Cancri
+      type: Star
       mass: 0.09
       radius: 0.11
       spectralClass: M5V
@@ -273,8 +304,9 @@
     - -0.41
     - -11.41
     - 3.37
-  stars:
+  objects:
     - name: Tau Ceti
+      type: Star
       mass: 0.69
       radius: 0.79
       spectralClass: G8V
@@ -284,8 +316,9 @@
     - 6.87
     - -9.56
     - 2.25
-  stars:
+  objects:
     - name: Gliese 1061
+      type: Star
       mass: 0.11
       radius: 0.10
       spectralClass: M5V
@@ -295,8 +328,9 @@
     - -1.19
     - -11.89
     - 2.04
-  stars:
+  objects:
     - name: YZ Ceti
+      type: Star
       mass: 0.13
       radius: 0.17
       spectralClass: M4V
@@ -306,8 +340,9 @@
     - 6.45
     - 2.21
     - 10.18
-  stars:
+  objects:
     - name: Luyten's Star
+      type: Star
       mass: 0.26
       radius: 0.35
       spectralClass: M4V
@@ -317,13 +352,15 @@
     - 5.5
     - -5.01
     - -10.13
-  stars:
+  objects:
     - name: SCR 1845-6357 A
+      type: Star
       mass: 0.07
       radius: 0.10
       spectralClass: M8V
       temperature: 1500
     - name: SCR 1845-6357 B
+      type: Star
       mass: 0.03
       radius: 0.10
       spectralClass: T6
@@ -333,8 +370,9 @@
     - -3.39
     - -7.57
     - 9.45
-  stars:
+  objects:
     - name: Teegarden's Star
+      type: Star
       mass: 0.10
       radius: 0.12
       spectralClass: M7V
@@ -344,8 +382,9 @@
     - 9.73
     - -7.5
     - 3.44
-  stars:
+  objects:
     - name: Kapteyn's Star
+      type: Star
       mass: 0.27
       radius: 0.29
       spectralClass: M1V
@@ -355,8 +394,9 @@
     - -0.63
     - -8.98
     - 9.2
-  stars:
+  objects:
     - name: AX Microscopii
+      type: Star
       mass: 0.60
       radius: 0.51
       spectralClass: M0V
@@ -366,8 +406,9 @@
     - 12.4
     - 3.85
     - -1.89
-  stars:
+  objects:
     - name: DEN 1048-3956
+      type: Star
       mass: 0.07
       radius: 0.10
       spectralClass: L0
@@ -377,13 +418,15 @@
     - -12.72
     - 0
     - 3.33
-  stars:
+  objects:
     - name: Kruger 60 A
+      type: Star
       mass: 0.27
       radius: 0.35
       spectralClass: M3V
       temperature: 3406
     - name: Kruger 60 B
+      type: Star
       mass: 0.17
       radius: 0.24
       spectralClass: M4V
@@ -393,13 +436,15 @@
     - 7.21
     - -1.44
     - 11.13
-  stars:
+  objects:
     - name: Ross 614 A
+      type: Star
       mass: 0.22
       radius: 0.30
       spectralClass: M4V
       temperature: 3168
     - name: Ross 614 B
+      type: Star
       mass: 0.11
       radius: 0.10
       spectralClass: M8V
@@ -409,8 +454,9 @@
     - -0.75
     - 5.59
     - -12.72
-  stars:
+  objects:
     - name: Wolf 1061
+      type: Star
       mass: 0.25
       radius: 0.31
       spectralClass: M3V
@@ -420,8 +466,9 @@
     - -6.4
     - -11.82
     - 3.98
-  stars:
+  objects:
     - name: Van Maanen's Star
+      type: Star
       mass: 0.68
       radius: 0.01
       spectralClass: DZ7
@@ -431,8 +478,9 @@
     - 0.98
     - -13.73
     - -3.31
-  stars:
+  objects:
     - name: Gliese 1
+      type: Star
       mass: 0.33
       radius: 0.33
       spectralClass: M2V
@@ -442,13 +490,15 @@
     - 4.32
     - 13.56
     - -1.47
-  stars:
+  objects:
     - name: FL Virginis A
+      type: Star
       mass: 0.14
       radius: 0.20
       spectralClass: M5V
       temperature: 3000
     - name: FL Virginis B
+      type: Star
       mass: 0.13
       radius: 0.20
       spectralClass: M5V
@@ -458,8 +508,9 @@
     - -5.34
     - -10.52
     - 8.44
-  stars:
+  objects:
     - name: TZ Arietis
+      type: Star
       mass: 0.14
       radius: 0.16
       spectralClass: M4V
@@ -469,8 +520,9 @@
     - -12.41
     - 7.83
     - 1.88
-  stars:
+  objects:
     - name: Gliese 687
+      type: Star
       mass: 0.40
       radius: 0.49
       spectralClass: M3V
@@ -480,8 +532,9 @@
     - 10.99
     - 9.77
     - 1.74
-  stars:
+  objects:
     - name: Gliese 3622
+      type: Star
       mass: 0.08
       radius: 0.11
       spectralClass: M6V
@@ -491,18 +544,21 @@
     - -14.37
     - 2.19
     - -2.83
-  stars:
+  objects:
     - name: Gliese 1245 A
+      type: Star
       mass: 0.11
       radius: 0.10
       spectralClass: M5V
       temperature: 2749
     - name: Gliese 1245 B
+      type: Star
       mass: 0.10
       radius: 0.10
       spectralClass: M5V
       temperature: 2944
     - name: Gliese 1245 C
+      type: Star
       mass: 0.07
       radius: 0.10
       spectralClass: M6V
@@ -512,8 +568,9 @@
     - 4.3
     - -1.75
     - -14.07
-  stars:
+  objects:
     - name: Gliese 674
+      type: Star
       mass: 0.34
       radius: 0.36
       spectralClass: M2V
@@ -523,8 +580,9 @@
     - 13.55
     - -0.75
     - -6.61
-  stars:
+  objects:
     - name: Gliese 440
+      type: Star
       mass: 0.56
       radius: 0.01
       spectralClass: DQ6
@@ -534,8 +592,9 @@
     - -6.06
     - -13.12
     - -4.73
-  stars:
+  objects:
     - name: Ross 780
+      type: Star
       mass: 0.33
       radius: 0.38
       spectralClass: M4V
@@ -545,8 +604,9 @@
     - -5.8
     - -14.17
     - 0.25
-  stars:
+  objects:
     - name: Gliese 1002
+      type: Star
       mass: 0.11
       radius: 0.12
       spectralClass: M5V
@@ -556,8 +616,9 @@
     - 14.76
     - -0.55
     - -4.86
-  stars:
+  objects:
     - name: Gliese 3618
+      type: Star
       mass: 0.10
       radius: 0.10
       spectralClass: M5V
@@ -567,13 +628,15 @@
     - -1.43
     - 14.14
     - 7.04
-  stars:
+  objects:
     - name: Gliese 412 A
+      type: Star
       mass: 0.48
       radius: 0.38
       spectralClass: M2V
       temperature: 3639
     - name: Gliese 412 B
+      type: Star
       mass: 0.10
       radius: 0.13
       spectralClass: M6V
@@ -583,8 +646,9 @@
     - -2.38
     - 12.53
     - 9.44
-  stars:
+  objects:
     - name: Groombridge 1618
+      type: Star
       mass: 0.67
       radius: 0.61
       spectralClass: K7V
@@ -594,8 +658,9 @@
     - 5.49
     - 12.99
     - 7.43
-  stars:
+  objects:
     - name: AD Leonis
+      type: Star
       mass: 0.40
       radius: 0.39
       spectralClass: M3V
@@ -605,8 +670,9 @@
     - 2.09
     - -11.68
     - -10.95
-  stars:
+  objects:
     - name: Gliese 832
+      type: Star
       mass: 0.45
       radius: 0.48
       spectralClass: M1V
@@ -616,8 +682,9 @@
     - 8.07
     - -13
     - 5.3
-  stars:
+  objects:
     - name: LP 944-020
+      type: Star
       mass: 0.07
       radius: 0.05
       spectralClass: M9V
@@ -627,8 +694,9 @@
     - 8.31
     - -13.84
     - 1.38
-  stars:
+  objects:
     - name: DEN 0255-4700
+      type: Star
       mass: 0.04
       radius: 0.08
       spectralClass: T8
@@ -638,18 +706,21 @@
     - 4.54
     - -10.02
     - 11.97
-  stars:
+  objects:
     - name: 40 Eridani A
+      type: Star
       mass: 0.84
       radius: 0.81
       spectralClass: K0V
       temperature: 5202
     - name: 40 Eridani B
+      type: Star
       mass: 0.57
       radius: 0.014
       spectralClass: D4
       temperature: 8700
     - name: 40 Eridani C
+      type: Star
       mass: 0.20
       radius: 0.31
       spectralClass: M4V
@@ -659,8 +730,9 @@
     - -15.76
     - -3.72
     - 2.95
-  stars:
+  objects:
     - name: EV Lacertae
+      type: Star
       mass: 0.35
       radius: 0.36
       spectralClass: M3V
@@ -670,8 +742,9 @@
     - 3.96
     - -1.9
     - -15.87
-  stars:
+  objects:
     - name: Gliese 682
+      type: Star
       mass: 0.20
       radius: 0.32
       spectralClass: M3V
@@ -681,13 +754,15 @@
     - -8.13
     - 3.28
     - -14.15
-  stars:
+  objects:
     - name: 70 Ophiuchi A
+      type: Star
       mass: 0.90
       radius: 0.91
       spectralClass: K0V
       temperature: 5419
     - name: 70 Ophiuchi B
+      type: Star
       mass: 0.70
       radius: 0.70
       spectralClass: K4V
@@ -697,8 +772,9 @@
     - -12.21
     - -2.59
     - -11.09
-  stars:
+  objects:
     - name: Altair
+      type: Star
       mass: 1.79
       radius: 1.83
       spectralClass: A7V
@@ -708,13 +784,15 @@
     - 6.35
     - 10.14
     - 12.16
-  stars:
+  objects:
     - name: EI Cancri A
+      type: Star
       mass: 0.11
       radius: 0.10
       spectralClass: M8V
       temperature: 2700
     - name: EI Cancri B
+      type: Star
       mass: 0.10
       radius: 0.10
       spectralClass: M7V
@@ -724,8 +802,9 @@
     - 7
     - -3.01
     - 15.31
-  stars:
+  objects:
     - name: Gliese 3379
+      type: Star
       mass: 0.23
       radius: 0.25
       spectralClass: M3V
@@ -735,8 +814,9 @@
     - 6.85
     - -8.01
     - 13.79
-  stars:
+  objects:
     - name: Gliese 3323
+      type: Star
       mass: 0.16
       radius: 0.20
       spectralClass: M4V
@@ -746,13 +826,15 @@
     - 15.89
     - 6.09
     - 3.69
-  stars:
+  objects:
     - name: 2MASS 0939-2448 A
+      type: Star
       mass: 0.03
       radius: 0.13
       spectralClass: T8
       temperature: 500
     - name: 2MASS 0939-2448 B
+      type: Star
       mass: 0.02
       radius: 0.10
       spectralClass: T8
@@ -762,8 +844,9 @@
     - -10.99
     - 10.71
     - 8.24
-  stars:
+  objects:
     - name: Gliese 445
+      type: Star
       mass: 0.20
       radius: 0.32
       spectralClass: M4V
@@ -773,8 +856,9 @@
     - 0.78
     - 16.83
     - -5.28
-  stars:
+  objects:
     - name: Gliese 526
+      type: Star
       mass: 0.28
       radius: 0.58
       spectralClass: M1V
@@ -784,13 +868,15 @@
     - -9.47
     - 2.3
     - 15.21
-  stars:
+  objects:
     - name: Stein 2051 A
+      type: Star
       mass: 0.22
       radius: 0.30
       spectralClass: M4V
       temperature: 3277
     - name: Stein 2051 B
+      type: Star
       mass: 0.68
       radius: 0.02
       spectralClass: D5
@@ -800,8 +886,9 @@
     - 0.91
     - 4.78
     - 17.65
-  stars:
+  objects:
     - name: Gliese 251
+      type: Star
       mass: 0.35
       radius: 0.37
       spectralClass: M3V
@@ -811,8 +898,9 @@
     - -15.51
     - 5.54
     - -8.37
-  stars:
+  objects:
     - name: 2MASS 1835+3259
+      type: Star
       mass: 0.07
       radius: 0.11
       spectralClass: M8V
@@ -822,8 +910,9 @@
     - 7.92
     - -6.17
     - 15.58
-  stars:
+  objects:
     - name: Gliese 205
+      type: Star
       mass: 0.56
       radius: 0.59
       spectralClass: M1V
@@ -833,8 +922,9 @@
     - -7.74
     - -10.48
     - -13.32
-  stars:
+  objects:
     - name: LP 816-60
+      type: Star
       mass: 0.19
       radius: 0.20
       spectralClass: M3V
@@ -844,8 +934,9 @@
     - 5.67
     - -11.76
     - 13.4
-  stars:
+  objects:
     - name: 2MASS 0415−0935
+      type: Star
       mass: 0.03
       radius: 0.09
       spectralClass: T8
@@ -855,8 +946,9 @@
     - -17.08
     - 6.99
     - 3.41
-  stars:
+  objects:
     - name: Sigma Draconis
+      type: Star
       mass: 0.85
       radius: 0.78
       spectralClass: K0V
@@ -866,18 +958,21 @@
     - 13.36
     - -5.94
     - 11.77
-  stars:
+  objects:
     - name: Gliese 229 A
+      type: Star
       mass: 0.58
       radius: 0.69
       spectralClass: M1V
       temperature: 3837
     - name: Gliese 229 B
+      type: Star
       mass: 0.04
       radius: 0.05
       spectralClass: T6V
       temperature: 900
     - name: Gliese 229 C
+      type: Star
       mass: 0.03
       radius: 0.04
       spectralClass: T7
@@ -887,8 +982,9 @@
     - 4.45
     - -3.04
     - 18.24
-  stars:
+  objects:
     - name: Ross 47
+      type: Star
       mass: 0.35
       radius: 0.17
       spectralClass: M4V
@@ -898,8 +994,9 @@
     - 7.71
     - -4.76
     - -16.77
-  stars:
+  objects:
     - name: Gliese 693
+      type: Star
       mass: 0.26
       radius: 0.30
       spectralClass: M2V
@@ -909,13 +1006,15 @@
     - -12.36
     - -1.09
     - -14.49
-  stars:
+  objects:
     - name: Wolf 1055 A
+      type: Star
       mass: 0.46
       radius: 0.55
       spectralClass: M2V
       temperature: 3570
     - name: Wolf 1055 B
+      type: Star
       mass: 0.07
       radius: 0.10
       spectralClass: M8V
@@ -925,23 +1024,27 @@
     - 5.96
     - 10.32
     - -14.94
-  stars:
+  objects:
     - name: 33 G. Librae A
+      type: Star
       mass: 0.80
       radius: 0.74
       spectralClass: K4V
       temperature: 4625
     - name: 33 G. Librae B
+      type: Star
       mass: 0.55
       radius: 0.65
       spectralClass: M1V
       temperature: 26407700
     - name: 33 G. Librae C
+      type: Star
       mass: 0.35
       radius: 0.40
       spectralClass: M3V
       temperature: 3100
     - name: 33 G. Librae D
+      type: Star
       mass: 0.05
       radius: 0.10
       spectralClass: T8
@@ -951,8 +1054,9 @@
     - 2.34
     - -7.81
     - -17.47
-  stars:
+  objects:
     - name: Gliese 754
+      type: Star
       mass: 0.18
       radius: 0.24
       spectralClass: M4V
@@ -962,8 +1066,9 @@
     - 8.69
     - 4.07
     - -16.81
-  stars:
+  objects:
     - name: Gliese 588
+      type: Star
       mass: 0.46
       radius: 0.48
       spectralClass: M4V
@@ -973,13 +1078,15 @@
     - -4.6
     - -18.81
     - -0.49
-  stars:
+  objects:
     - name: Gliese 1005 A
+      type: Star
       mass: 0.18
       radius: 0.20
       spectralClass: M4V
       temperature: 3341
     - name: Gliese 1005 B
+      type: Star
       mass: 0.11
       radius: 0.15
       spectralClass: M7V
@@ -989,13 +1096,15 @@
     - -16.27
     - -1.71
     - 10.41
-  stars:
+  objects:
     - name: Eta Cassiopeiae A
+      type: Star
       mass: 0.97
       radius: 1.04
       spectralClass: F9V
       temperature: 5937
     - name: Eta Cassiopeiae B
+      type: Star
       mass: 0.57
       radius: 0.66
       spectralClass: K7V
@@ -1005,18 +1114,21 @@
     - 0.58
     - 2.32
     - -19.25
-  stars:
+  objects:
     - name: 36 Ophiuchi A
+      type: Star
       mass: 0.85
       radius: 0.82
       spectralClass: K2V
       temperature: 5103
     - name: 36 Ophiuchi B
+      type: Star
       mass: 0.85
       radius: 0.81
       spectralClass: K1V
       temperature: 5199
     - name: 36 Ophiuchi C
+      type: Star
       mass: 0.71
       radius: 0.72
       spectralClass: K5V
@@ -1026,8 +1138,9 @@
     - -10.59
     - -16.26
     - 0.66
-  stars:
+  objects:
     - name: Gliese 908
+      type: Star
       mass: 0.37
       radius: 0.39
       spectralClass: M1V
@@ -1037,8 +1150,9 @@
     - 11.11
     - 4.54
     - 15.38
-  stars:
+  objects:
     - name: YZ Canis Minoris
+      type: Star
       mass: 0.31
       radius: 0.32
       spectralClass: M4V
@@ -1048,13 +1162,15 @@
     - -1.53
     - -10.08
     - -16.76
-  stars:
+  objects:
     - name: 279 G. Sagittari A
+      type: Star
       mass: 0.65
       radius: 0.66
       spectralClass: K2V
       temperature: 4975
     - name: 279 G. Sagittari B
+      type: Star
       mass: 0.24
       radius: 0.28
       spectralClass: M4V
@@ -1064,8 +1180,9 @@
     - 10.39
     - -16.36
     - 3.63
-  stars:
+  objects:
     - name: 82 Eridani
+      type: Star
       mass: 0.70
       radius: 0.92
       spectralClass: G6V
@@ -1075,8 +1192,9 @@
     - -16.69
     - 10.11
     - 3.37
-  stars:
+  objects:
     - name: Gliese 1221
+      type: Star
       mass: 0.81
       radius: 0.01
       spectralClass: D9
@@ -1086,13 +1204,15 @@
     - -3.81
     - 13.5
     - 14.14
-  stars:
+  objects:
     - name: Gliese 338 A
+      type: Star
       mass: 0.69
       radius: 0.58
       spectralClass: K7V
       temperature: 4024
     - name: Gliese 338 B
+      type: Star
       mass: 0.64
       radius: 0.58
       spectralClass: M0V
@@ -1102,8 +1222,9 @@
     - 8.47
     - -10.68
     - -14.53
-  stars:
+  objects:
     - name: Delta Pavonis
+      type: Star
       mass: 0.99
       radius: 1.22
       spectralClass: G8IV
@@ -1113,13 +1234,15 @@
     - -0.34
     - 6.8
     - 18.76
-  stars:
+  objects:
     - name: QY Aurigae A
+      type: Star
       mass: 0.22
       radius: 0.30
       spectralClass: M4V
       temperature: 3069
     - name: QY Aurigae B
+      type: Star
       mass: 0.19
       radius: 0.20
       spectralClass: M5V
@@ -1129,8 +1252,9 @@
     - 4.13
     - 14.74
     - 12.82
-  stars:
+  objects:
     - name: 2MASS J0937+2931
+      type: Star
       mass: 0.03
       radius: 0.05
       spectralClass: T5V

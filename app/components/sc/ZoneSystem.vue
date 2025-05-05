@@ -2,7 +2,7 @@
 import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
-import { System } from '~/utils/StarSystem';
+import { System } from '~/utils/types';
 import { DistanceMultiplier, RadiusMultiplier, StarUtils } from '~/utils/utils';
 
 const { onBeforeRender } = useLoop();
