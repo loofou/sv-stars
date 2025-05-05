@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
+import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D, Color } from 'three';
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
 import { System } from '~/utils/types';
@@ -25,6 +25,10 @@ const props = defineProps({
   distance02: {
     type: Boolean,
     default: false,
+  },
+  showBloom: {
+    type: Boolean,
+    default: true,
   },
 });
 
@@ -92,7 +96,7 @@ onBeforeRender(({ delta, elapsed }) => {
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
           :emissive="system.stars[0]?.color"
-          :emissive-intensity="3"
+          :emissive-intensity="showBloom ? 3 : 1"
         />
       </TresMesh>
 
@@ -105,7 +109,7 @@ onBeforeRender(({ delta, elapsed }) => {
         @click="emit('click')"
       >
         <TresSphereGeometry :args="[Math.max(0.05, star.radius * RadiusMultiplier), 32, 16]" />
-        <TresMeshStandardMaterial :color="star.color" :emissive="star.color" :emissive-intensity="3" />
+        <TresMeshStandardMaterial :color="star.color" :emissive="star.color" :emissive-intensity="showBloom ? 3 : 1" />
       </TresMesh>
 
       <primitive :object="label" />

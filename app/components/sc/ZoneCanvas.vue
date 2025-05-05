@@ -74,6 +74,7 @@ const getSystems = computed(() => {
       :selected="system.name == selectedSystem"
       :distance01="system.name == distance01"
       :distance02="system.name == distance02"
+      :showBloom
       @click="emit('click', system)"
     />
 
