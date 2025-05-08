@@ -5,16 +5,13 @@ import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/types';
 import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
 import { DistanceMultiplier } from '~/utils/utils';
+import { useSystemState } from '~/composables/useSystemState';
 
 const emit = defineEmits<{
   click: [system: System];
 }>();
 
 const props = defineProps({
-  systems: {
-    type: Array<System>,
-    required: true,
-  },
   selectedSystem: {
     type: String,
     default: '',
@@ -53,11 +50,13 @@ const props = defineProps({
   },
 });
 
+const systems = useSystemState();
+
 const getSystems = computed(() => {
   if (props.showDwarfStars) {
-    return props.systems;
+    return systems.state.value;
   } else {
-    return props.systems.filter((s) => !s.isDwarfStar);
+    return systems.state.value.filter((s) => !s.isDwarfStar);
   }
 });
 </script>

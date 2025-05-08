@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { TabsItem } from '@nuxt/ui';
-import { defaultSystems } from '~/utils/DefaultStars';
+import { useSystemState } from '~/composables/useSystemState';
 import { System } from '~/utils/types';
 import { StarUtils } from '~/utils/utils';
 
@@ -15,7 +15,7 @@ const showBgStars = ref(true);
 const showDwarfStars = ref(true);
 
 //Default system
-const systems = ref(defaultSystems());
+const systems = useSystemState();
 const canvasKey = ref(0);
 
 //loading & saving
@@ -47,7 +47,7 @@ const distance02Details = ref(new System());
 
 //Functions
 function saveYaml() {
-  const yamlString = StarUtils.convertToYaml(systems.value);
+  const yamlString = StarUtils.convertToYaml(systems.state.value);
   StarUtils.saveToFile(yamlString, 'neighbourhood.yaml');
 }
 
@@ -55,7 +55,7 @@ function loadYaml() {
   loadBarOpen.value = false;
 
   const newSystems = StarUtils.convertFromYaml(yamlAreaText.value);
-  systems.value = newSystems;
+  systems.state.value = newSystems;
 
   console.log(newSystems);
 
@@ -159,7 +159,6 @@ watch(showDwarfStars, () => {
       <div class="grow">
         <ScZoneCanvas
           :key="canvasKey"
-          :systems
           :showBloom
           :showGrid
           :showBgStars

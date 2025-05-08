@@ -15,7 +15,7 @@ const props = defineProps({
 function createItems(system: System) {
   const starChildren: any[] = [
     {
-      label: `${system.position.join(', ')}`,
+      label: `${system.position.map((pos) => pos.toFixed(2)).join(', ')}`,
       value: `${system.name}-pos`,
       icon: 'solar:map-point-bold',
     },
@@ -28,12 +28,12 @@ function createItems(system: System) {
       defaultExpanded: true,
       children: [
         {
-          label: `Spectral Class: ${star.spectralClass}`,
+          label: `S. Class: ${star.spectralClass}`,
           value: `${star.name}-sc`,
           icon: 'material-symbols:cards-star-outline',
         },
         {
-          label: `Temperature: ${star.temperature} K`,
+          label: `Temp: ${star.temperature} K`,
           value: `${star.name}-temp`,
           icon: 'uil:temperature-half',
         },
