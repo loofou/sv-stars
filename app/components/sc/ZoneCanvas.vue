@@ -5,7 +5,7 @@ import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/types';
 import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
 import { DistanceMultiplier } from '~/utils/utils';
-import { useSystemState } from '~/composables/useSystemState';
+import { useCatalog } from '~/composables/useCatalog';
 
 const emit = defineEmits<{
   click: [system: System];
@@ -50,7 +50,7 @@ const props = defineProps({
   },
 });
 
-const systems = useSystemState();
+const systems = useCatalog();
 
 const getSystems = computed(() => {
   if (props.showDwarfStars) {

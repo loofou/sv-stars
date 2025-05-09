@@ -1,0 +1,24 @@
+- name: Alpha Centauri
+  position:
+    - 3.046447
+    - -0.05177
+    - -3.125542
+  objects:
+    - name: Rigil Kentaurus A
+      type: Star
+      mass: 1.07
+      radius: 1.27
+      spectralClass: G2V
+      temperature: 5804
+    - name: Toliman B
+      type: Star
+      mass: 0.9
+      radius: 0.85
+      spectralClass: K1V
+      temperature: 5207
+    - name: Proxima Centauri
+      type: Star
+      mass: 0.12
+      radius: 0.15
+      spectralClass: M5V
+      temperature: 2992

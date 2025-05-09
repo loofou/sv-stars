@@ -1,6 +1,7 @@
 <script lang="ts" setup>
+import { merge } from 'lodash';
 import type { TabsItem } from '@nuxt/ui';
-import { useSystemState } from '~/composables/useSystemState';
+import { useCatalog } from '~/composables/useCatalog';
 import { System } from '~/utils/types';
 import { StarUtils } from '~/utils/utils';
 
@@ -15,7 +16,7 @@ const showBgStars = ref(true);
 const showDwarfStars = ref(true);
 
 //Default system
-const systems = useSystemState();
+const systems = useCatalog();
 const canvasKey = ref(0);
 
 //loading & saving
@@ -57,7 +58,15 @@ function loadYaml() {
   const newSystems = StarUtils.convertFromYaml(yamlAreaText.value);
   systems.state.value = newSystems;
 
-  console.log(newSystems);
+  resetSelections();
+  canvasKey.value += 1;
+}
+
+function mergeYaml() {
+  loadBarOpen.value = false;
+
+  const newSystems = StarUtils.convertFromYaml(yamlAreaText.value);
+  systems.state.value = merge(systems.state.value, newSystems);
 
   resetSelections();
   canvasKey.value += 1;
@@ -126,12 +135,15 @@ watch(showDwarfStars, () => {
       <USeparator label="Save & Load Config" class="my-2" />
       <div class="py-2 flex flex-row gap-2">
         <UButton class="grow" icon="uil-file-export" label="Save" variant="subtle" @click="saveYaml" />
-        <UPopover v-model:open="loadBarOpen">
+        <UPopover arrow v-model:open="loadBarOpen">
           <UButton class="grow" icon="uil-file-import" label="Load" variant="subtle" />
 
           <template #content>
-            <UTextarea v-model="yamlAreaText" class="m-1 inline-flex" />
-            <UButton class="m-1" icon="uil-file-import" @click="loadYaml" />
+            <UTextarea v-model="yamlAreaText" class="m-1 inline-flex" placeholder="Enter YAML here" />
+            <div class="flex flex-col">
+              <UButton class="m-1" icon="uil-file-import" label="Load & Replace" @click="loadYaml" />
+              <UButton class="m-1" icon="material-symbols:cell-merge" label="Load & Merge" @click="mergeYaml" />
+            </div>
           </template>
         </UPopover>
       </div>

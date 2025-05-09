@@ -1,0 +1,12 @@
+- name: Sol
+  position:
+    - 0
+    - 0
+    - 0
+  objects:
+    - name: Sol
+      type: Star
+      mass: 1
+      radius: 1
+      spectralClass: G2V
+      temperature: 5772
