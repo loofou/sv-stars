@@ -1,19 +1,17 @@
 <script lang="ts" setup>
 import { merge } from 'lodash';
 import type { TabsItem } from '@nuxt/ui';
-import { useCatalog } from '~/composables/useCatalog';
 import { System } from '~/utils/types';
 import { StarUtils } from '~/utils/utils';
+import { useSettings } from '~/composables/useSettings';
+import { useCatalog } from '~/composables/useCatalog';
 
 useHead({
   title: 'State Vector Star Catalog',
 });
 
-//Config
-const showBloom = ref(true);
-const showGrid = ref(true);
-const showBgStars = ref(true);
-const showDwarfStars = ref(true);
+//Settings
+const settings = useSettings();
 
 //Default system
 const systems = useCatalog();
@@ -112,26 +110,20 @@ watch(activeMode, () => {
   resetSelections();
 });
 
-watch(showDwarfStars, () => {
-  resetSelections();
-  canvasKey.value += 1;
-});
+watch(
+  () => settings.value.showDwarfStars,
+  () => {
+    resetSelections();
+    canvasKey.value += 1;
+  },
+);
 </script>
 
 <template>
   <div class="flex h-screen bg-gray-100">
     <NavBar>
-      <UCollapsible class="flex flex-col gap-2">
-        <UButton label="Settings" color="neutral" variant="subtle" trailing-icon="i-lucide-chevron-down" block />
-        <template #content>
-          <div class="p-3 rounded-md border border-solid border-gray-600">
-            <USwitch class="p-1" label="Show Bloom" v-model="showBloom" />
-            <USwitch class="p-1" label="Show Grid" v-model="showGrid" />
-            <USwitch class="p-1" label="Show Background Stars" v-model="showBgStars" />
-            <USwitch class="p-1" label="Show Dwarf Stars" v-model="showDwarfStars" />
-          </div>
-        </template>
-      </UCollapsible>
+      <NavSettingsPanel />
+
       <USeparator label="Save & Load Config" class="my-2" />
       <div class="py-2 flex flex-row gap-2">
         <UButton class="grow" icon="uil-file-export" label="Save" variant="subtle" @click="saveYaml" />
@@ -171,10 +163,6 @@ watch(showDwarfStars, () => {
       <div class="grow">
         <ScZoneCanvas
           :key="canvasKey"
-          :showBloom
-          :showGrid
-          :showBgStars
-          :showDwarfStars
           :selectedSystem
           :distance01
           :distance02

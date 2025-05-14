@@ -2,6 +2,7 @@
 import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D, Color } from 'three';
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
+import { useSettings } from '~/composables/useSettings';
 import { System } from '~/utils/types';
 import { DistanceMultiplier, RadiusMultiplier, StarUtils } from '~/utils/utils';
 
@@ -26,11 +27,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  showBloom: {
-    type: Boolean,
-    default: true,
-  },
 });
+
+const settings = useSettings();
 
 //calculate various positions
 const sysPos = StarUtils.convertToVec3(props.system.position); //props.system.position.map((a) => a * 2) as [number, number, number];
@@ -96,7 +95,7 @@ onBeforeRender(({ delta, elapsed }) => {
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
           :emissive="system.stars[0]?.color"
-          :emissive-intensity="showBloom ? 3 : 1"
+          :emissive-intensity="settings.showBloom ? 3 : 1"
         />
       </TresMesh>
 
@@ -109,7 +108,11 @@ onBeforeRender(({ delta, elapsed }) => {
         @click="emit('click')"
       >
         <TresSphereGeometry :args="[Math.max(0.05, star.radius * RadiusMultiplier), 32, 16]" />
-        <TresMeshStandardMaterial :color="star.color" :emissive="star.color" :emissive-intensity="showBloom ? 3 : 1" />
+        <TresMeshStandardMaterial
+          :color="star.color"
+          :emissive="star.color"
+          :emissive-intensity="settings.showBloom ? 3 : 1"
+        />
       </TresMesh>
 
       <primitive :object="label" />

@@ -5,6 +5,7 @@ import { OrbitControls } from '@tresjs/cientos';
 import { System } from '~/utils/types';
 import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
 import { DistanceMultiplier } from '~/utils/utils';
+import { useSettings } from '~/composables/useSettings';
 import { useCatalog } from '~/composables/useCatalog';
 
 const emit = defineEmits<{
@@ -32,31 +33,16 @@ const props = defineProps({
     type: System,
     required: true,
   },
-  showBloom: {
-    type: Boolean,
-    default: true,
-  },
-  showGrid: {
-    type: Boolean,
-    default: true,
-  },
-  showBgStars: {
-    type: Boolean,
-    default: true,
-  },
-  showDwarfStars: {
-    type: Boolean,
-    default: true,
-  },
 });
 
 const systems = useCatalog();
+const settings = useSettings();
 
 const getSystems = computed(() => {
-  if (props.showDwarfStars) {
+  if (settings.value.showDwarfStars) {
     return systems.state.value;
   } else {
-    return systems.state.value.filter((s) => !s.isDwarfStar);
+    return systems.state.value.filter((s: System) => !s.isDwarfStar);
   }
 });
 </script>
@@ -73,7 +59,6 @@ const getSystems = computed(() => {
       :selected="system.name == selectedSystem"
       :distance01="system.name == distance01"
       :distance02="system.name == distance02"
-      :showBloom
       @click="emit('click', system)"
     />
 
@@ -86,7 +71,7 @@ const getSystems = computed(() => {
 
     <!--Grid-->
     <Grid
-      v-if="showGrid"
+      v-if="settings.showGrid"
       :args="[100, 100]"
       cell-color="grey"
       :cell-size="DistanceMultiplier"
@@ -101,12 +86,12 @@ const getSystems = computed(() => {
     />
 
     <!--Background stars-->
-    <Stars v-if="showBgStars" :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
+    <Stars v-if="settings.showBgStars" :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
 
     <!--Post-process effects-->
     <Suspense>
       <EffectComposer>
-        <UnrealBloom v-if="showBloom" :radius="0.05" :strength="0.5" :threshold="1" />
+        <UnrealBloom v-if="settings.showBloom" :radius="0.05" :strength="0.5" :threshold="1" />
       </EffectComposer>
     </Suspense>
   </TresCanvas>
