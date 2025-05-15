@@ -19,6 +19,11 @@ function createItems(system: System) {
       value: `${system.name}-pos`,
       icon: 'solar:map-point-bold',
     },
+    {
+      label: `Planets: ${system.planetNumber}`,
+      value: `${system.name}-planetNum`,
+      icon: 'tabler:world-plus',
+    },
   ];
   system.stars.forEach((star: Star) => {
     starChildren.push({
@@ -73,5 +78,8 @@ watch(props, () => {
   <div>
     <p v-if="!isSystemSelected">Click on a system to select it...</p>
     <UTree v-if="isSystemSelected" :items />
+    <UButton v-if="isSystemSelected" class="m-2 self-center" icon="mdi:arrow-bottom-right-thin" variant="subtle">
+      <NuxtLink :to="`/${system.name}`"> Go to system </NuxtLink>
+    </UButton>
   </div>
 </template>

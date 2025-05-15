@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D, Color } from 'three';
+import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
 import SpriteText from 'three-spritetext';
 import { shallowRef } from 'vue';
 import { useSettings } from '~/composables/useSettings';
 import { System } from '~/utils/types';
-import { DistanceMultiplier, RadiusMultiplier, StarUtils } from '~/utils/utils';
+import { DistanceMultiplier, StarRadiusMultiplier, StarUtils } from '~/utils/utils';
 
 const { onBeforeRender } = useLoop();
 
@@ -91,7 +91,7 @@ onBeforeRender(({ delta, elapsed }) => {
   <TresGroup :name="system.name">
     <TresGroup :position="sysPos">
       <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
-        <TresSphereGeometry :args="[Math.max(0.05, (system.stars[0]?.radius ?? 1) * RadiusMultiplier), 32, 16]" />
+        <TresSphereGeometry :args="[Math.max(0.05, (system.stars[0]?.radius ?? 1) * StarRadiusMultiplier), 32, 16]" />
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
           :emissive="system.stars[0]?.color"
@@ -107,7 +107,7 @@ onBeforeRender(({ delta, elapsed }) => {
         ref="rStars"
         @click="emit('click')"
       >
-        <TresSphereGeometry :args="[Math.max(0.05, star.radius * RadiusMultiplier), 32, 16]" />
+        <TresSphereGeometry :args="[Math.max(0.05, star.radius * StarRadiusMultiplier), 32, 16]" />
         <TresMeshStandardMaterial
           :color="star.color"
           :emissive="star.color"

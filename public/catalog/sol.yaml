@@ -10,3 +10,15 @@
       radius: 1
       spectralClass: G2V
       temperature: 5772
+    - name: Mercury
+      type: Planet
+      parent: Sol
+      mass: 0.0553
+      radius: 0.383
+      orbit:
+        eccentricity: 0.2056 #e
+        inclination: 7.0049 #i
+        semiMajorAxis: 0.3871 #a
+        longitudeOfAscendingNode: 48.3316 #lAscNode
+        argumentOfPeriapsis: 77.4578 #lPeri
+        meanAnomaly: 252.2503 #L
