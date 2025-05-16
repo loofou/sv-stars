@@ -22,7 +22,7 @@ const systems = useCatalog();
 const settings = useSettings();
 
 const thisSystem = computed(() => {
-  return systems.state.value.find((system: System) => system.name === props.system);
+  return systems.state.value.find((system: System) => system.name === props.system) ?? new System();
 });
 </script>
 
@@ -31,10 +31,13 @@ const thisSystem = computed(() => {
     <TresPerspectiveCamera :args="[45, 1, 0.1, 1000]" :position="[30, 30, 30]" />
     <OrbitControls :make-default="true" :max-distance="150" />
 
+    <ScTimeUpdater />
+
     <ScSystemStellarObject
       v-for="stellarObject in thisSystem?.objects"
       :key="stellarObject.name"
       :stellar-object="stellarObject"
+      :system="thisSystem"
       @click="emit('click', stellarObject)"
     />
 

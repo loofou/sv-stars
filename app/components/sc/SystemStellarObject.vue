@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Vector3, Color } from 'three';
 import SpriteText from 'three-spritetext';
-import { calcOrbitalPosition } from '~/utils/physics';
+import { adjustForTime } from '~/utils/physics';
 import type { Planet } from '~/utils/types';
 import { AUMultiplier, StarRadiusMultiplier, PlanetRadiusMultiplier } from '~/utils/utils';
 
@@ -12,9 +12,14 @@ const props = defineProps({
     type: StellarObject,
     required: true,
   },
+  system: {
+    type: System,
+    required: true,
+  },
 });
 
 const settings = useSettings();
+const time = useStarTime();
 
 //orbit
 const position = ref(new Vector3());
@@ -22,7 +27,10 @@ if (!props.stellarObject.parent) {
   position.value = new Vector3(0, 0, 0);
 } else {
   //orbital calculations
-  position.value = calcOrbitalPosition(props.stellarObject.orbit);
+  const parentMass = props.stellarObject.getParent(props.system)?.mass ?? 1;
+  const adjustedOrbit = adjustForTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
+  const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
+  position.value = pos;
   position.value.multiplyScalar(AUMultiplier);
 }
 
@@ -50,6 +58,19 @@ watch(props, () => {
   label.value.strokeWidth = 1;
   label.value.translateY(3);
 });
+
+watch(
+  () => time.value.currentTime,
+  () => {
+    if (props.stellarObject.parent) {
+      const parentMass = props.stellarObject.getParent(props.system)?.mass ?? 1;
+      const adjustedOrbit = adjustForTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
+      const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
+      position.value = pos;
+      position.value.multiplyScalar(AUMultiplier);
+    }
+  },
+);
 </script>
 
 <template>

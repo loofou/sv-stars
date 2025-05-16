@@ -78,8 +78,10 @@ watch(props, () => {
   <div>
     <p v-if="!isSystemSelected">Click on a system to select it...</p>
     <UTree v-if="isSystemSelected" :items />
-    <UButton v-if="isSystemSelected" class="m-2 self-center" icon="mdi:arrow-bottom-right-thin" variant="subtle">
-      <NuxtLink :to="`/${system.name}`"> Go to system </NuxtLink>
-    </UButton>
+    <div class="flex flex-col items-center gap-2 justify-between">
+      <UButton v-if="isSystemSelected" class="m-2 self-center" icon="mdi:arrow-bottom-right-thin" variant="subtle">
+        <NuxtLink :to="`/${system.name}`"> Go to system </NuxtLink>
+      </UButton>
+    </div>
   </div>
 </template>

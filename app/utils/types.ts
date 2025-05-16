@@ -1,13 +1,16 @@
 import { Type } from 'class-transformer';
 import { StarUtils } from './utils';
 import 'reflect-metadata';
+import { J2000, type Epoch } from './epoch';
 
 export class StellarObject {
   readonly type: string;
   readonly name: string;
   readonly parent: string | null;
-  readonly orbit: Orbit;
   readonly mass: number;
+
+  @Type(() => Orbit)
+  readonly orbit: Orbit;
 
   constructor();
   constructor(type: string, name: string, parent: string | null, orbit: Orbit, mass: number);
@@ -24,6 +27,20 @@ export class StellarObject {
   }
 }
 
+export class Rotation {
+  readonly axialTilt: number;
+  readonly siderealPeriod: number;
+  readonly initialRotation?: number;
+
+  constructor();
+  constructor(axialTilt: number, siderealPeriod: number, initialRotation?: number);
+  constructor(axialTilt?: number, siderealPeriod?: number, initialRotation?: number) {
+    this.axialTilt = axialTilt ?? 0;
+    this.siderealPeriod = siderealPeriod ?? 0;
+    this.initialRotation = initialRotation;
+  }
+}
+
 export class Orbit {
   readonly eccentricity: number;
   readonly semiMajorAxis: number;
@@ -31,6 +48,11 @@ export class Orbit {
   readonly longitudeOfAscendingNode: number;
   readonly argumentOfPeriapsis: number;
   readonly meanAnomaly: number;
+
+  @Type(() => J2000.constructor)
+  readonly epoch: Epoch;
+  @Type(() => Rotation)
+  readonly rotation: Rotation;
 
   constructor();
   constructor(
@@ -40,6 +62,8 @@ export class Orbit {
     longitudeOfAscendingNode: number,
     argumentOfPeriapsis: number,
     meanAnomaly: number,
+    epoch: Epoch,
+    rotation: Rotation,
   );
   constructor(
     eccentricity?: number,
@@ -48,6 +72,8 @@ export class Orbit {
     longitudeOfAscendingNode?: number,
     argumentOfPeriapsis?: number,
     meanAnomaly?: number,
+    epoch?: Epoch,
+    rotation?: Rotation,
   ) {
     this.eccentricity = eccentricity ?? 0;
     this.semiMajorAxis = semiMajorAxis ?? 1;
@@ -55,6 +81,8 @@ export class Orbit {
     this.longitudeOfAscendingNode = longitudeOfAscendingNode ?? 0;
     this.argumentOfPeriapsis = argumentOfPeriapsis ?? 0;
     this.meanAnomaly = meanAnomaly ?? 0;
+    this.epoch = epoch ?? J2000;
+    this.rotation = rotation ?? new Rotation();
   }
 }
 

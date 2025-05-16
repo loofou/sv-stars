@@ -9,10 +9,6 @@ useHead({
 
 const systems = useCatalog();
 const canvasKey = ref(0);
-
-const thisSystem = computed(() => {
-  return systems.state.value.find((s: System) => s.name === system) ?? new System();
-});
 </script>
 
 <template>
@@ -20,9 +16,13 @@ const thisSystem = computed(() => {
     <NavBar>
       <NavSettingsPanel />
       <USeparator :label="system" class="my-2 font-extrabold" />
-      <UButton class="m-2 self-center" icon="mdi:arrow-top-left-thin" variant="subtle">
-        <NuxtLink to="/"> Back to Neighbourhood </NuxtLink>
-      </UButton>
+      <div class="flex flex-col items-center gap-2 justify-between">
+        <UButton class="m-2 self-center" icon="mdi:arrow-top-left-thin" variant="subtle">
+          <NuxtLink to="/"> Back to Neighbourhood </NuxtLink>
+        </UButton>
+      </div>
+      <USeparator label="Time Controls" class="my-2" />
+      <ScTimeControls />
     </NavBar>
     <NavContainer>
       <div class="grow">
