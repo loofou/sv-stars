@@ -78,7 +78,7 @@ onBeforeRender(({ delta, elapsed }) => {
     stars.forEach((star: Object3D, i: number) => {
       if (star && star.position && i > 0) {
         const rotation = (1 / i) * elapsed;
-        const radius = i * (2 * originRadius * RadiusMultiplier);
+        const radius = i * (2 * originRadius * StarRadiusMultiplier);
         star.position.x = radius * Math.cos(rotation);
         star.position.z = radius * Math.sin(rotation);
       }

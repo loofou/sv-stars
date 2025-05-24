@@ -22,3 +22,39 @@
         longitudeOfAscendingNode: 48.3316
         argumentOfPeriapsis: 77.4578
         meanAnomaly: 174.796
+    - name: Venus
+      type: Planet
+      parent: Sol
+      mass: 0.815
+      radius: 0.95
+      orbit:
+        eccentricity: 0.0068
+        inclination: 3.3946
+        semiMajorAxis: 0.7233
+        longitudeOfAscendingNode: 76.680
+        argumentOfPeriapsis: 54.884
+        meanAnomaly: 50.115
+    - name: Earth
+      type: Planet
+      parent: Sol
+      mass: 1
+      radius: 1
+      orbit:
+        eccentricity: 0.0167
+        inclination: 0.00005
+        semiMajorAxis: 1
+        longitudeOfAscendingNode: -11.2606
+        argumentOfPeriapsis: 114.2078
+        meanAnomaly: 358.617
+    - name: Mars
+      type: Planet
+      parent: Sol
+      mass: 1
+      radius: 1
+      orbit:
+        eccentricity: 0.0935
+        inclination: 1.85
+        semiMajorAxis: 1.5237
+        longitudeOfAscendingNode: 49.57854
+        argumentOfPeriapsis: 286.502
+        meanAnomaly: 19.412

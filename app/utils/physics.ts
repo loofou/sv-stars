@@ -168,13 +168,26 @@ function normalizeRotation(rotation: number) {
 }
 
 export function adjustForTime(orbit: Orbit, parentMass: number, time: Date): Orbit {
-  const { semiMajorAxis: a, rotation } = orbit;
-  const dt = (Number(time) - Number(epochToDate(orbit.epoch))) / 1000; // dt in seconds
-  const n = Math.sqrt((G * parentMass) / a / a / a); // calculate mean motion
+  const { semiMajorAxis, rotation } = orbit;
+  const a = astronomicalUnitsToMeters(semiMajorAxis); // convert semi-major axis to meters
+  const dt = (time.valueOf() - epochToDate(orbit.epoch).valueOf()) / 1000; // dt in seconds
+  const n = Math.sqrt((G * parentMass) / (a * a * a)); // calculate mean motion
   const newM = orbit.meanAnomaly + radToDeg(n * dt); // update mean anomaly
   const rotationInEpoch =
     rotation != null && rotation.initialRotation != null
       ? { ...rotation, initialRotation: normalizeRotation(rotation.initialRotation + dt / rotation.siderealPeriod) }
       : rotation;
   return { ...orbit, meanAnomaly: normalizeRotation(newM), rotation: rotationInEpoch };
+}
+
+export function solarMassesToKg(solarMasses: number) {
+  return solarMasses * 1.9885e30; // kg
+}
+
+export function earthMassesToKg(earthMasses: number) {
+  return earthMasses * 5.972168e24; // kg
+}
+
+export function astronomicalUnitsToMeters(au: number) {
+  return au * 149597870700; // meters
 }

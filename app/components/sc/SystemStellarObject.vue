@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Vector3, Color } from 'three';
 import SpriteText from 'three-spritetext';
-import { adjustForTime } from '~/utils/physics';
+import { adjustForTime, earthMassesToKg, solarMassesToKg } from '~/utils/physics';
 import type { Planet } from '~/utils/types';
 import { AUMultiplier, StarRadiusMultiplier, PlanetRadiusMultiplier } from '~/utils/utils';
 
@@ -27,7 +27,17 @@ if (!props.stellarObject.parent) {
   position.value = new Vector3(0, 0, 0);
 } else {
   //orbital calculations
-  const parentMass = props.stellarObject.getParent(props.system)?.mass ?? 1;
+  const parent = props.stellarObject.getParent(props.system);
+  let parentMass = 0;
+
+  if (parent && parent.type == 'Star') {
+    parentMass = solarMassesToKg(parent.mass);
+  } else if (parent && parent.type == 'Planet') {
+    parentMass = earthMassesToKg(parent.mass);
+  } else {
+    console.error('Parent not found for', props.stellarObject.name, props.stellarObject.parent);
+  }
+
   const adjustedOrbit = adjustForTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
   const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
   position.value = pos;
@@ -63,7 +73,17 @@ watch(
   () => time.value.currentTime,
   () => {
     if (props.stellarObject.parent) {
-      const parentMass = props.stellarObject.getParent(props.system)?.mass ?? 1;
+      const parent = props.stellarObject.getParent(props.system);
+      let parentMass = 0;
+
+      if (parent && parent.type == 'Star') {
+        parentMass = solarMassesToKg(parent.mass);
+      } else if (parent && parent.type == 'Planet') {
+        parentMass = earthMassesToKg(parent.mass);
+      } else {
+        console.error('Parent not found for', props.stellarObject.name, props.stellarObject.parent);
+      }
+
       const adjustedOrbit = adjustForTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
       const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
       position.value = pos;
@@ -100,7 +120,7 @@ watch(
           v-if="stellarObject.type == 'Planet'"
           :args="[Math.max(0.05, ((stellarObject as Planet).radius ?? 1) * PlanetRadiusMultiplier), 32, 16]"
         />
-        <TresMeshStandardMaterial v-if="stellarObject.type == 'Planet'" :color="new Color('#ababab')" />
+        <TresMeshStandardMaterial v-if="stellarObject.type == 'Planet'" :color="new Color('#abffff')" />
       </TresMesh>
 
       <primitive :object="label" />

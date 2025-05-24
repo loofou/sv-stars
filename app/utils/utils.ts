@@ -82,5 +82,5 @@ export abstract class StarUtils {
 
 export const DistanceMultiplier = 4;
 export const StarRadiusMultiplier = 1;
-export const PlanetRadiusMultiplier = 1;
+export const PlanetRadiusMultiplier = 0.5;
 export const AUMultiplier = 10;
