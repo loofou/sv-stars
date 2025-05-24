@@ -33,13 +33,15 @@ const thisSystem = computed(() => {
 
     <ScTimeUpdater />
 
-    <ScSystemStellarObject
-      v-for="stellarObject in thisSystem?.objects"
-      :key="stellarObject.name"
-      :stellar-object="stellarObject"
-      :system="thisSystem"
-      @click="emit('click', stellarObject)"
-    />
+    <Suspense>
+      <ScSystemStellarObject
+        v-for="stellarObject in thisSystem?.objects"
+        :key="stellarObject.name"
+        :stellar-object="stellarObject"
+        :system="thisSystem"
+        @click="emit('click', stellarObject)"
+      />
+    </Suspense>
 
     <!--Grid-->
     <Grid

@@ -86,6 +86,16 @@ export class Orbit {
   }
 }
 
+export class RenderData {
+  readonly texture: string | null;
+
+  constructor();
+  constructor(texture: string);
+  constructor(texture?: string) {
+    this.texture = texture ?? null;
+  }
+}
+
 export class Star extends StellarObject {
   readonly spectralClass: string;
   readonly temperature: number;
@@ -123,12 +133,21 @@ export class Star extends StellarObject {
 
 export class Planet extends StellarObject {
   readonly radius: number;
+  readonly renderData: RenderData;
 
   constructor();
-  constructor(name: string, parent: string | null, orbit: Orbit, mass: number, radius: number);
-  constructor(name?: string, parent?: string | null, orbit?: Orbit, mass?: number, radius?: number) {
+  constructor(name: string, parent: string | null, orbit: Orbit, mass: number, radius: number, renderData: RenderData);
+  constructor(
+    name?: string,
+    parent?: string | null,
+    orbit?: Orbit,
+    mass?: number,
+    radius?: number,
+    renderData?: RenderData,
+  ) {
     super('Planet', name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
     this.radius = radius ?? 0;
+    this.renderData = renderData ?? new RenderData();
   }
 }
 

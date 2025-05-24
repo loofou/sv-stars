@@ -22,6 +22,8 @@
         longitudeOfAscendingNode: 48.3316
         argumentOfPeriapsis: 77.4578
         meanAnomaly: 174.796
+      renderData:
+        texture: mercury.jpg
     - name: Venus
       type: Planet
       parent: Sol
@@ -34,6 +36,8 @@
         longitudeOfAscendingNode: 76.680
         argumentOfPeriapsis: 54.884
         meanAnomaly: 50.115
+      renderData:
+        texture: venus.jpg
     - name: Earth
       type: Planet
       parent: Sol
@@ -46,6 +50,8 @@
         longitudeOfAscendingNode: -11.2606
         argumentOfPeriapsis: 114.2078
         meanAnomaly: 358.617
+      renderData:
+        texture: earth.jpg
     - name: Mars
       type: Planet
       parent: Sol
@@ -58,3 +64,5 @@
         longitudeOfAscendingNode: 49.57854
         argumentOfPeriapsis: 286.502
         meanAnomaly: 19.412
+      renderData:
+        texture: mars.jpg

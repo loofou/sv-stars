@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { Vector3, Color } from 'three';
+import { Vector3, Color, Texture } from 'three';
+import { useTexture } from '@tresjs/core';
 import SpriteText from 'three-spritetext';
 import { adjustForTime, earthMassesToKg, solarMassesToKg } from '~/utils/physics';
 import type { Planet } from '~/utils/types';
@@ -42,6 +43,24 @@ if (!props.stellarObject.parent) {
   const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
   position.value = pos;
   position.value.multiplyScalar(AUMultiplier);
+}
+
+//load texture if planet
+let texture: {
+  map: Texture;
+  displacementMap: null;
+  normalMap: null;
+  roughnessMap: null;
+  metalnessMap: null;
+  aoMap: null;
+  alphaMap: null;
+  matcap: null;
+};
+if (props.stellarObject.type === 'Planet') {
+  const renderData = (props.stellarObject as Planet).renderData;
+  if (renderData && renderData.texture) {
+    texture = await useTexture({ map: 'textures/' + renderData.texture });
+  }
 }
 
 //create label
@@ -108,19 +127,14 @@ watch(
           :emissive="(stellarObject as Star).color"
           :emissive-intensity="settings.showBloom ? 3 : 1"
         />
-        <TresPointLight
-          v-if="stellarObject.type == 'Star'"
-          :color="(stellarObject as Star).color"
-          :intensity="10"
-          :distance="100"
-        />
+        <TresPointLight v-if="stellarObject.type == 'Star'" :intensity="10" :distance="200" />
 
         <!--Planet-->
         <TresSphereGeometry
           v-if="stellarObject.type == 'Planet'"
           :args="[Math.max(0.05, ((stellarObject as Planet).radius ?? 1) * PlanetRadiusMultiplier), 32, 16]"
         />
-        <TresMeshStandardMaterial v-if="stellarObject.type == 'Planet'" :color="new Color('#abffff')" />
+        <TresMeshStandardMaterial v-if="stellarObject.type == 'Planet'" :map="texture.map" />
       </TresMesh>
 
       <primitive :object="label" />
