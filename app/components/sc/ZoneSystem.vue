@@ -59,12 +59,8 @@ watch(props, () => {
   else if (props.distance02) labelColor.value = 'orange';
   else labelColor.value = 'white';
 
-  label.value = new SpriteText(props.system.name, 1);
-  label.value.name = 'label';
+  label.value.text = props.system.name;
   label.value.color = labelColor.value;
-  label.value.strokeColor = 'black';
-  label.value.strokeWidth = 1;
-  label.value.translateY(3);
 });
 
 //animate multi-star systems

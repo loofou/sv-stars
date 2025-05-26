@@ -49,8 +49,8 @@ const getSystems = computed(() => {
 
 <template>
   <TresCanvas alpha :tone-mapping="NoToneMapping" clear-color="black" preset="flat">
-    <TresPerspectiveCamera :args="[45, 1, 0.1, 1000]" :position="[30, 30, 30]" />
-    <OrbitControls :make-default="true" :max-distance="150" />
+    <TresPerspectiveCamera :args="[45, 1, 0.1, 5000]" :position="[30, 30, 30]" />
+    <OrbitControls :make-default="true" :max-distance="250" />
 
     <!--Render our actual systems-->
     <ScZoneSystem
@@ -85,8 +85,10 @@ const getSystems = computed(() => {
       :fade-strength="2"
     />
 
-    <!--Background stars-->
-    <Stars v-if="settings.showBgStars" :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
+    <!--Environment Backdrop-->
+    <Suspense>
+      <Environment v-if="settings.showBgStars" :background="true" files="textures/HDR_hazy_nebulae.hdr" />
+    </Suspense>
 
     <!--Post-process effects-->
     <Suspense>

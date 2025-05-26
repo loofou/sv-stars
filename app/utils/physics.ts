@@ -1,11 +1,11 @@
 /**
- * from https://github.com/gordonhart/atlasof.space/
+ * adjusted from https://github.com/gordonhart/atlasof.space/
  * @license APACHE-2.0
  */
 
 import { Vector3 } from 'three';
-import { StarUtils } from './utils';
-import { epochToDate, dateToEpoch } from './epoch';
+import { StarUtils, AUMultiplier } from './utils';
+import { epochToDate } from './epoch';
 
 export const G = 6.6743e-11; // gravitational constant, N⋅m2⋅kg−2
 
@@ -23,7 +23,7 @@ export function magnitude(v: Array<number>) {
 
 // kepler's third law
 export function orbitalPeriod(semiMajorAxis: number, centralMass: number) {
-  return Math.PI * 2 * Math.sqrt(Math.pow(semiMajorAxis, 3) / (G * centralMass));
+  return Math.PI * 2 * Math.sqrt(semiMajorAxis ** 3 / (G * centralMass));
 }
 
 export function meanDistance(semiMajorAxis: number, eccentricity: number) {
@@ -178,6 +178,17 @@ export function adjustForTime(orbit: Orbit, parentMass: number, time: Date): Orb
       ? { ...rotation, initialRotation: normalizeRotation(rotation.initialRotation + dt / rotation.siderealPeriod) }
       : rotation;
   return { ...orbit, meanAnomaly: normalizeRotation(newM), rotation: rotationInEpoch };
+}
+
+export function calcOrbitInTime(orbit: Orbit, parentMass: number, currentTime: Date): Vector3 {
+  let position = new Vector3();
+
+  const adjustedOrbit = adjustForTime(orbit, parentMass, currentTime);
+  const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
+  position = pos;
+  position.multiplyScalar(AUMultiplier);
+
+  return position;
 }
 
 export function solarMassesToKg(solarMasses: number) {

@@ -2,6 +2,7 @@ import { Type } from 'class-transformer';
 import { StarUtils } from './utils';
 import 'reflect-metadata';
 import { J2000, type Epoch } from './epoch';
+import { Hash } from './hash';
 
 export class StellarObject {
   readonly type: string;
@@ -86,16 +87,6 @@ export class Orbit {
   }
 }
 
-export class RenderData {
-  readonly texture: string | null;
-
-  constructor();
-  constructor(texture: string);
-  constructor(texture?: string) {
-    this.texture = texture ?? null;
-  }
-}
-
 export class Star extends StellarObject {
   readonly spectralClass: string;
   readonly temperature: number;
@@ -133,21 +124,21 @@ export class Star extends StellarObject {
 
 export class Planet extends StellarObject {
   readonly radius: number;
-  readonly renderData: RenderData;
+  readonly color: string | null;
 
   constructor();
-  constructor(name: string, parent: string | null, orbit: Orbit, mass: number, radius: number, renderData: RenderData);
-  constructor(
-    name?: string,
-    parent?: string | null,
-    orbit?: Orbit,
-    mass?: number,
-    radius?: number,
-    renderData?: RenderData,
-  ) {
+  constructor(name: string, parent: string | null, orbit: Orbit, mass: number, radius: number, color: string);
+  constructor(name?: string, parent?: string | null, orbit?: Orbit, mass?: number, radius?: number, color?: string) {
     super('Planet', name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
     this.radius = radius ?? 0;
-    this.renderData = renderData ?? new RenderData();
+    this.color = color ?? null;
+  }
+
+  public get uiColor() {
+    if (this.color) {
+      return this.color;
+    }
+    return new Hash().eatStr(this.name).toHslColor();
   }
 }
 

@@ -3,7 +3,6 @@ import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
 import { OrbitControls } from '@tresjs/cientos';
 import { StellarObject, System } from '~/utils/types';
-import { DistanceMultiplier } from '~/utils/utils';
 import { useSettings } from '~/composables/useSettings';
 import { useCatalog } from '~/composables/useCatalog';
 
@@ -28,8 +27,8 @@ const thisSystem = computed(() => {
 
 <template>
   <TresCanvas alpha :tone-mapping="NoToneMapping" clear-color="black" preset="flat">
-    <TresPerspectiveCamera :args="[45, 1, 0.1, 1000]" :position="[30, 30, 30]" />
-    <OrbitControls :make-default="true" :max-distance="150" />
+    <TresPerspectiveCamera :args="[45, 1, 0.1, 5500]" :position="[30, 30, 30]" />
+    <OrbitControls :make-default="true" :max-distance="2500" />
 
     <ScTimeUpdater />
 
@@ -43,24 +42,10 @@ const thisSystem = computed(() => {
       />
     </Suspense>
 
-    <!--Grid-->
-    <Grid
-      v-if="settings.showGrid"
-      :args="[100, 100]"
-      cell-color="grey"
-      :cell-size="DistanceMultiplier"
-      :cell-thickness="0.5"
-      section-color="tan"
-      :section-size="DistanceMultiplier * 5"
-      :section-thickness="0.8"
-      :infinite-grid="true"
-      :fade-from="0"
-      :fade-distance="100"
-      :fade-strength="2"
-    />
-
-    <!--Background stars-->
-    <Stars v-if="settings.showBgStars" :radius="150" :depth="25" :count="15000" :size="0.5" :size-attenuation="false" />
+    <!--Environment Backdrop-->
+    <Suspense>
+      <Environment v-if="settings.showBgStars" :background="true" files="textures/HDR_galactic_plane_no_nebulae.hdr" />
+    </Suspense>
 
     <!--Post-process effects-->
     <Suspense>

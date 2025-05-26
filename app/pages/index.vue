@@ -117,6 +117,13 @@ watch(
     canvasKey.value += 1;
   },
 );
+watch(
+  () => settings.value.showBgStars,
+  () => {
+    resetSelections();
+    canvasKey.value += 1;
+  },
+);
 </script>
 
 <template>

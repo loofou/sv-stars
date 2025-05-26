@@ -7,8 +7,17 @@ useHead({
   title: `State Vector Star Catalog - ${system}`,
 });
 
-const systems = useCatalog();
+//Settings
+const settings = useSettings();
 const canvasKey = ref(0);
+
+watch(
+  () => settings.value.showBgStars,
+  () => {
+    //resetSelections();
+    canvasKey.value += 1;
+  },
+);
 </script>
 
 <template>

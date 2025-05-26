@@ -15,6 +15,7 @@
       parent: Sol
       mass: 0.0553
       radius: 0.383
+      color: '#B8860B'
       orbit:
         eccentricity: 0.2056
         inclination: 7.0049
@@ -22,13 +23,12 @@
         longitudeOfAscendingNode: 48.3316
         argumentOfPeriapsis: 77.4578
         meanAnomaly: 174.796
-      renderData:
-        texture: mercury.jpg
     - name: Venus
       type: Planet
       parent: Sol
       mass: 0.815
       radius: 0.95
+      color: '#FFDEAD'
       orbit:
         eccentricity: 0.0068
         inclination: 3.3946
@@ -36,13 +36,12 @@
         longitudeOfAscendingNode: 76.680
         argumentOfPeriapsis: 54.884
         meanAnomaly: 50.115
-      renderData:
-        texture: venus.jpg
     - name: Earth
       type: Planet
       parent: Sol
       mass: 1
       radius: 1
+      color: '#0000FF'
       orbit:
         eccentricity: 0.0167
         inclination: 0.00005
@@ -50,13 +49,12 @@
         longitudeOfAscendingNode: -11.2606
         argumentOfPeriapsis: 114.2078
         meanAnomaly: 358.617
-      renderData:
-        texture: earth.jpg
     - name: Mars
       type: Planet
       parent: Sol
-      mass: 1
-      radius: 1
+      mass: 0.533
+      radius: 0.107
+      color: '#FF4500'
       orbit:
         eccentricity: 0.0935
         inclination: 1.85
@@ -64,5 +62,55 @@
         longitudeOfAscendingNode: 49.57854
         argumentOfPeriapsis: 286.502
         meanAnomaly: 19.412
-      renderData:
-        texture: mars.jpg
+    - name: Jupiter
+      type: Planet
+      parent: Sol
+      mass: 317.8
+      radius: 11.209
+      color: '#FFD700'
+      orbit:
+        eccentricity: 0.0489
+        inclination: 1.303
+        semiMajorAxis: 5.2026
+        longitudeOfAscendingNode: 100.464
+        argumentOfPeriapsis: 286.502
+        meanAnomaly: 20.020
+    - name: Saturn
+      type: Planet
+      parent: Sol
+      mass: 95.2
+      radius: 9.449
+      color: '#DAA520'
+      orbit:
+        eccentricity: 0.0565
+        inclination: 2.485
+        semiMajorAxis: 9.5826
+        longitudeOfAscendingNode: 113.665
+        argumentOfPeriapsis: 93.057
+        meanAnomaly: 316.967
+    - name: Uranus
+      type: Planet
+      parent: Sol
+      mass: 14.5
+      radius: 4.007
+      color: '#00FFFF'
+      orbit:
+        eccentricity: 0.0463
+        inclination: 0.773
+        semiMajorAxis: 19.2184
+        longitudeOfAscendingNode: 74.006
+        argumentOfPeriapsis: 170.954
+        meanAnomaly: 142.238
+    - name: Neptune
+      type: Planet
+      parent: Sol
+      mass: 17.1
+      radius: 3.883
+      color: '#00008B'
+      orbit:
+        eccentricity: 0.0086
+        inclination: 1.769
+        semiMajorAxis: 30.0583
+        longitudeOfAscendingNode: 131.784
+        argumentOfPeriapsis: 44.971
+        meanAnomaly: 260.007

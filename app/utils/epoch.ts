@@ -1,5 +1,5 @@
 /**
- * from https://github.com/gordonhart/atlasof.space/
+ * adjusted from https://github.com/gordonhart/atlasof.space/
  * @license APACHE-2.0
  */
 
@@ -61,7 +61,7 @@ export function nowEpoch(): Epoch {
 }
 
 export function startEpoch(): Epoch {
-  const start = new Date(Date.UTC(2400, 0, 1, 12, 0, 0)); // January 1, 2400, at noon UTC
+  const start = new Date(Date.UTC(2300, 0, 1, 12, 0, 0)); // January 1, 2300, at noon UTC
   return dateToEpoch(dateToJulianDay(start), start);
 }
 
