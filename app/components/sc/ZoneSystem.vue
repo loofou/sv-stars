@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 import { Vector3, BufferGeometry, MathUtils, DoubleSide, Object3D } from 'three';
 import SpriteText from 'three-spritetext';
-import { shallowRef } from 'vue';
+import { shallowRef, type ShallowRef } from 'vue';
 import { useSettings } from '~/composables/useSettings';
 import { System } from '~/utils/types';
 import { DistanceMultiplier, StarRadiusMultiplier, StarUtils } from '~/utils/utils';
 
 const { onBeforeRender } = useLoop();
 
-const emit = defineEmits(['click']);
+const emit = defineEmits<{
+  click: [];
+  'double-click': [object: ShallowRef];
+}>();
 
 const props = defineProps({
   system: {
@@ -30,6 +33,8 @@ const props = defineProps({
 });
 
 const settings = useSettings();
+
+const root = shallowRef();
 
 //calculate various positions
 const sysPos = StarUtils.convertToVec3(props.system.position); //props.system.position.map((a) => a * 2) as [number, number, number];
@@ -81,12 +86,23 @@ onBeforeRender(({ delta, elapsed }) => {
     });
   }
 });
+
+const doubleClick = () => {
+  if (root.value) {
+    emit('double-click', root);
+  }
+};
 </script>
 
 <template>
   <TresGroup :name="system.name">
-    <TresGroup :position="sysPos">
-      <TresMesh v-if="system.stars.length === 1" :name="system.stars[0]?.name" @click="emit('click')">
+    <TresGroup ref="root" :position="sysPos">
+      <TresMesh
+        v-if="system.stars.length === 1"
+        :name="system.stars[0]?.name"
+        @click="emit('click')"
+        @double-click="doubleClick()"
+      >
         <TresSphereGeometry :args="[Math.max(0.05, (system.stars[0]?.radius ?? 1) * StarRadiusMultiplier), 32, 16]" />
         <TresMeshStandardMaterial
           :color="system.stars[0]?.color"
@@ -102,6 +118,7 @@ onBeforeRender(({ delta, elapsed }) => {
         :name="star.name"
         ref="rStars"
         @click="emit('click')"
+        @double-click="doubleClick()"
       >
         <TresSphereGeometry :args="[Math.max(0.05, star.radius * StarRadiusMultiplier), 32, 16]" />
         <TresMeshStandardMaterial

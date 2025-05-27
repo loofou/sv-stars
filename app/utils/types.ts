@@ -4,6 +4,18 @@ import 'reflect-metadata';
 import { J2000, type Epoch } from './epoch';
 import { Hash } from './hash';
 
+export enum StellarTypes {
+  STAR = 'Star',
+  PLANET = 'Planet',
+  MOON = 'Moon',
+  ASTEROID = 'Asteroid',
+  COMET = 'Comet',
+  DWARF_PLANET = 'Dwarf Planet',
+  HABITAT = 'Habitat',
+  L_POINT = 'Lagrange Point',
+  BARYCENTER = 'Barycenter',
+}
+
 export class StellarObject {
   readonly type: string;
   readonly name: string;
@@ -25,6 +37,10 @@ export class StellarObject {
 
   public getParent(system: System): StellarObject | null {
     return system.objects.filter((o) => o.name == this.parent)[0] ?? null;
+  }
+
+  public get hasParent() {
+    return this.parent != null && this.parent != '';
   }
 }
 
@@ -51,7 +67,7 @@ export class Orbit {
   readonly meanAnomaly: number;
 
   @Type(() => J2000.constructor)
-  readonly epoch: Epoch;
+  readonly epoch: Epoch | null;
   @Type(() => Rotation)
   readonly rotation: Rotation;
 
@@ -82,8 +98,12 @@ export class Orbit {
     this.longitudeOfAscendingNode = longitudeOfAscendingNode ?? 0;
     this.argumentOfPeriapsis = argumentOfPeriapsis ?? 0;
     this.meanAnomaly = meanAnomaly ?? 0;
-    this.epoch = epoch ?? J2000;
+    this.epoch = epoch ?? null;
     this.rotation = rotation ?? new Rotation();
+  }
+
+  public get actualEpoch(): Epoch {
+    return this.epoch ?? J2000;
   }
 }
 
@@ -111,7 +131,7 @@ export class Star extends StellarObject {
     mass?: number,
     radius: number = 1,
   ) {
-    super('Star', name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
+    super(StellarTypes.STAR, name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
     this.spectralClass = spectralClass ?? '';
     this.temperature = temperature ?? 0;
     this.radius = radius;
@@ -122,14 +142,30 @@ export class Star extends StellarObject {
   }
 }
 
-export class Planet extends StellarObject {
+export class Satellite extends StellarObject {
   readonly radius: number;
   readonly color: string | null;
 
   constructor();
-  constructor(name: string, parent: string | null, orbit: Orbit, mass: number, radius: number, color: string);
-  constructor(name?: string, parent?: string | null, orbit?: Orbit, mass?: number, radius?: number, color?: string) {
-    super('Planet', name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
+  constructor(
+    type: string,
+    name: string,
+    parent: string | null,
+    orbit: Orbit,
+    mass: number,
+    radius: number,
+    color: string,
+  );
+  constructor(
+    type?: string,
+    name?: string,
+    parent?: string | null,
+    orbit?: Orbit,
+    mass?: number,
+    radius?: number,
+    color?: string,
+  ) {
+    super(type ?? StellarTypes.PLANET, name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
     this.radius = radius ?? 0;
     this.color = color ?? null;
   }
@@ -152,17 +188,45 @@ export class System {
       property: 'type',
       subTypes: [
         {
-          name: 'Star',
+          name: StellarTypes.STAR,
           value: Star,
         },
         {
-          name: 'Planet',
-          value: Planet,
+          name: StellarTypes.PLANET,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.MOON,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.ASTEROID,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.COMET,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.DWARF_PLANET,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.HABITAT,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.L_POINT,
+          value: Satellite,
+        },
+        {
+          name: StellarTypes.BARYCENTER,
+          value: Satellite,
         },
       ],
     },
   })
-  objects: (StellarObject | Star | Planet)[];
+  objects: (StellarObject | Star | Satellite)[];
 
   constructor();
   constructor(name: string, objects: Array<StellarObject>, position: [number, number, number]);
@@ -197,10 +261,10 @@ export class System {
   }
 
   public get planetNumber() {
-    return this.objects.filter((s) => s.type == 'Planet').length;
+    return this.objects.filter((s) => s.type == StellarTypes.PLANET).length;
   }
 
   public get stars(): Star[] {
-    return this.objects.filter((s) => s.type == 'Star') as Star[];
+    return this.objects.filter((s) => s.type == StellarTypes.STAR) as Star[];
   }
 }

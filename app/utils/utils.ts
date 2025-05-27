@@ -84,4 +84,4 @@ export const DistanceMultiplier = 4;
 export const StarRadiusMultiplier = 1;
 export const StarRadiusMultiplierInSystemView = 0.2;
 export const PlanetDotScale = 0.015;
-export const AUMultiplier = 10;
+export const AUMultiplier = 100;

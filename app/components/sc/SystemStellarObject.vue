@@ -1,11 +1,19 @@
 <script lang="ts" setup>
 import { Vector3, Texture } from 'three';
 import SpriteText from 'three-spritetext';
-import { adjustForTime, earthMassesToKg, solarMassesToKg, calcOrbitInTime } from '~/utils/physics';
-import type { Planet } from '~/utils/types';
-import { AUMultiplier, StarRadiusMultiplierInSystemView, PlanetDotScale } from '~/utils/utils';
+import { earthMassesToKg, solarMassesToKg, calcOrbitInTime } from '~/utils/physics';
+import type { Satellite } from '~/utils/types';
+import { StarRadiusMultiplierInSystemView, PlanetDotScale } from '~/utils/utils';
+import { StellarTypes } from '~/utils/types';
+import type { ShallowRef } from 'vue';
 
-const emit = defineEmits(['click']);
+const { seekByName } = useSeek();
+const { scene } = useTresContext();
+
+const emit = defineEmits<{
+  click: [];
+  'double-click': [object: ShallowRef];
+}>();
 
 const props = defineProps({
   stellarObject: {
@@ -21,20 +29,27 @@ const props = defineProps({
 const settings = useSettings();
 const time = useStarTime();
 
+const root = shallowRef();
+
 //orbit
 const position = ref(new Vector3(0, 0, 0));
-if (props.stellarObject.parent) {
+const parentPosition = ref(new Vector3(0, 0, 0));
+if (props.stellarObject.hasParent) {
   const parent = props.stellarObject.getParent(props.system);
   if (!parent) {
     console.error('Parent not found for', props.stellarObject.name, props.stellarObject.parent);
   } else {
     let parentMass = 0;
 
-    if (parent && parent.type == 'Star') {
+    const parentSceneObject = seekByName(scene.value, parent.name);
+    parentPosition.value = parentSceneObject?.position ?? new Vector3(0, 0, 0);
+
+    if (parent.type == StellarTypes.STAR) {
       parentMass = solarMassesToKg(parent.mass);
-    } else if (parent && parent.type == 'Planet') {
+    } else if (parent.type == StellarTypes.PLANET) {
       parentMass = earthMassesToKg(parent.mass);
     }
+
     position.value = calcOrbitInTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
   }
 }
@@ -43,8 +58,11 @@ if (props.stellarObject.parent) {
 let texture: {
   map: Texture;
 };
-if (props.stellarObject.type != 'Star') {
+if (props.stellarObject.type === StellarTypes.PLANET) {
   texture = await useTexture({ map: 'textures/disc.png' });
+}
+if (props.stellarObject.type === StellarTypes.MOON) {
+  texture = await useTexture({ map: 'textures/crescent.png' });
 } else {
   await new Promise((r) => setTimeout(r, 100)); // tiny hack around Suspense requiring an async component
 }
@@ -64,32 +82,43 @@ label.value.translateY(2);
 watch(
   () => time.value.currentTime,
   () => {
-    if (props.stellarObject.parent) {
+    if (props.stellarObject.hasParent) {
       const parent = props.stellarObject.getParent(props.system);
+      if (!parent) return;
+
       let parentMass = 0;
 
-      if (parent && parent.type == 'Star') {
+      const parentSceneObject = seekByName(scene.value, parent.name);
+      parentPosition.value = parentSceneObject?.position ?? new Vector3(0, 0, 0);
+
+      if (parent.type == StellarTypes.STAR) {
         parentMass = solarMassesToKg(parent.mass);
-      } else if (parent && parent.type == 'Planet') {
+      } else if (parent.type == StellarTypes.PLANET) {
         parentMass = earthMassesToKg(parent.mass);
-      } else {
-        console.error('Parent not found for', props.stellarObject.name, props.stellarObject.parent);
       }
 
-      const adjustedOrbit = adjustForTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
-      const { position: pos } = keplerianToCartesian(adjustedOrbit, parentMass * G);
-      position.value = pos;
-      position.value.multiplyScalar(AUMultiplier);
+      position.value = calcOrbitInTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
     }
   },
 );
+
+const doubleClick = () => {
+  if (root.value) {
+    emit('double-click', root);
+  }
+};
 </script>
 
 <template>
-  <TresGroup :name="stellarObject.name">
-    <TresGroup :position>
+  <TresGroup :name="stellarObject.name + '-root'" :position="parentPosition">
+    <TresGroup ref="root" :name="stellarObject.name" :position>
       <!--Star-->
-      <TresMesh v-if="stellarObject.type == 'Star'" :name="stellarObject.name" @click="emit('click')">
+      <TresMesh
+        v-if="stellarObject.type == StellarTypes.STAR"
+        :name="stellarObject.name + '-mesh'"
+        @click="emit('click')"
+        @double-click="doubleClick()"
+      >
         <TresSphereGeometry
           :args="[Math.max(0.05, ((stellarObject as Star).radius ?? 1) * StarRadiusMultiplierInSystemView), 32, 16]"
         />
@@ -99,22 +128,23 @@ watch(
           :emissive-intensity="settings.showBloom ? 3 : 1"
         />
       </TresMesh>
-      <!--Planet-->
+      <!--Satellite-->
       <TresSprite
-        v-if="stellarObject.type == 'Planet'"
-        :name="stellarObject.name"
+        v-if="stellarObject.type != StellarTypes.STAR"
+        :name="stellarObject.name + '-mesh'"
         :scale="PlanetDotScale"
         @click="emit('click')"
+        @double-click="doubleClick()"
       >
-        <TresSpriteMaterial :map="texture.map" :color="(stellarObject as Planet).uiColor" :size-attenuation="false" />
+        <TresSpriteMaterial
+          :map="texture.map"
+          :color="(stellarObject as Satellite).uiColor"
+          :size-attenuation="false"
+        />
       </TresSprite>
 
       <primitive :object="label" />
     </TresGroup>
-    <ScSystemStellarObjectEllipse
-      v-if="stellarObject.type != 'Star'"
-      :stellar-object="stellarObject"
-      :system="system"
-    />
+    <ScSystemStellarObjectEllipse v-if="stellarObject.hasParent" :stellar-object="stellarObject" :system="system" />
   </TresGroup>
 </template>

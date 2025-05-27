@@ -49,6 +49,19 @@
         longitudeOfAscendingNode: -11.2606
         argumentOfPeriapsis: 114.2078
         meanAnomaly: 358.617
+    - name: Luna
+      type: Moon
+      parent: Earth
+      mass: 0.0123
+      radius: 0.273
+      color: '#D3D3D3'
+      orbit:
+        eccentricity: 0.0549
+        inclination: 5.1454
+        semiMajorAxis: 0.00257
+        longitudeOfAscendingNode: 125.1221
+        argumentOfPeriapsis: 318.15
+        meanAnomaly: 115.3654
     - name: Mars
       type: Planet
       parent: Sol

@@ -32,8 +32,6 @@ if (!parent) {
   const period = orbitalPeriod(astronomicalUnitsToMeters(props.stellarObject.orbit.semiMajorAxis), parentMass) * 1000; // convert to milliseconds
   const partOfOrbitalPeriod = period / resolution;
 
-  console.log(props.stellarObject.name, period, partOfOrbitalPeriod);
-
   for (let i = 0; i < resolution; ++i) {
     const point = calcOrbitInTime(props.stellarObject.orbit, parentMass, new Date(baseDate + i * partOfOrbitalPeriod));
     points.push(point);

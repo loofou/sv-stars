@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import { NoToneMapping } from 'three';
 import { TresCanvas } from '@tresjs/core';
-import { OrbitControls } from '@tresjs/cientos';
+import { CameraControls } from '@tresjs/cientos';
 import { System } from '~/utils/types';
 import ZoneDistanceArrow from './ZoneDistanceArrow.vue';
 import { DistanceMultiplier } from '~/utils/utils';
 import { useSettings } from '~/composables/useSettings';
 import { useCatalog } from '~/composables/useCatalog';
+import type { ShallowRef } from 'vue';
 
 const emit = defineEmits<{
   click: [system: System];
@@ -45,12 +46,26 @@ const getSystems = computed(() => {
     return systems.state.value.filter((s: System) => !s.isDwarfStar);
   }
 });
+
+const controlsState = reactive({
+  minDistance: 0,
+  maxDistance: 250,
+});
+
+const controlsRef = shallowRef();
+
+const doubleClick = (object: ShallowRef) => {
+  if (controlsRef.value) {
+    const { x, y, z } = object.value.position;
+    controlsRef.value.instance.setTarget(x, y, z, true);
+  }
+};
 </script>
 
 <template>
   <TresCanvas alpha :tone-mapping="NoToneMapping" clear-color="black" preset="flat">
     <TresPerspectiveCamera :args="[45, 1, 0.1, 5000]" :position="[30, 30, 30]" />
-    <OrbitControls :make-default="true" :max-distance="250" />
+    <CameraControls ref="controlsRef" name="Controls" v-bind="controlsState" make-default />
 
     <!--Render our actual systems-->
     <ScZoneSystem
@@ -60,6 +75,7 @@ const getSystems = computed(() => {
       :distance01="system.name == distance01"
       :distance02="system.name == distance02"
       @click="emit('click', system)"
+      @double-click="doubleClick"
     />
 
     <!--Distance arrow-->

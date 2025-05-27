@@ -14,8 +14,5 @@ onBeforeRender(({ delta }) => {
 </script>
 
 <template>
-  <TresMesh :name="'time-updater'" :visible="false">
-    <TresBoxGeometry :args="[0.1, 0.1, 0.1]" />
-    <TresMeshBasicMaterial />
-  </TresMesh>
+  <TresObject3D :name="'time-updater'" :visible="false" />
 </template>

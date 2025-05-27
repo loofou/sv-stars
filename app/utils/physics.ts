@@ -170,14 +170,14 @@ function normalizeRotation(rotation: number) {
 export function adjustForTime(orbit: Orbit, parentMass: number, time: Date): Orbit {
   const { semiMajorAxis, rotation } = orbit;
   const a = astronomicalUnitsToMeters(semiMajorAxis); // convert semi-major axis to meters
-  const dt = (time.valueOf() - epochToDate(orbit.epoch).valueOf()) / 1000; // dt in seconds
+  const dt = (time.valueOf() - epochToDate(orbit.actualEpoch).valueOf()) / 1000; // dt in seconds
   const n = Math.sqrt((G * parentMass) / (a * a * a)); // calculate mean motion
   const newM = orbit.meanAnomaly + radToDeg(n * dt); // update mean anomaly
   const rotationInEpoch =
     rotation != null && rotation.initialRotation != null
       ? { ...rotation, initialRotation: normalizeRotation(rotation.initialRotation + dt / rotation.siderealPeriod) }
       : rotation;
-  return { ...orbit, meanAnomaly: normalizeRotation(newM), rotation: rotationInEpoch };
+  return { ...orbit, meanAnomaly: normalizeRotation(newM), rotation: rotationInEpoch, actualEpoch: orbit.actualEpoch };
 }
 
 export function calcOrbitInTime(orbit: Orbit, parentMass: number, currentTime: Date): Vector3 {
