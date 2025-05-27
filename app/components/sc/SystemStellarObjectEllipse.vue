@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { calcOrbitInTime, orbitalPeriod } from '~/utils/physics';
-import { BufferGeometry, CatmullRomCurve3, Vector3 } from 'three';
+import { CatmullRomCurve3, Vector3 } from 'three';
 
 const props = defineProps({
   stellarObject: {
@@ -34,7 +34,7 @@ if (!parent) {
 
   console.log(props.stellarObject.name, period, partOfOrbitalPeriod);
 
-  for (let i = 0; i <= resolution; ++i) {
+  for (let i = 0; i < resolution; ++i) {
     const point = calcOrbitInTime(props.stellarObject.orbit, parentMass, new Date(baseDate + i * partOfOrbitalPeriod));
     points.push(point);
   }
