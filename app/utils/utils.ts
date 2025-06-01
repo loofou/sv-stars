@@ -78,10 +78,14 @@ export abstract class StarUtils {
     const [x, y, z] = position;
     return new Vector3(x, y, z);
   }
+
+  public static convertToNum3(position: Vector3): [number, number, number] {
+    return [position.x, position.y, position.z];
+  }
 }
 
 export const DistanceMultiplier = 4;
 export const StarRadiusMultiplier = 1;
-export const StarRadiusMultiplierInSystemView = 0.2;
+export const StarRadiusMultiplierInSystemView = 1;
 export const PlanetDotScale = 0.015;
 export const AUMultiplier = 100;

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { NoToneMapping } from 'three';
+import { NoToneMapping, Vector3 } from 'three';
 import { TresCanvas } from '@tresjs/core';
 // import CameraControls as a value, not as a type
 import { CameraControls } from '@tresjs/cientos';
@@ -35,8 +35,9 @@ const controlsRef = shallowRef();
 
 const doubleClick = (object: ShallowRef) => {
   if (controlsRef.value) {
-    const { x, y, z } = object.value.position;
-    controlsRef.value.instance.setTarget(x, y, z, true);
+    const pos = new Vector3();
+    object.value.getWorldPosition(pos);
+    controlsRef.value.instance.setTarget(pos.x, pos.y, pos.z, true);
   }
 };
 </script>

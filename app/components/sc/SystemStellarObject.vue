@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { Vector3, Texture } from 'three';
+import { Vector3, Texture, PerspectiveCamera } from 'three';
 import SpriteText from 'three-spritetext';
 import { earthMassesToKg, solarMassesToKg, calcOrbitInTime } from '~/utils/physics';
 import type { Satellite } from '~/utils/types';
-import { StarRadiusMultiplierInSystemView, PlanetDotScale } from '~/utils/utils';
+import { StarRadiusMultiplierInSystemView, PlanetDotScale, StarUtils } from '~/utils/utils';
 import { StellarTypes } from '~/utils/types';
 import type { ShallowRef } from 'vue';
 
 const { seekByName } = useSeek();
-const { scene } = useTresContext();
+const { scene, camera, renderer } = useTresContext();
 
 const emit = defineEmits<{
   click: [];
@@ -33,24 +33,14 @@ const root = shallowRef();
 
 //orbit
 const position = ref(new Vector3(0, 0, 0));
-const parentPosition = ref(new Vector3(0, 0, 0));
+const parentPosition: Ref<[x: number, y: number, z: number]> = ref([0, 0, 0]);
+
 if (props.stellarObject.hasParent) {
   const parent = props.stellarObject.getParent(props.system);
   if (!parent) {
     console.error('Parent not found for', props.stellarObject.name, props.stellarObject.parent);
   } else {
-    let parentMass = 0;
-
-    const parentSceneObject = seekByName(scene.value, parent.name);
-    parentPosition.value = parentSceneObject?.position ?? new Vector3(0, 0, 0);
-
-    if (parent.type == StellarTypes.STAR) {
-      parentMass = solarMassesToKg(parent.mass);
-    } else if (parent.type == StellarTypes.PLANET) {
-      parentMass = earthMassesToKg(parent.mass);
-    }
-
-    position.value = calcOrbitInTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
+    adjustPosition(parent);
   }
 }
 
@@ -77,7 +67,10 @@ label.value.color = labelColor.value;
 label.value.strokeColor = 'black';
 label.value.strokeWidth = 1;
 label.value.material.sizeAttenuation = false;
-label.value.translateY(2);
+label.value.material.depthTest = false;
+label.value.material.depthWrite = false;
+label.value.renderOrder = 100;
+updateLabelPosition();
 
 watch(
   () => time.value.currentTime,
@@ -86,21 +79,45 @@ watch(
       const parent = props.stellarObject.getParent(props.system);
       if (!parent) return;
 
-      let parentMass = 0;
-
-      const parentSceneObject = seekByName(scene.value, parent.name);
-      parentPosition.value = parentSceneObject?.position ?? new Vector3(0, 0, 0);
-
-      if (parent.type == StellarTypes.STAR) {
-        parentMass = solarMassesToKg(parent.mass);
-      } else if (parent.type == StellarTypes.PLANET) {
-        parentMass = earthMassesToKg(parent.mass);
-      }
-
-      position.value = calcOrbitInTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
+      adjustPosition(parent);
     }
+
+    updateLabelPosition();
   },
 );
+
+function adjustPosition(parent: StellarObject) {
+  const parentSceneObject = seekByName(scene.value, parent.name);
+  parentPosition.value = StarUtils.convertToNum3(parentSceneObject?.position ?? new Vector3(0, 0, 0));
+
+  let parentMass = 0;
+  if (parent.type == StellarTypes.STAR) {
+    parentMass = solarMassesToKg(parent.mass);
+  } else if (parent.type == StellarTypes.PLANET) {
+    parentMass = earthMassesToKg(parent.mass);
+  }
+
+  position.value = calcOrbitInTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
+}
+
+function updateLabelPosition() {
+  if (!camera.value || !renderer.value || !root.value) return;
+
+  const objectWorldPos = new Vector3();
+  root.value.getWorldPosition(objectWorldPos);
+
+  const perspectiveCamera = camera.value as PerspectiveCamera;
+  const cameraPos = perspectiveCamera.position;
+  const distance = objectWorldPos.distanceTo(cameraPos);
+
+  const fov = perspectiveCamera.fov * (Math.PI / 180); // radians
+  const height = renderer.value.domElement.height;
+
+  // World units per pixel at this distance
+  const worldPerPixel = (2 * Math.tan(fov / 2) * distance) / height;
+  const offsetWorld = worldPerPixel * 32;
+  label.value.position.set(0, offsetWorld, 0);
+}
 
 const doubleClick = () => {
   if (root.value) {
@@ -140,6 +157,7 @@ const doubleClick = () => {
           :map="texture.map"
           :color="(stellarObject as Satellite).uiColor"
           :size-attenuation="false"
+          :depth-test="false"
         />
       </TresSprite>
 

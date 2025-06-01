@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { calcOrbitInTime, orbitalPeriod } from '~/utils/physics';
 import { CatmullRomCurve3, Vector3 } from 'three';
+import type { Satellite } from '~/utils/types';
 
 const props = defineProps({
   stellarObject: {
@@ -43,5 +44,10 @@ const smoothedPoints = ellipseSpline.getPoints(points.length * smoothFactor);
 </script>
 
 <template>
-  <Line2 :name="stellarObject.name + '-orbit'" :points="smoothedPoints" :color="(stellarObject as Planet).uiColor" />
+  <Line2
+    :name="stellarObject.name + '-orbit'"
+    :points="smoothedPoints"
+    :color="(stellarObject as Satellite).uiColor"
+    :line-width="2"
+  />
 </template>
