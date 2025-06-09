@@ -44,7 +44,7 @@ const doubleClick = (object: ShallowRef) => {
 
 <template>
   <TresCanvas alpha :tone-mapping="NoToneMapping" clear-color="black" preset="flat">
-    <TresPerspectiveCamera :args="[45, 1, 0.1, 25000]" :position="[300, 300, 300]" />
+    <TresPerspectiveCamera :args="[45, 1, 0.001, 25000]" :position="[300, 300, 300]" />
     <CameraControls ref="controlsRef" name="Controls" v-bind="controlsState" make-default />
 
     <ScTimeUpdater />

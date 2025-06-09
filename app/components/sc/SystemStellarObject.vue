@@ -57,8 +57,11 @@ if (props.stellarObject.type === StellarTypes.MOON) {
   await new Promise((r) => setTimeout(r, 100)); // tiny hack around Suspense requiring an async component
 }
 
+const spriteVisible = ref(true);
+
 //create label
 const labelColor = ref('white');
+const labelVisible = ref(true);
 //if (props.selected) labelColor.value = 'green';
 
 const label = shallowRef(new SpriteText(props.stellarObject.name, 0.015));
@@ -117,6 +120,17 @@ function updateLabelPosition() {
   const worldPerPixel = (2 * Math.tan(fov / 2) * distance) / height;
   const offsetWorld = worldPerPixel * 32;
   label.value.position.set(0, offsetWorld, 0);
+
+  // Disable label for moons if too far
+  if (props.stellarObject.type === StellarTypes.MOON) {
+    const maxLabelDistance = 20;
+    const maxSpriteDistance = maxLabelDistance * 4;
+    labelVisible.value = distance <= maxLabelDistance;
+    spriteVisible.value = distance <= maxSpriteDistance;
+    label.value.visible = labelVisible.value;
+  } else {
+    label.value.visible = true;
+  }
 }
 
 const doubleClick = () => {
@@ -147,7 +161,7 @@ const doubleClick = () => {
       </TresMesh>
       <!--Satellite-->
       <TresSprite
-        v-if="stellarObject.type != StellarTypes.STAR"
+        v-if="stellarObject.type != StellarTypes.STAR && spriteVisible"
         :name="stellarObject.name + '-mesh'"
         :scale="PlanetDotScale"
         @click="emit('click')"
