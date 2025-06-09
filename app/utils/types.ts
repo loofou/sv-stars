@@ -107,6 +107,20 @@ export class Orbit {
   }
 }
 
+export class Ring {
+  readonly innerRadius: number;
+  readonly outerRadius: number;
+  readonly color: string;
+
+  constructor();
+  constructor(innerRadius: number, outerRadius: number, color: string);
+  constructor(innerRadius?: number, outerRadius?: number, color?: string) {
+    this.innerRadius = innerRadius ?? 0;
+    this.outerRadius = outerRadius ?? 0;
+    this.color = color ?? '#ffffff';
+  }
+}
+
 export class Star extends StellarObject {
   readonly spectralClass: string;
   readonly temperature: number;
@@ -145,6 +159,8 @@ export class Star extends StellarObject {
 export class Satellite extends StellarObject {
   readonly radius: number;
   readonly color: string | null;
+  @Type(() => Ring)
+  readonly rings: Ring[] | null;
 
   constructor();
   constructor(
@@ -155,6 +171,7 @@ export class Satellite extends StellarObject {
     mass: number,
     radius: number,
     color: string,
+    rings: Ring[] | null,
   );
   constructor(
     type?: string,
@@ -164,10 +181,12 @@ export class Satellite extends StellarObject {
     mass?: number,
     radius?: number,
     color?: string,
+    rings?: Ring[] | null,
   ) {
     super(type ?? StellarTypes.PLANET, name ?? '', parent ?? null, orbit ?? new Orbit(), mass ?? 0);
     this.radius = radius ?? 0;
     this.color = color ?? null;
+    this.rings = rings ?? null;
   }
 
   public get uiColor() {
@@ -175,6 +194,10 @@ export class Satellite extends StellarObject {
       return this.color;
     }
     return new Hash().eatStr(this.name).toHslColor();
+  }
+
+  public get hasRings() {
+    return this.rings != null && this.rings.length > 0;
   }
 }
 

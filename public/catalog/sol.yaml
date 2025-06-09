@@ -107,6 +107,19 @@
       mass: 317.8
       radius: 11.209
       color: '#FFD700'
+      rings:
+        - color: '#FFD700'
+          innerRadius: 92000000
+          outerRadius: 122500000
+        - color: '#E6C200'
+          innerRadius: 122500000
+          outerRadius: 129000000
+        - color: '#B39800'
+          innerRadius: 129000000
+          outerRadius: 182000000
+        - color: '#7F6E00'
+          innerRadius: 182000000
+          outerRadius: 226000000
       orbit:
         eccentricity: 0.0489
         inclination: 1.303
@@ -114,12 +127,59 @@
         longitudeOfAscendingNode: 100.464
         argumentOfPeriapsis: 286.502
         meanAnomaly: 20.020
+    - name: Metis
+      type: Moon
+      parent: Jupiter
+      mass: 0.0000000001
+      radius: 0.058
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00092
+        longitudeOfAscendingNode: 64.495
+        argumentOfPeriapsis: 97.498
+        meanAnomaly: 89.897
+    - name: Adrastea
+      type: Moon
+      parent: Jupiter
+      mass: 0.0000000001
+      radius: 0.079
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00129
+        longitudeOfAscendingNode: 64.495
+        argumentOfPeriapsis: 97.498
+        meanAnomaly: 89.897
+    - name: Amalthea
+      type: Moon
+      parent: Jupiter
+      mass: 0.0000000001
+      radius: 0.181
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00248
+        longitudeOfAscendingNode: 64.495
+        argumentOfPeriapsis: 97.498
+        meanAnomaly: 89.897
+    - name: Thebe
+      type: Moon
+      parent: Jupiter
+      mass: 0.0000000001
+      radius: 0.099
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00347
+        longitudeOfAscendingNode: 64.495
+        argumentOfPeriapsis: 97.498
+        meanAnomaly: 89.897
     - name: Io
       type: Moon
       parent: Jupiter
       mass: 0.0000000004
       radius: 0.182
-      color: '#FFFF00'
       orbit:
         eccentricity: 0.0041
         inclination: 0.036
@@ -132,7 +192,6 @@
       parent: Jupiter
       mass: 0.0000000002
       radius: 0.156
-      color: '#ADD8E6'
       orbit:
         eccentricity: 0.0094
         inclination: 0.470
@@ -145,7 +204,6 @@
       parent: Jupiter
       mass: 0.0000000008
       radius: 0.263
-      color: '#D3D3D3'
       orbit:
         eccentricity: 0.0013
         inclination: 0.204
@@ -158,7 +216,6 @@
       parent: Jupiter
       mass: 0.0000000006
       radius: 0.241
-      color: '#A9A9A9'
       orbit:
         eccentricity: 0.0074
         inclination: 0.192
@@ -172,6 +229,16 @@
       mass: 95.2
       radius: 9.449
       color: '#DAA520'
+      rings:
+        - color: '#DAA520'
+          innerRadius: 74500000
+          outerRadius: 92000000
+        - color: '#E6C200'
+          innerRadius: 92000000
+          outerRadius: 117580000
+        - color: '#B39800'
+          innerRadius: 122200000
+          outerRadius: 136780000
       orbit:
         eccentricity: 0.0565
         inclination: 2.485
@@ -179,16 +246,51 @@
         longitudeOfAscendingNode: 113.665
         argumentOfPeriapsis: 93.057
         meanAnomaly: 316.967
-    - name: Titan
+    - name: Mimas
       type: Moon
       parent: Saturn
-      mass: 0.0000000002
-      radius: 0.257
-      color: '#FFD700'
+      mass: 0.0000000001
+      radius: 0.198
       orbit:
-        eccentricity: 0.0288
-        inclination: 0.348
-        semiMajorAxis: 0.00817
+        eccentricity: 0.0192
+        inclination: 1.578
+        semiMajorAxis: 0.00224
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Enceladus
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000001
+      radius: 0.252
+      orbit:
+        eccentricity: 0.0047
+        inclination: 0.010
+        semiMajorAxis: 0.00395
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Tethys
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000001
+      radius: 0.294
+      orbit:
+        eccentricity: 0.0082
+        inclination: 1.086
+        semiMajorAxis: 0.00495
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Dione
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000001
+      radius: 0.263
+      orbit:
+        eccentricity: 0.0022
+        inclination: 0.0001
+        semiMajorAxis: 0.00627
         longitudeOfAscendingNode: 168.811
         argumentOfPeriapsis: 90.000
         meanAnomaly: 336.040
@@ -197,11 +299,22 @@
       parent: Saturn
       mass: 0.0000000001
       radius: 0.152
-      color: '#D3D3D3'
       orbit:
         eccentricity: 0.0007
         inclination: 0.348
         semiMajorAxis: 0.00627
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Titan
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000002
+      radius: 0.257
+      orbit:
+        eccentricity: 0.0288
+        inclination: 0.348
+        semiMajorAxis: 0.00817
         longitudeOfAscendingNode: 168.811
         argumentOfPeriapsis: 90.000
         meanAnomaly: 336.040
@@ -210,7 +323,6 @@
       parent: Saturn
       mass: 0.0000000001
       radius: 0.146
-      color: '#A9A9A9'
       orbit:
         eccentricity: 0.0288
         inclination: 15.472
@@ -236,7 +348,6 @@
       parent: Uranus
       mass: 0.0000000001
       radius: 0.157
-      color: '#00FFFF'
       orbit:
         eccentricity: 0.0012
         inclination: 0.348
@@ -249,7 +360,6 @@
       parent: Uranus
       mass: 0.0000000001
       radius: 0.152
-      color: '#D3D3D3'
       orbit:
         eccentricity: 0.0012
         inclination: 0.348
@@ -262,7 +372,6 @@
       parent: Uranus
       mass: 0.0000000001
       radius: 0.115
-      color: '#A9A9A9'
       orbit:
         eccentricity: 0.0012
         inclination: 0.348
@@ -288,7 +397,6 @@
       parent: Neptune
       mass: 0.0000000001
       radius: 0.135
-      color: '#D3D3D3'
       orbit:
         eccentricity: 0.0002
         inclination: 157.7

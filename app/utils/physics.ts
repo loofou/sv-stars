@@ -202,3 +202,7 @@ export function earthMassesToKg(earthMasses: number) {
 export function astronomicalUnitsToMeters(au: number) {
   return au * 149597870700; // meters
 }
+
+export function metersToAstronomicalUnits(meters: number) {
+  return meters / 149597870700; // AU
+}

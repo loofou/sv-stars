@@ -1,7 +1,13 @@
 <script lang="ts" setup>
-import { Vector3, Texture, PerspectiveCamera } from 'three';
+import { Vector3, Texture, PerspectiveCamera, DoubleSide, Euler } from 'three';
 import SpriteText from 'three-spritetext';
-import { earthMassesToKg, solarMassesToKg, calcOrbitInTime } from '~/utils/physics';
+import {
+  earthMassesToKg,
+  solarMassesToKg,
+  calcOrbitInTime,
+  metersToAstronomicalUnits,
+  degToRad,
+} from '~/utils/physics';
 import type { Satellite } from '~/utils/types';
 import { StarRadiusMultiplierInSystemView, PlanetDotScale, StarUtils } from '~/utils/utils';
 import { StellarTypes } from '~/utils/types';
@@ -138,6 +144,20 @@ const doubleClick = () => {
     emit('double-click', root);
   }
 };
+
+const ringRotation = computed(() => {
+  const orbit = props.stellarObject.orbit;
+  if (!orbit) return new Euler(0, 0, 0);
+
+  // Convert degrees to radians if needed
+  const i = degToRad(orbit.inclination ?? 0);
+  const Ω = degToRad(orbit.longitudeOfAscendingNode ?? 0);
+  const ω = degToRad(orbit.argumentOfPeriapsis ?? 0);
+
+  // Euler order: Z (Ω), X (i), Z (ω)
+  // Three.js Euler only supports certain orders, so we combine Z rotations
+  return new Euler(Math.PI / 2 + i, 0, Ω + ω, 'XZY');
+});
 </script>
 
 <template>
@@ -174,6 +194,30 @@ const doubleClick = () => {
           :depth-test="false"
         />
       </TresSprite>
+
+      <!--Rings-->
+      <TresMesh
+        v-if="stellarObject.type != StellarTypes.STAR && spriteVisible && (stellarObject as Satellite).hasRings"
+        v-for="(ring, i) in (stellarObject as Satellite).rings"
+        :name="stellarObject.name + '-ring-' + i"
+        :rotation="ringRotation"
+      >
+        <TresRingGeometry
+          :args="[
+            metersToAstronomicalUnits(ring.innerRadius) * AUMultiplier,
+            metersToAstronomicalUnits(ring.outerRadius) * AUMultiplier,
+            64,
+          ]"
+        />
+        <TresMeshStandardMaterial
+          :color="ring.color"
+          :emissive="ring.color"
+          :emissive-intensity="1"
+          :side="DoubleSide"
+          :transparent="true"
+          :opacity="0.5"
+        />
+      </TresMesh>
 
       <primitive :object="label" />
     </TresGroup>
