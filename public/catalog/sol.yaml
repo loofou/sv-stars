@@ -404,3 +404,266 @@
         longitudeOfAscendingNode: 44.964
         argumentOfPeriapsis: 357.517
         meanAnomaly: 357.517
+    # Asteroids
+    - name: Ceres
+      type: Dwarf Planet
+      parent: Sol
+      mass: 0.0000000009
+      radius: 0.095
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.079
+        inclination: 10.593
+        semiMajorAxis: 2.767
+        longitudeOfAscendingNode: 80.329
+        argumentOfPeriapsis: 73.597
+        meanAnomaly: 73.597
+    - name: Pallas
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000004
+      radius: 0.106
+      color: '#808080'
+      orbit:
+        eccentricity: 0.231
+        inclination: 34.836
+        semiMajorAxis: 2.773
+        longitudeOfAscendingNode: 115.1221
+        argumentOfPeriapsis: 151.951
+        meanAnomaly: 44.125
+    - name: Vesta
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000003
+      radius: 0.108
+      color: '#D3D3D3'
+      orbit:
+        eccentricity: 0.0898
+        inclination: 7.1401
+        semiMajorAxis: 2.3629
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Hygiea
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000002
+      radius: 0.108
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.074
+        inclination: 3.929
+        semiMajorAxis: 3.139
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Eros
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.016
+      color: '#808080'
+      orbit:
+        eccentricity: 0.223
+        inclination: 10.829
+        semiMajorAxis: 1.458
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Gaspra
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.011
+      color: '#808080'
+      orbit:
+        eccentricity: 0.188
+        inclination: 18.178
+        semiMajorAxis: 1.361
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Ida
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.015
+      color: '#D3D3D3'
+      orbit:
+        eccentricity: 0.183
+        inclination: 7.144
+        semiMajorAxis: 1.426
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Mathilde
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.025
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.201
+        inclination: 18.178
+        semiMajorAxis: 2.669
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Ganymed
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.032
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.151
+        inclination: 5.202
+        semiMajorAxis: 3.188
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Kleopatra
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.021
+      color: '#808080'
+      orbit:
+        eccentricity: 0.149
+        inclination: 20.179
+        semiMajorAxis: 2.769
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Itokawa
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.01
+      color: '#D3D3D3'
+      orbit:
+        eccentricity: 0.280
+        inclination: 1.780
+        semiMajorAxis: 1.325
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    - name: Bennu
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.05
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.203
+        inclination: 6.134
+        semiMajorAxis: 1.126
+        longitudeOfAscendingNode: 80.3298
+        argumentOfPeriapsis: 73.5974
+        meanAnomaly: 73.5974
+    # Trojans
+    - name: Achilles
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.02
+      color: '#808080'
+      orbit:
+        eccentricity: 0.05
+        inclination: 19.8
+        semiMajorAxis: 5.2
+        longitudeOfAscendingNode: 50.0
+        argumentOfPeriapsis: 100.0
+        meanAnomaly: 200.0
+    - name: Patroclus
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.02
+      color: '#808080'
+      orbit:
+        eccentricity: 0.05
+        inclination: 20.0
+        semiMajorAxis: 5.2
+        longitudeOfAscendingNode: 60.0
+        argumentOfPeriapsis: 110.0
+        meanAnomaly: 210.0
+    - name: Hektor
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.02
+      color: '#D3D3D3'
+      orbit:
+        eccentricity: 0.05
+        inclination: 18.0
+        semiMajorAxis: 5.2
+        longitudeOfAscendingNode: 70.0
+        argumentOfPeriapsis: 120.0
+        meanAnomaly: 220.0
+    - name: Polymele
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.02
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.05
+        inclination: 21.0
+        semiMajorAxis: 5.2
+        longitudeOfAscendingNode: 80.0
+        argumentOfPeriapsis: 130.0
+        meanAnomaly: 230.0
+    - name: Eurybates
+      type: Asteroid
+      parent: Sol
+      mass: 0.0000000001
+      radius: 0.02
+      color: '#808080'
+      orbit:
+        eccentricity: 0.05
+        inclination: 22.0
+        semiMajorAxis: 5.2
+        longitudeOfAscendingNode: 90.0
+        argumentOfPeriapsis: 140.0
+        meanAnomaly: 240.0
+    # Kuiper Belt Objects
+    - name: Pluto
+      type: Dwarf Planet
+      parent: Sol
+      mass: 0.0000000022
+      radius: 0.186
+      color: '#8B4513'
+      orbit:
+        eccentricity: 0.2488
+        inclination: 17.14
+        semiMajorAxis: 39.482
+        longitudeOfAscendingNode: 110.303
+        argumentOfPeriapsis: 113.834
+        meanAnomaly: 14.999
+    - name: Eris
+      type: Dwarf Planet
+      parent: Sol
+      mass: 0.0000000025
+      radius: 0.144
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.4418
+        inclination: 44.04
+        semiMajorAxis: 96.4
+        longitudeOfAscendingNode: 149.227
+        argumentOfPeriapsis: 44.971
+        meanAnomaly: 260.007
+    - name: Haumea
+      type: Dwarf Planet
+      parent: Sol
+      mass: 0.0000000016
+      radius: 0.163
+      color: '#D3D3D3'
+      orbit:
+        eccentricity: 0.1892
+        inclination: 28.21
+        semiMajorAxis: 43.13
+        longitudeOfAscendingNode: 96.999
+        argumentOfPeriapsis: 28.32
+        meanAnomaly: 14.999

@@ -56,9 +56,12 @@ let texture: {
 };
 if (props.stellarObject.type === StellarTypes.PLANET) {
   texture = await useTexture({ map: 'textures/disc.png' });
-}
-if (props.stellarObject.type === StellarTypes.MOON) {
+} else if (props.stellarObject.type === StellarTypes.MOON) {
   texture = await useTexture({ map: 'textures/crescent.png' });
+} else if (props.stellarObject.type === StellarTypes.ASTEROID) {
+  texture = await useTexture({ map: 'textures/diamond.png' });
+} else if (props.stellarObject.type === StellarTypes.DWARF_PLANET) {
+  texture = await useTexture({ map: 'textures/donut.png' });
 } else {
   await new Promise((r) => setTimeout(r, 100)); // tiny hack around Suspense requiring an async component
 }

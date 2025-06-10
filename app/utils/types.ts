@@ -9,7 +9,6 @@ export enum StellarTypes {
   PLANET = 'Planet',
   MOON = 'Moon',
   ASTEROID = 'Asteroid',
-  COMET = 'Comet',
   DWARF_PLANET = 'Dwarf Planet',
   HABITAT = 'Habitat',
   L_POINT = 'Lagrange Point',
@@ -224,10 +223,6 @@ export class System {
         },
         {
           name: StellarTypes.ASTEROID,
-          value: Satellite,
-        },
-        {
-          name: StellarTypes.COMET,
           value: Satellite,
         },
         {
