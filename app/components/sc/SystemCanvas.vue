@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { NoToneMapping, Vector3 } from 'three';
 import { TresCanvas } from '@tresjs/core';
-// import CameraControls as a value, not as a type
 import { CameraControls } from '@tresjs/cientos';
 import { StellarObject, System } from '~/utils/types';
 import { useSettings } from '~/composables/useSettings';

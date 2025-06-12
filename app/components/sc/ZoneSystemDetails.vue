@@ -1,13 +1,15 @@
 <script lang="ts" setup>
 import { System, Star } from '~/utils/types';
 
+const catalog = useCatalog();
+
 const props = defineProps({
   isSystemSelected: {
     type: Boolean,
     required: true,
   },
   system: {
-    type: System,
+    type: String,
     required: true,
   },
 });
@@ -56,31 +58,45 @@ function createItems(system: System) {
     });
   });
 
-  return [
-    {
-      label: system.name,
-      value: 'system',
-      icon: 'game-icons:orbital',
-      defaultExpanded: true,
-      children: starChildren,
-    },
-  ];
+  const expanded = ['system'];
+  system.stars.forEach((star: Star) => {
+    expanded.push(`star-${star.name}`);
+  });
+
+  return {
+    tree: [
+      {
+        label: system.name,
+        value: 'system',
+        icon: 'game-icons:orbital',
+        defaultExpanded: true,
+        children: starChildren,
+      },
+    ],
+    expanded: expanded,
+  };
 }
 
-const items = ref(createItems(props.system));
+let systemDetails = catalog.state.value.find((s: System) => s.name === props.system) ?? new System();
+const allItems = createItems(systemDetails);
+const items = ref(allItems.tree);
+const expanded = ref(allItems.expanded);
 
 watch(props, () => {
-  items.value = createItems(props.system);
+  systemDetails = catalog.state.value.find((s: System) => s.name === props.system) ?? new System();
+  const allItems = createItems(systemDetails);
+  items.value = allItems.tree;
+  expanded.value = allItems.expanded;
 });
 </script>
 
 <template>
   <div>
     <p v-if="!isSystemSelected">Click on a system to select it...</p>
-    <UTree v-if="isSystemSelected" :items />
+    <UTree v-if="isSystemSelected" v-model:expanded="expanded" :items />
     <div class="flex flex-col items-center gap-2 justify-between">
       <UButton v-if="isSystemSelected" class="m-2 self-center" icon="mdi:arrow-bottom-right-thin" variant="subtle">
-        <NuxtLink :to="`/${system.name}`"> Go to system </NuxtLink>
+        <NuxtLink :to="`/${system}`"> Go to system </NuxtLink>
       </UButton>
     </div>
   </div>

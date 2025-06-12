@@ -26,14 +26,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  distance01Details: {
-    type: System,
-    required: true,
-  },
-  distance02Details: {
-    type: System,
-    required: true,
-  },
 });
 
 const systems = useCatalog();
@@ -81,8 +73,8 @@ const doubleClick = (object: ShallowRef) => {
     <!--Distance arrow-->
     <ZoneDistanceArrow
       :active="distance01 != '' && distance02 != ''"
-      :distance01="distance01Details"
-      :distance02="distance02Details"
+      :distance01="distance01"
+      :distance02="distance02"
     />
 
     <!--Grid-->

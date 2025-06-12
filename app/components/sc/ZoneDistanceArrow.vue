@@ -8,20 +8,25 @@ const props = defineProps({
     default: false,
   },
   distance01: {
-    type: System,
+    type: String,
     required: true,
   },
   distance02: {
-    type: System,
+    type: String,
     required: true,
   },
 });
 
+const systems = useCatalog();
+
 const arrow = shallowRef(new ArrowHelper(new Vector3(0, 0, 0), new Vector3(0, 0, 0), 0, '#FFC300'));
 
 watch(props, () => {
-  const pos1 = StarUtils.convertToVec3(props.distance01.position);
-  const pos2 = StarUtils.convertToVec3(props.distance02.position);
+  const system01Details = systems.state.value.find((s: System) => s.name === props.distance01) ?? new System();
+  const system02Details = systems.state.value.find((s: System) => s.name === props.distance02) ?? new System();
+
+  const pos1 = StarUtils.convertToVec3(system01Details.position);
+  const pos2 = StarUtils.convertToVec3(system02Details.position);
   pos1.multiplyScalar(DistanceMultiplier);
   pos2.multiplyScalar(DistanceMultiplier);
 

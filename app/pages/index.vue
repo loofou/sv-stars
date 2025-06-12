@@ -36,13 +36,10 @@ const modes: TabsItem[] = [
 
 //selection
 const selectedSystem = ref('');
-const selectedSystemDetails = ref(new System());
 
 //distance
 const distance01 = ref('');
-const distance01Details = ref(new System());
 const distance02 = ref('');
-const distance02Details = ref(new System());
 
 //Functions
 function saveYaml() {
@@ -73,25 +70,18 @@ function mergeYaml() {
 function onSystemClick(system: System) {
   if (activeMode.value == '0') {
     selectedSystem.value = system.name;
-    selectedSystemDetails.value = system;
   } else if (activeMode.value == '1') {
     if (distance01.value == '') {
       distance01.value = system.name;
-      distance01Details.value = system;
     } else {
       if (system.name == distance01.value) {
         distance01.value = distance02.value;
-        distance01Details.value = distance02Details.value;
         distance02.value = '';
-        distance02Details.value = new System();
       } else if (system.name == distance02.value) {
         distance02.value = distance01.value;
-        distance02Details.value = distance01Details.value;
         distance01.value = '';
-        distance01Details.value = new System();
       } else {
         distance02.value = system.name;
-        distance02Details.value = system;
       }
     }
   }
@@ -101,9 +91,6 @@ function resetSelections() {
   selectedSystem.value = '';
   distance01.value = '';
   distance02.value = '';
-  selectedSystemDetails.value = new System();
-  distance01Details.value = new System();
-  distance02Details.value = new System();
 }
 
 watch(activeMode, () => {
@@ -153,30 +140,16 @@ watch(
             <ScZoneSystemDetails
               v-if="item.label == 'Select'"
               :isSystemSelected="selectedSystem != ''"
-              :system="selectedSystemDetails"
+              :system="selectedSystem"
             />
-            <ScZoneDistanceDetails
-              v-if="item.label == 'Distance'"
-              :distance01
-              :distance02
-              :distance01Details
-              :distance02Details
-            />
+            <ScZoneDistanceDetails v-if="item.label == 'Distance'" :distance01 :distance02 />
           </div>
         </template>
       </UTabs>
     </NavBar>
     <NavContainer>
       <div class="grow">
-        <ScZoneCanvas
-          :key="canvasKey"
-          :selectedSystem
-          :distance01
-          :distance02
-          :distance01Details
-          :distance02Details
-          @click="onSystemClick"
-        />
+        <ScZoneCanvas :key="canvasKey" :selectedSystem :distance01 :distance02 @click="onSystemClick" />
       </div>
     </NavContainer>
   </div>
