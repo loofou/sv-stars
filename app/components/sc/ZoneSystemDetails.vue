@@ -77,13 +77,13 @@ function createItems(system: System) {
   };
 }
 
-let systemDetails = catalog.state.value.find((s: System) => s.name === props.system) ?? new System();
+const systemDetails = catalog.state.value.find((s: System) => s.name === props.system) ?? new System();
 const allItems = createItems(systemDetails);
 const items = ref(allItems.tree);
 const expanded = ref(allItems.expanded);
 
 watch(props, () => {
-  systemDetails = catalog.state.value.find((s: System) => s.name === props.system) ?? new System();
+  const systemDetails = catalog.state.value.find((s: System) => s.name === props.system) ?? new System();
   const allItems = createItems(systemDetails);
   items.value = allItems.tree;
   expanded.value = allItems.expanded;

@@ -16,6 +16,18 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  selectedObject: {
+    type: String,
+    default: '',
+  },
+  distance01: {
+    type: String,
+    default: '',
+  },
+  distance02: {
+    type: String,
+    default: '',
+  },
 });
 
 const systems = useCatalog();
@@ -54,6 +66,9 @@ const doubleClick = (object: ShallowRef) => {
         :key="stellarObject.name"
         :stellar-object="stellarObject"
         :system="thisSystem"
+        :selected="stellarObject.name == selectedObject"
+        :distance01="stellarObject.name == distance01"
+        :distance02="stellarObject.name == distance02"
         @click="emit('click', stellarObject)"
         @double-click="doubleClick"
       />

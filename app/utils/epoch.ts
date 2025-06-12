@@ -110,19 +110,19 @@ export function datetimeToHumanReadable(date: Date): string {
 export function humanTimeUnits(t: number, includeWeekAndMonth = false): [number, string] {
   const tAbs = Math.abs(t);
   if (tAbs < Time.MINUTE) {
-    return [t, 'second'];
+    return [t, 's'];
   } else if (tAbs < Time.HOUR) {
-    return [t / Time.MINUTE, 'minute'];
+    return [t / Time.MINUTE, 'm'];
   } else if (tAbs < Time.DAY) {
-    return [t / Time.HOUR, 'hour'];
+    return [t / Time.HOUR, 'h'];
   } else if (tAbs < (includeWeekAndMonth ? Time.WEEK : Time.YEAR)) {
-    return [t / Time.DAY, 'day'];
+    return [t / Time.DAY, 'd'];
   } else if (includeWeekAndMonth && tAbs < Time.MONTH) {
-    return [t / Time.WEEK, 'week'];
+    return [t / Time.WEEK, 'w'];
   } else if (includeWeekAndMonth && tAbs < Time.YEAR) {
-    return [t / Time.MONTH, 'month'];
+    return [t / Time.MONTH, 'M'];
   } else {
-    return [t / Time.YEAR, 'year'];
+    return [t / Time.YEAR, 'y'];
   }
 }
 

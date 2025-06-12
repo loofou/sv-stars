@@ -50,11 +50,6 @@ export function estimateAsteroidMass(radius: number) {
   return 2500 * (4 / 3) * Math.PI * radius ** 3; // best-effort guess using 2500kg/m3 density and a spherical shape
 }
 
-export function estimateCometMass(radius: number) {
-  const density = 500; // 500 kg/m3 for a typical comet
-  return density * (4 / 3) * Math.PI * radius ** 3; // best-effort guess assuming spherical shape
-}
-
 export function hillRadius(semiMajorAxis: number, eccentricity: number, massParent: number, massBody: number) {
   return semiMajorAxis * (1 - eccentricity) * Math.cbrt(massBody / (3 * (massParent + massBody)));
 }
@@ -199,8 +194,16 @@ export function earthMassesToKg(earthMasses: number) {
   return earthMasses * 5.972168e24; // kg
 }
 
+export function earthRadiusToMeters(earthRadius: number) {
+  return earthRadius * 6.371e6; // meters
+}
+
 export function astronomicalUnitsToMeters(au: number) {
   return au * 149597870700; // meters
+}
+
+export function astronomicalUnitsToKilometers(au: number) {
+  return au * 149597870.7; // kilometers
 }
 
 export function metersToAstronomicalUnits(meters: number) {

@@ -30,6 +30,18 @@ const props = defineProps({
     type: System,
     required: true,
   },
+  selected: {
+    type: Boolean,
+    default: false,
+  },
+  distance01: {
+    type: Boolean,
+    default: false,
+  },
+  distance02: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const settings = useSettings();
@@ -82,7 +94,7 @@ label.value.material.sizeAttenuation = false;
 label.value.material.depthTest = false;
 label.value.material.depthWrite = false;
 label.value.renderOrder = 100;
-updateLabelPosition();
+updateObjectUI();
 
 watch(
   () => time.value.currentTime,
@@ -94,7 +106,7 @@ watch(
       adjustPosition(parent);
     }
 
-    updateLabelPosition();
+    updateObjectUI();
   },
 );
 
@@ -102,18 +114,19 @@ function adjustPosition(parent: StellarObject) {
   const parentSceneObject = seekByName(scene.value, parent.name);
   parentPosition.value = StarUtils.convertToNum3(parentSceneObject?.position ?? new Vector3(0, 0, 0));
 
-  let parentMass = 0;
-  if (parent.type == StellarTypes.STAR) {
-    parentMass = solarMassesToKg(parent.mass);
-  } else if (parent.type == StellarTypes.PLANET) {
-    parentMass = earthMassesToKg(parent.mass);
-  }
-
+  const parentMass =
+    parent?.type == StellarTypes.STAR ? solarMassesToKg(parent.mass) : earthMassesToKg(parent?.mass ?? 0);
   position.value = calcOrbitInTime(props.stellarObject.orbit, parentMass, time.value.currentTime);
 }
 
-function updateLabelPosition() {
+function updateObjectUI() {
   if (!camera.value || !renderer.value || !root.value) return;
+
+  if (props.selected) labelColor.value = 'green';
+  else if (props.distance01) labelColor.value = 'yellow';
+  else if (props.distance02) labelColor.value = 'orange';
+  else labelColor.value = 'white';
+  label.value.color = labelColor.value;
 
   const objectWorldPos = new Vector3();
   root.value.getWorldPosition(objectWorldPos);
