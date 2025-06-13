@@ -13,100 +13,100 @@
     - name: Mercury
       type: Planet
       parent: Sol
-      mass: 0.0553
-      radius: 0.383
-      color: '#B8860B'
+      mass: 0.0553 # Earth mass
+      radius: 0.3829 # Earth radius
+      color: '#6CBF40' # greenish
       orbit:
-        eccentricity: 0.2056
-        inclination: 7.0049
-        semiMajorAxis: 0.3871
-        longitudeOfAscendingNode: 48.3316
-        argumentOfPeriapsis: 77.4578
+        eccentricity: 0.205630
+        inclination: 7.00487
+        semiMajorAxis: 0.387098
+        longitudeOfAscendingNode: 48.33167
+        argumentOfPeriapsis: 29.12478
         meanAnomaly: 174.796
     - name: Venus
       type: Planet
       parent: Sol
       mass: 0.815
-      radius: 0.95
-      color: '#FFDEAD'
+      radius: 0.9499
+      color: '#4CAF50' # greenish
       orbit:
-        eccentricity: 0.0068
-        inclination: 3.3946
-        semiMajorAxis: 0.7233
-        longitudeOfAscendingNode: 76.680
-        argumentOfPeriapsis: 54.884
+        eccentricity: 0.006773
+        inclination: 3.39471
+        semiMajorAxis: 0.723332
+        longitudeOfAscendingNode: 76.68069
+        argumentOfPeriapsis: 54.85229
         meanAnomaly: 50.115
     - name: Earth
       type: Planet
       parent: Sol
-      mass: 1
-      radius: 1
-      color: '#0000FF'
+      mass: 1.0
+      radius: 1.0
+      color: '#388E3C' # greenish
       orbit:
-        eccentricity: 0.0167
+        eccentricity: 0.016710
         inclination: 0.00005
-        semiMajorAxis: 1
-        longitudeOfAscendingNode: -11.2606
-        argumentOfPeriapsis: 114.2078
+        semiMajorAxis: 1.000000
+        longitudeOfAscendingNode: -11.26064
+        argumentOfPeriapsis: 114.20783
         meanAnomaly: 358.617
     - name: Luna
       type: Moon
       parent: Earth
       mass: 0.0123
-      radius: 0.273
-      color: '#D3D3D3'
+      radius: 0.2727
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0549
-        inclination: 5.1454
+        eccentricity: 0.054900
+        inclination: 5.145
         semiMajorAxis: 0.00257
-        longitudeOfAscendingNode: 125.1221
+        longitudeOfAscendingNode: 125.08
         argumentOfPeriapsis: 318.15
-        meanAnomaly: 115.3654
+        meanAnomaly: 135.27
     - name: Mars
       type: Planet
       parent: Sol
       mass: 0.107
-      radius: 0.533
-      color: '#FF4500'
+      radius: 0.5320
+      color: '#8BC34A' # greenish
       orbit:
-        eccentricity: 0.0935
-        inclination: 1.85
-        semiMajorAxis: 1.5237
+        eccentricity: 0.093412
+        inclination: 1.85061
+        semiMajorAxis: 1.523679
         longitudeOfAscendingNode: 49.57854
-        argumentOfPeriapsis: 286.502
+        argumentOfPeriapsis: 286.46230
         meanAnomaly: 19.412
     - name: Phobos
       type: Moon
       parent: Mars
-      mass: 0.0000000007
-      radius: 0.011
-      color: '#808080'
+      mass: 1.65e-8
+      radius: 0.0111
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0151
-        inclination: 1.075
-        semiMajorAxis: 0.00006
-        longitudeOfAscendingNode: 224.068
-        argumentOfPeriapsis: 151.951
-        meanAnomaly: 44.125
+        inclination: 1.093
+        semiMajorAxis: 0.0000627
+        longitudeOfAscendingNode: 49.2
+        argumentOfPeriapsis: 150.1
+        meanAnomaly: 177.4
     - name: Deimos
       type: Moon
       parent: Mars
-      mass: 0.0000000001
-      radius: 0.006
-      color: '#A9A9A9'
+      mass: 2.4e-9
+      radius: 0.0062
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0002
+        eccentricity: 0.00033
         inclination: 1.793
-        semiMajorAxis: 0.00015
-        longitudeOfAscendingNode: 73.978
-        argumentOfPeriapsis: 151.951
-        meanAnomaly: 44.125
+        semiMajorAxis: 0.000156
+        longitudeOfAscendingNode: 316.6
+        argumentOfPeriapsis: 260.7
+        meanAnomaly: 53.6
     - name: Jupiter
       type: Planet
       parent: Sol
-      mass: 317.8
+      mass: 317.83
       radius: 11.209
-      color: '#FFD700'
+      color: '#FFD700' # orange
       rings:
         - color: '#FFD700'
           innerRadius: 92000000
@@ -121,114 +121,226 @@
           innerRadius: 182000000
           outerRadius: 226000000
       orbit:
-        eccentricity: 0.0489
-        inclination: 1.303
-        semiMajorAxis: 5.2026
-        longitudeOfAscendingNode: 100.464
-        argumentOfPeriapsis: 286.502
+        eccentricity: 0.048392
+        inclination: 1.304
+        semiMajorAxis: 5.20260
+        longitudeOfAscendingNode: 100.55615
+        argumentOfPeriapsis: 273.867
         meanAnomaly: 20.020
     - name: Metis
       type: Moon
       parent: Jupiter
-      mass: 0.0000000001
-      radius: 0.058
+      mass: 3.6e-10
+      radius: 0.0089
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0001
-        inclination: 0.0001
-        semiMajorAxis: 0.00092
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        eccentricity: 0.0002
+        inclination: 0.06
+        semiMajorAxis: 0.000941
+        longitudeOfAscendingNode: 63.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Adrastea
       type: Moon
       parent: Jupiter
-      mass: 0.0000000001
-      radius: 0.079
+      mass: 1.9e-10
+      radius: 0.0076
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0001
-        inclination: 0.0001
-        semiMajorAxis: 0.00129
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        eccentricity: 0.0002
+        inclination: 0.03
+        semiMajorAxis: 0.001297
+        longitudeOfAscendingNode: 63.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Amalthea
       type: Moon
       parent: Jupiter
-      mass: 0.0000000001
-      radius: 0.181
+      mass: 2.08e-8
+      radius: 0.0251
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0001
-        inclination: 0.0001
-        semiMajorAxis: 0.00248
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        eccentricity: 0.0032
+        inclination: 0.37
+        semiMajorAxis: 0.002548
+        longitudeOfAscendingNode: 63.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Thebe
       type: Moon
       parent: Jupiter
-      mass: 0.0000000001
-      radius: 0.099
+      mass: 7.77e-9
+      radius: 0.0132
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0001
-        inclination: 0.0001
-        semiMajorAxis: 0.00347
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        eccentricity: 0.0175
+        inclination: 1.08
+        semiMajorAxis: 0.003112
+        longitudeOfAscendingNode: 63.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Io
       type: Moon
       parent: Jupiter
-      mass: 0.0000000004
-      radius: 0.182
+      mass: 0.015
+      radius: 0.286
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0041
         inclination: 0.036
-        semiMajorAxis: 0.00282
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        semiMajorAxis: 0.002819
+        longitudeOfAscendingNode: 43.977
+        argumentOfPeriapsis: 84.129
+        meanAnomaly: 171.016
     - name: Europa
       type: Moon
       parent: Jupiter
-      mass: 0.0000000002
-      radius: 0.156
+      mass: 0.008
+      radius: 0.245
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0094
-        inclination: 0.470
-        semiMajorAxis: 0.00449
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        inclination: 0.466
+        semiMajorAxis: 0.004485
+        longitudeOfAscendingNode: 219.106
+        argumentOfPeriapsis: 88.970
+        meanAnomaly: 52.969
     - name: Ganymede
       type: Moon
       parent: Jupiter
-      mass: 0.0000000008
-      radius: 0.263
+      mass: 0.025
+      radius: 0.413
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0013
-        inclination: 0.204
-        semiMajorAxis: 0.00715
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        inclination: 0.177
+        semiMajorAxis: 0.007155
+        longitudeOfAscendingNode: 63.552
+        argumentOfPeriapsis: 192.417
+        meanAnomaly: 317.781
     - name: Callisto
       type: Moon
       parent: Jupiter
-      mass: 0.0000000006
-      radius: 0.241
+      mass: 0.018
+      radius: 0.378
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0074
         inclination: 0.192
-        semiMajorAxis: 0.01215
-        longitudeOfAscendingNode: 64.495
-        argumentOfPeriapsis: 97.498
-        meanAnomaly: 89.897
+        semiMajorAxis: 0.012585
+        longitudeOfAscendingNode: 298.848
+        argumentOfPeriapsis: 52.643
+        meanAnomaly: 52.643
+    - name: Himalia
+      type: Moon
+      parent: Jupiter
+      mass: 6.7e-7
+      radius: 0.032
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.162
+        inclination: 27.5
+        semiMajorAxis: 0.1126
+        longitudeOfAscendingNode: 44.2
+        argumentOfPeriapsis: 30.6
+        meanAnomaly: 0.0
+    - name: Elara
+      type: Moon
+      parent: Jupiter
+      mass: 8.7e-8
+      radius: 0.026
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.217
+        inclination: 26.6
+        semiMajorAxis: 0.1372
+        longitudeOfAscendingNode: 24.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Pasiphae
+      type: Moon
+      parent: Jupiter
+      mass: 2.0e-8
+      radius: 0.014
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.409
+        inclination: 151.4
+        semiMajorAxis: 0.1676
+        longitudeOfAscendingNode: 336.6
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Sinope
+      type: Moon
+      parent: Jupiter
+      mass: 7.5e-9
+      radius: 0.012
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.275
+        inclination: 158.1
+        semiMajorAxis: 0.1941
+        longitudeOfAscendingNode: 43.7
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Lysithea
+      type: Moon
+      parent: Jupiter
+      mass: 6.3e-9
+      radius: 0.010
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.112
+        inclination: 28.3
+        semiMajorAxis: 0.1171
+        longitudeOfAscendingNode: 307.2
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Carme
+      type: Moon
+      parent: Jupiter
+      mass: 1.5e-8
+      radius: 0.015
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.253
+        inclination: 164.9
+        semiMajorAxis: 0.1772
+        longitudeOfAscendingNode: 56.1
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Ananke
+      type: Moon
+      parent: Jupiter
+      mass: 3.0e-9
+      radius: 0.009
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.244
+        inclination: 148.9
+        semiMajorAxis: 0.1482
+        longitudeOfAscendingNode: 217.2
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Leda
+      type: Moon
+      parent: Jupiter
+      mass: 1.1e-9
+      radius: 0.007
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.164
+        inclination: 27.5
+        semiMajorAxis: 0.1107
+        longitudeOfAscendingNode: 339.2
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Saturn
       type: Planet
       parent: Sol
-      mass: 95.2
+      mass: 95.16
       radius: 9.449
-      color: '#DAA520'
+      color: '#FFD700' # orange
       rings:
         - color: '#DAA520'
           innerRadius: 74500000
@@ -240,117 +352,268 @@
           innerRadius: 122200000
           outerRadius: 136780000
       orbit:
-        eccentricity: 0.0565
-        inclination: 2.485
-        semiMajorAxis: 9.5826
-        longitudeOfAscendingNode: 113.665
-        argumentOfPeriapsis: 93.057
-        meanAnomaly: 316.967
+        eccentricity: 0.054150
+        inclination: 2.48524
+        semiMajorAxis: 9.53707
+        longitudeOfAscendingNode: 113.71504
+        argumentOfPeriapsis: 339.392
+        meanAnomaly: 317.020
+    - name: Calypso
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000001
+      radius: 0.151
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00122
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Pandora
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000001
+      radius: 0.141
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00135
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Methone
+      type: Moon
+      parent: Saturn
+      mass: 0.0000000001
+      radius: 0.151
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.0001
+        semiMajorAxis: 0.00158
+        longitudeOfAscendingNode: 168.811
+        argumentOfPeriapsis: 90.000
+        meanAnomaly: 336.040
+    - name: Hyperion
+      type: Moon
+      parent: Saturn
+      mass: 2.0e-7
+      radius: 0.089
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.123
+        inclination: 0.43
+        semiMajorAxis: 0.0246
+        longitudeOfAscendingNode: 296.2
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Mimas
       type: Moon
       parent: Saturn
-      mass: 0.0000000001
-      radius: 0.198
+      mass: 0.000025
+      radius: 0.0312
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0192
-        inclination: 1.578
-        semiMajorAxis: 0.00224
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        eccentricity: 0.0196
+        inclination: 1.574
+        semiMajorAxis: 0.00251
+        longitudeOfAscendingNode: 151.0
+        argumentOfPeriapsis: 198.6
+        meanAnomaly: 44.5
     - name: Enceladus
       type: Moon
       parent: Saturn
-      mass: 0.0000000001
-      radius: 0.252
+      mass: 0.000018
+      radius: 0.0398
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0047
-        inclination: 0.010
+        inclination: 0.009
         semiMajorAxis: 0.00395
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        longitudeOfAscendingNode: 169.5
+        argumentOfPeriapsis: 44.1
+        meanAnomaly: 342.7
     - name: Tethys
       type: Moon
       parent: Saturn
-      mass: 0.0000000001
-      radius: 0.294
+      mass: 0.00018
+      radius: 0.167
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0082
-        inclination: 1.086
-        semiMajorAxis: 0.00495
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        eccentricity: 0.0001
+        inclination: 1.12
+        semiMajorAxis: 0.00489
+        longitudeOfAscendingNode: 337.6
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Dione
       type: Moon
       parent: Saturn
-      mass: 0.0000000001
-      radius: 0.263
+      mass: 0.00035
+      radius: 0.178
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0022
-        inclination: 0.0001
-        semiMajorAxis: 0.00627
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        inclination: 0.028
+        semiMajorAxis: 0.00623
+        longitudeOfAscendingNode: 168.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Rhea
       type: Moon
       parent: Saturn
-      mass: 0.0000000001
-      radius: 0.152
+      mass: 0.00039
+      radius: 0.238
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0007
-        inclination: 0.348
-        semiMajorAxis: 0.00627
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        eccentricity: 0.001
+        inclination: 0.345
+        semiMajorAxis: 0.00899
+        longitudeOfAscendingNode: 348.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Titan
       type: Moon
       parent: Saturn
-      mass: 0.0000000002
-      radius: 0.257
+      mass: 0.0225
+      radius: 0.404
+      color: '#E0E0E0' # light grey
       orbit:
         eccentricity: 0.0288
         inclination: 0.348
-        semiMajorAxis: 0.00817
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        semiMajorAxis: 0.0208
+        longitudeOfAscendingNode: 168.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Iapetus
       type: Moon
       parent: Saturn
-      mass: 0.0000000001
-      radius: 0.146
+      mass: 0.00033
+      radius: 0.115
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0288
-        inclination: 15.472
-        semiMajorAxis: 0.0235
-        longitudeOfAscendingNode: 168.811
-        argumentOfPeriapsis: 90.000
-        meanAnomaly: 336.040
+        eccentricity: 0.0286
+        inclination: 15.47
+        semiMajorAxis: 0.0238
+        longitudeOfAscendingNode: 168.8
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Phoebe
+      type: Moon
+      parent: Saturn
+      mass: 8.3e-8
+      radius: 0.054
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.163
+        inclination: 175.3
+        semiMajorAxis: 0.1271
+        longitudeOfAscendingNode: 356.9
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Janus
+      type: Moon
+      parent: Saturn
+      mass: 1.9e-8
+      radius: 0.045
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0078
+        inclination: 0.163
+        semiMajorAxis: 0.0027
+        longitudeOfAscendingNode: 169.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Epimetheus
+      type: Moon
+      parent: Saturn
+      mass: 5.3e-9
+      radius: 0.036
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0098
+        inclination: 0.351
+        semiMajorAxis: 0.0025
+        longitudeOfAscendingNode: 169.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Prometheus
+      type: Moon
+      parent: Saturn
+      mass: 1.6e-9
+      radius: 0.034
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0022
+        inclination: 0.008
+        semiMajorAxis: 0.0014
+        longitudeOfAscendingNode: 117.5
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Pandora
+      type: Moon
+      parent: Saturn
+      mass: 1.4e-9
+      radius: 0.032
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0042
+        inclination: 0.050
+        semiMajorAxis: 0.0014
+        longitudeOfAscendingNode: 117.5
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Atlas
+      type: Moon
+      parent: Saturn
+      mass: 6.6e-10
+      radius: 0.015
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0012
+        inclination: 0.003
+        semiMajorAxis: 0.0012
+        longitudeOfAscendingNode: 117.5
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Pan
+      type: Moon
+      parent: Saturn
+      mass: 4.9e-11
+      radius: 0.014
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0005
+        inclination: 0.000
+        semiMajorAxis: 0.0010
+        longitudeOfAscendingNode: 117.5
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Uranus
       type: Planet
       parent: Sol
-      mass: 14.5
+      mass: 14.54
       radius: 4.007
-      color: '#00FFFF'
+      color: '#2196F3' # blue
       orbit:
-        eccentricity: 0.0463
-        inclination: 0.773
-        semiMajorAxis: 19.2184
-        longitudeOfAscendingNode: 74.006
-        argumentOfPeriapsis: 170.954
-        meanAnomaly: 142.238
+        eccentricity: 0.047168
+        inclination: 0.77256
+        semiMajorAxis: 19.19126
+        longitudeOfAscendingNode: 74.22988
+        argumentOfPeriapsis: 96.998857
+        meanAnomaly: 142.2386
     - name: Titania
       type: Moon
       parent: Uranus
-      mass: 0.0000000001
-      radius: 0.157
+      mass: 0.00035
+      radius: 0.237
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0012
-        inclination: 0.348
+        eccentricity: 0.0011
+        inclination: 0.340
         semiMajorAxis: 0.00817
         longitudeOfAscendingNode: 84.021
         argumentOfPeriapsis: 90.000
@@ -358,312 +621,472 @@
     - name: Oberon
       type: Moon
       parent: Uranus
-      mass: 0.0000000001
-      radius: 0.152
+      mass: 0.00030
+      radius: 0.227
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0012
-        inclination: 0.348
-        semiMajorAxis: 0.00627
+        eccentricity: 0.0014
+        inclination: 0.068
+        semiMajorAxis: 0.00954
         longitudeOfAscendingNode: 84.021
         argumentOfPeriapsis: 90.000
         meanAnomaly: 336.040
+    - name: Umbriel
+      type: Moon
+      parent: Uranus
+      mass: 0.00012
+      radius: 0.181
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0039
+        inclination: 0.36
+        semiMajorAxis: 0.00439
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Ariel
+      type: Moon
+      parent: Uranus
+      mass: 0.00013
+      radius: 0.182
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0012
+        inclination: 0.26
+        semiMajorAxis: 0.00381
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Miranda
       type: Moon
       parent: Uranus
-      mass: 0.0000000001
-      radius: 0.115
+      mass: 0.000034
+      radius: 0.079
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0012
-        inclination: 0.348
-        semiMajorAxis: 0.00449
+        eccentricity: 0.0013
+        inclination: 4.338
+        semiMajorAxis: 0.00439
         longitudeOfAscendingNode: 84.021
         argumentOfPeriapsis: 90.000
         meanAnomaly: 336.040
+    - name: Puck
+      type: Moon
+      parent: Uranus
+      mass: 2.9e-8
+      radius: 0.036
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.0001
+        inclination: 0.319
+        semiMajorAxis: 0.0025
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     - name: Neptune
       type: Planet
       parent: Sol
-      mass: 17.1
+      mass: 17.15
       radius: 3.883
-      color: '#00008B'
+      color: '#1976D2' # blue
       orbit:
-        eccentricity: 0.0086
-        inclination: 1.769
-        semiMajorAxis: 30.0583
-        longitudeOfAscendingNode: 131.784
-        argumentOfPeriapsis: 44.971
-        meanAnomaly: 260.007
+        eccentricity: 0.008678
+        inclination: 1.7700
+        semiMajorAxis: 30.06896
+        longitudeOfAscendingNode: 131.72169
+        argumentOfPeriapsis: 273.187
+        meanAnomaly: 260.2471
     - name: Triton
       type: Moon
       parent: Neptune
-      mass: 0.0000000001
-      radius: 0.135
+      mass: 0.0036
+      radius: 0.212
+      color: '#E0E0E0' # light grey
       orbit:
-        eccentricity: 0.0002
-        inclination: 157.7
-        semiMajorAxis: 0.00023
-        longitudeOfAscendingNode: 44.964
-        argumentOfPeriapsis: 357.517
-        meanAnomaly: 357.517
+        eccentricity: 0.000016
+        inclination: 156.865
+        semiMajorAxis: 0.00237
+        longitudeOfAscendingNode: 214.766
+        argumentOfPeriapsis: 36.229
+        meanAnomaly: 0.0
+    - name: Nereid
+      type: Moon
+      parent: Neptune
+      mass: 3.1e-7
+      radius: 0.034
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.7507
+        inclination: 7.23
+        semiMajorAxis: 0.0364
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Proteus
+      type: Moon
+      parent: Neptune
+      mass: 4.4e-7
+      radius: 0.042
+      color: '#A9A9A9'
+      orbit:
+        eccentricity: 0.0005
+        inclination: 0.04
+        semiMajorAxis: 0.00084
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
     # Asteroids
     - name: Ceres
       type: Dwarf Planet
       parent: Sol
-      mass: 0.0000000009
-      radius: 0.095
-      color: '#A9A9A9'
+      mass: 0.00015
+      radius: 0.073
+      color: '#8B5C2A' # brown
       orbit:
-        eccentricity: 0.079
-        inclination: 10.593
-        semiMajorAxis: 2.767
-        longitudeOfAscendingNode: 80.329
-        argumentOfPeriapsis: 73.597
-        meanAnomaly: 73.597
+        eccentricity: 0.0758
+        inclination: 10.59
+        semiMajorAxis: 2.768
+        longitudeOfAscendingNode: 80.3
+        argumentOfPeriapsis: 73.6
+        meanAnomaly: 95.99
+
     - name: Pallas
       type: Asteroid
       parent: Sol
-      mass: 0.0000000004
-      radius: 0.106
-      color: '#808080'
+      mass: 0.000036
+      radius: 0.085
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.231
-        inclination: 34.836
-        semiMajorAxis: 2.773
-        longitudeOfAscendingNode: 115.1221
-        argumentOfPeriapsis: 151.951
-        meanAnomaly: 44.125
+        eccentricity: 0.2310
+        inclination: 34.84
+        semiMajorAxis: 2.772
+        longitudeOfAscendingNode: 173.1
+        argumentOfPeriapsis: 310.2
+        meanAnomaly: 33.86
+
     - name: Vesta
       type: Asteroid
       parent: Sol
-      mass: 0.0000000003
-      radius: 0.108
-      color: '#D3D3D3'
+      mass: 0.000039
+      radius: 0.081
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.0898
-        inclination: 7.1401
-        semiMajorAxis: 2.3629
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.0889
+        inclination: 7.14
+        semiMajorAxis: 2.362
+        longitudeOfAscendingNode: 103.9
+        argumentOfPeriapsis: 151.0
+        meanAnomaly: 151.2
+
     - name: Hygiea
       type: Asteroid
       parent: Sol
-      mass: 0.0000000002
-      radius: 0.108
-      color: '#A9A9A9'
+      mass: 0.0000086
+      radius: 0.062
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.074
-        inclination: 3.929
+        eccentricity: 0.1176
+        inclination: 3.84
         semiMajorAxis: 3.139
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        longitudeOfAscendingNode: 283.6
+        argumentOfPeriapsis: 312.3
+        meanAnomaly: 117.9
+
     - name: Eros
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.016
-      color: '#808080'
+      mass: 1.1e-7
+      radius: 0.0026
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.223
-        inclination: 10.829
+        eccentricity: 0.2227
+        inclination: 10.83
         semiMajorAxis: 1.458
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        longitudeOfAscendingNode: 304.4
+        argumentOfPeriapsis: 178.8
+        meanAnomaly: 208.7
+
     - name: Gaspra
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.011
-      color: '#808080'
+      mass: 2.5e-8
+      radius: 0.0012
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.188
-        inclination: 18.178
-        semiMajorAxis: 1.361
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.1732
+        inclination: 4.10
+        semiMajorAxis: 2.209
+        longitudeOfAscendingNode: 252.9
+        argumentOfPeriapsis: 129.2
+        meanAnomaly: 0.0
+
     - name: Ida
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.015
-      color: '#D3D3D3'
+      mass: 4.2e-8
+      radius: 0.0014
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.183
-        inclination: 7.144
-        semiMajorAxis: 1.426
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.0412
+        inclination: 1.13
+        semiMajorAxis: 2.861
+        longitudeOfAscendingNode: 263.4
+        argumentOfPeriapsis: 92.6
+        meanAnomaly: 0.0
+
     - name: Mathilde
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.025
-      color: '#A9A9A9'
+      mass: 1.7e-8
+      radius: 0.0052
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.201
-        inclination: 18.178
-        semiMajorAxis: 2.669
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.2655
+        inclination: 6.74
+        semiMajorAxis: 2.647
+        longitudeOfAscendingNode: 44.3
+        argumentOfPeriapsis: 26.5
+        meanAnomaly: 0.0
+
     - name: Ganymed
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.032
-      color: '#A9A9A9'
+      mass: 1.8e-7
+      radius: 0.0025
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.151
-        inclination: 5.202
-        semiMajorAxis: 3.188
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.5336
+        inclination: 26.69
+        semiMajorAxis: 2.662
+        longitudeOfAscendingNode: 132.6
+        argumentOfPeriapsis: 132.6
+        meanAnomaly: 0.0
+
     - name: Kleopatra
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.021
-      color: '#808080'
+      mass: 4.6e-8
+      radius: 0.0017
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.149
-        inclination: 20.179
-        semiMajorAxis: 2.769
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.2504
+        inclination: 13.11
+        semiMajorAxis: 2.794
+        longitudeOfAscendingNode: 74.0
+        argumentOfPeriapsis: 47.0
+        meanAnomaly: 0.0
+
     - name: Itokawa
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.01
-      color: '#D3D3D3'
+      mass: 5.9e-11
+      radius: 0.00005
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.280
-        inclination: 1.780
-        semiMajorAxis: 1.325
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
+        eccentricity: 0.2801
+        inclination: 1.62
+        semiMajorAxis: 1.324
+        longitudeOfAscendingNode: 69.0
+        argumentOfPeriapsis: 162.7
+        meanAnomaly: 0.0
+
     - name: Bennu
       type: Asteroid
       parent: Sol
-      mass: 0.0000000001
-      radius: 0.05
-      color: '#A9A9A9'
+      mass: 1.2e-10
+      radius: 0.000077
+      color: '#424242' # dark grey
       orbit:
-        eccentricity: 0.203
-        inclination: 6.134
+        eccentricity: 0.2037
+        inclination: 6.03
         semiMajorAxis: 1.126
-        longitudeOfAscendingNode: 80.3298
-        argumentOfPeriapsis: 73.5974
-        meanAnomaly: 73.5974
-    # Trojans
-    - name: Achilles
-      type: Asteroid
-      parent: Sol
-      mass: 0.0000000001
-      radius: 0.02
-      color: '#808080'
-      orbit:
-        eccentricity: 0.05
-        inclination: 19.8
-        semiMajorAxis: 5.2
-        longitudeOfAscendingNode: 50.0
-        argumentOfPeriapsis: 100.0
-        meanAnomaly: 200.0
-    - name: Patroclus
-      type: Asteroid
-      parent: Sol
-      mass: 0.0000000001
-      radius: 0.02
-      color: '#808080'
-      orbit:
-        eccentricity: 0.05
-        inclination: 20.0
-        semiMajorAxis: 5.2
-        longitudeOfAscendingNode: 60.0
-        argumentOfPeriapsis: 110.0
-        meanAnomaly: 210.0
-    - name: Hektor
-      type: Asteroid
-      parent: Sol
-      mass: 0.0000000001
-      radius: 0.02
-      color: '#D3D3D3'
-      orbit:
-        eccentricity: 0.05
-        inclination: 18.0
-        semiMajorAxis: 5.2
-        longitudeOfAscendingNode: 70.0
-        argumentOfPeriapsis: 120.0
-        meanAnomaly: 220.0
-    - name: Polymele
-      type: Asteroid
-      parent: Sol
-      mass: 0.0000000001
-      radius: 0.02
-      color: '#A9A9A9'
-      orbit:
-        eccentricity: 0.05
-        inclination: 21.0
-        semiMajorAxis: 5.2
-        longitudeOfAscendingNode: 80.0
-        argumentOfPeriapsis: 130.0
-        meanAnomaly: 230.0
-    - name: Eurybates
-      type: Asteroid
-      parent: Sol
-      mass: 0.0000000001
-      radius: 0.02
-      color: '#808080'
-      orbit:
-        eccentricity: 0.05
-        inclination: 22.0
-        semiMajorAxis: 5.2
-        longitudeOfAscendingNode: 90.0
-        argumentOfPeriapsis: 140.0
-        meanAnomaly: 240.0
-    # Kuiper Belt Objects
+        longitudeOfAscendingNode: 2.06
+        argumentOfPeriapsis: 66.22
+        meanAnomaly: 101.70
+
     - name: Pluto
       type: Dwarf Planet
       parent: Sol
-      mass: 0.0000000022
+      mass: 0.00218
       radius: 0.186
-      color: '#8B4513'
+      color: '#8B5C2A' # brown
       orbit:
-        eccentricity: 0.2488
-        inclination: 17.14
+        eccentricity: 0.248807
+        inclination: 17.14175
         semiMajorAxis: 39.482
-        longitudeOfAscendingNode: 110.303
-        argumentOfPeriapsis: 113.834
-        meanAnomaly: 14.999
+        longitudeOfAscendingNode: 110.30347
+        argumentOfPeriapsis: 113.76329
+        meanAnomaly: 14.53
+
     - name: Eris
       type: Dwarf Planet
       parent: Sol
-      mass: 0.0000000025
-      radius: 0.144
-      color: '#A9A9A9'
+      mass: 0.0028
+      radius: 0.189
+      color: '#8B5C2A' # brown
       orbit:
-        eccentricity: 0.4418
-        inclination: 44.04
-        semiMajorAxis: 96.4
-        longitudeOfAscendingNode: 149.227
-        argumentOfPeriapsis: 44.971
-        meanAnomaly: 260.007
+        eccentricity: 0.44177
+        inclination: 44.0445
+        semiMajorAxis: 67.781
+        longitudeOfAscendingNode: 35.951
+        argumentOfPeriapsis: 151.77
+        meanAnomaly: 204.1
+
     - name: Haumea
       type: Dwarf Planet
       parent: Sol
-      mass: 0.0000000016
-      radius: 0.163
-      color: '#D3D3D3'
+      mass: 0.00067
+      radius: 0.127
+      color: '#8B5C2A' # brown
       orbit:
-        eccentricity: 0.1892
-        inclination: 28.21
-        semiMajorAxis: 43.13
-        longitudeOfAscendingNode: 96.999
-        argumentOfPeriapsis: 28.32
-        meanAnomaly: 14.999
+        eccentricity: 0.18874
+        inclination: 28.2172
+        semiMajorAxis: 43.218
+        longitudeOfAscendingNode: 121.84
+        argumentOfPeriapsis: 238.76
+        meanAnomaly: 205.99
+    - name: Charon
+      type: Moon
+      parent: Pluto
+      mass: 0.000254
+      radius: 0.121
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0002
+        inclination: 0.0
+        semiMajorAxis: 0.00016
+        longitudeOfAscendingNode: 223.1
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Nix
+      type: Moon
+      parent: Pluto
+      mass: 3.7e-7
+      radius: 0.017
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0020
+        inclination: 0.13
+        semiMajorAxis: 0.00048
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Hydra
+      type: Moon
+      parent: Pluto
+      mass: 4.8e-7
+      radius: 0.020
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0059
+        inclination: 0.21
+        semiMajorAxis: 0.00065
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Kerberos
+      type: Moon
+      parent: Pluto
+      mass: 1.6e-7
+      radius: 0.012
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.003
+        inclination: 0.39
+        semiMajorAxis: 0.00058
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    - name: Styx
+      type: Moon
+      parent: Pluto
+      mass: 7.5e-8
+      radius: 0.009
+      color: '#E0E0E0' # light grey
+      orbit:
+        eccentricity: 0.0058
+        inclination: 0.81
+        semiMajorAxis: 0.00042
+        longitudeOfAscendingNode: 0.0
+        argumentOfPeriapsis: 0.0
+        meanAnomaly: 0.0
+    # Jupiter Trojans (L4 - leading)
+    - name: 624 Hektor
+      type: Asteroid
+      parent: Sol
+      mass: 7.9e-12
+      radius: 0.00045
+      color: '#424242' # dark grey
+      orbit:
+        semiMajorAxis: 5.222
+        eccentricity: 0.0241
+        inclination: 18.198
+        longitudeOfAscendingNode: 342.219
+        argumentOfPeriapsis: 183.219
+        meanAnomaly: 60.0
+    - name: 911 Agamemnon
+      type: Asteroid
+      parent: Sol
+      mass: 4.0e-12
+      radius: 0.00042
+      color: '#424242' # dark grey
+      orbit:
+        semiMajorAxis: 5.277
+        eccentricity: 0.0650
+        inclination: 21.763
+        longitudeOfAscendingNode: 43.232
+        argumentOfPeriapsis: 120.232
+        meanAnomaly: 80.0
+    - name: 1143 Odysseus
+      type: Asteroid
+      parent: Sol
+      mass: 2.5e-12
+      radius: 0.00039
+      color: '#424242' # dark grey
+      orbit:
+        semiMajorAxis: 5.200
+        eccentricity: 0.0700
+        inclination: 15.202
+        longitudeOfAscendingNode: 123.232
+        argumentOfPeriapsis: 90.232
+        meanAnomaly: 100.0
+    # Jupiter Trojans (L5 - following)
+    - name: 617 Patroclus
+      type: Asteroid
+      parent: Sol
+      mass: 3.0e-12
+      radius: 0.00035
+      color: '#424242' # dark grey
+      orbit:
+        semiMajorAxis: 5.216
+        eccentricity: 0.1382
+        inclination: 22.047
+        longitudeOfAscendingNode: 221.232
+        argumentOfPeriapsis: 210.232
+        meanAnomaly: 300.0
+    - name: 1172 Aneas
+      type: Asteroid
+      parent: Sol
+      mass: 2.0e-12
+      radius: 0.00033
+      color: '#424242' # dark grey
+      orbit:
+        semiMajorAxis: 5.180
+        eccentricity: 0.0600
+        inclination: 16.500
+        longitudeOfAscendingNode: 201.232
+        argumentOfPeriapsis: 150.232
+        meanAnomaly: 320.0
+    - name: 2260 Neoptolemus
+      type: Asteroid
+      parent: Sol
+      mass: 1.5e-12
+      radius: 0.00031
+      color: '#424242' # dark grey
+      orbit:
+        semiMajorAxis: 5.210
+        eccentricity: 0.0800
+        inclination: 13.200
+        longitudeOfAscendingNode: 181.232
+        argumentOfPeriapsis: 170.232
+        meanAnomaly: 340.0
