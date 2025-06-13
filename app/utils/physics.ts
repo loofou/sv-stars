@@ -26,6 +26,10 @@ export function orbitalPeriod(semiMajorAxis: number, centralMass: number) {
   return Math.PI * 2 * Math.sqrt(semiMajorAxis ** 3 / (G * centralMass));
 }
 
+export function orbitalVelocity(semiMajorAxis: number, centralMass: number) {
+  return Math.sqrt((G * centralMass) / semiMajorAxis); // m/s
+}
+
 export function meanDistance(semiMajorAxis: number, eccentricity: number) {
   return semiMajorAxis + (1 + eccentricity ** 2 / 2);
 }
@@ -186,6 +190,24 @@ export function calcOrbitInTime(orbit: Orbit, parentMass: number, currentTime: D
   return position;
 }
 
+export function calcAbsolutePosition(object: StellarObject, system: System, currentTime: Date): Vector3 {
+  // Find parent
+  const parent = object.getParent(system);
+  let parentMass = 0;
+  if (parent) {
+    parentMass = parent.type === StellarTypes.STAR ? solarMassesToKg(parent.mass) : earthMassesToKg(parent.mass ?? 0);
+  }
+  // Get this object's position in its parent's frame
+  const localPos = calcOrbitInTime(object.orbit, parentMass, currentTime) ?? new Vector3(0, 0, 0);
+
+  // If no parent, return local position
+  if (!parent) {
+    return localPos;
+  }
+  // Recursively get parent's absolute position and add
+  return calcAbsolutePosition(parent, system, currentTime).clone().add(localPos);
+}
+
 export function solarMassesToKg(solarMasses: number) {
   return solarMasses * 1.9885e30; // kg
 }
@@ -208,4 +230,8 @@ export function astronomicalUnitsToKilometers(au: number) {
 
 export function metersToAstronomicalUnits(meters: number) {
   return meters / 149597870700; // AU
+}
+
+export function mpsTokps(mps: number) {
+  return mps / 1000; // convert m/s to km/s
 }

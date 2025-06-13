@@ -165,7 +165,6 @@ const ringRotation = computed(() => {
   const orbit = props.stellarObject.orbit;
   if (!orbit) return new Euler(0, 0, 0);
 
-  // Convert degrees to radians if needed
   const i = degToRad(orbit.inclination ?? 0);
   const Ω = degToRad(orbit.longitudeOfAscendingNode ?? 0);
   const ω = degToRad(orbit.argumentOfPeriapsis ?? 0);

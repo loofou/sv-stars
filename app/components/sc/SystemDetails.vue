@@ -7,6 +7,8 @@ import {
   solarMassesToKg,
   earthMassesToKg,
   earthRadiusToMeters,
+  orbitalVelocity,
+  mpsTokps,
 } from '~/utils/physics';
 import { humanTimeUnits } from '~/utils/epoch';
 import { System } from '~/utils/types';
@@ -73,6 +75,7 @@ function createItems(object: StellarObject, system: System) {
         parent?.type == StellarTypes.STAR ? solarMassesToKg(parent.mass) : earthMassesToKg(parent?.mass ?? 0);
 
       const period = humanTimeUnits(orbitalPeriod(astronomicalUnitsToMeters(object.orbit.semiMajorAxis), parentMass));
+      const velocity = mpsTokps(orbitalVelocity(astronomicalUnitsToMeters(object.orbit.semiMajorAxis), parentMass));
       const gravity = gravityToG(surfaceGravity(earthMassesToKg(object.mass), earthRadiusToMeters(object.radius)));
 
       children.push(
@@ -80,6 +83,11 @@ function createItems(object: StellarObject, system: System) {
           label: `O. Period: ${period[0].toFixed(2)} ${period[1]}`,
           value: `${object.name}-orbital-period`,
           icon: 'material-symbols:nest-clock-farsight-analog',
+        },
+        {
+          label: `O. Velocity: ${velocity.toFixed(2)} km/s`,
+          value: `${object.name}-orbital-velocity`,
+          icon: 'simple-icons:velocity',
         },
         {
           label: `S. Gravity: ${gravity.toFixed(2)} G`,
